@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN">
+    <Properties>
+        <Property name="DEV_PATTERN">
+            %style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{fg_white} %style{[%-10.-10thread]}{fg_cyan} %highlight{%-5level} %style{%-35.35logger{30}}{fg_black} : %style{[%-15.-15method:%3line]}{fg_green} - %msg%n
+        </Property>
+
+        <Property name="PROD_PATTERN">
+            %style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{fg_white} %style{[%-10.-10thread]}{fg_cyan} %highlight{%-5level} %style{%-35.35logger{30}}{fg_black} : - %msg%n
+        </Property>
+    </Properties>
+
+    <Appenders>
+        <Console name="CONSOLE_DEV" target="SYSTEM_OUT">
+            <PatternLayout pattern="${DEV_PATTERN}" disableAnsi="false" charset="UTF-8"/>
+        </Console>
+
+        <Console name="CONSOLE_PROD" target="SYSTEM_OUT">
+            <PatternLayout pattern="${PROD_PATTERN}" disableAnsi="false" charset="UTF-8"/>
+        </Console>
+    </Appenders>
+
+    <Loggers>
+        <SpringProfile name="dev">
+            <Logger name="com.demo.base" level="INFO" additivity="false" includeLocation="true">
+                <AppenderRef ref="CONSOLE_DEV"/>
+            </Logger>
+            <Root level="INFO" includeLocation="true">
+                <AppenderRef ref="CONSOLE_DEV"/>
+            </Root>
+        </SpringProfile>
+
+        <SpringProfile name="prod">
+            <Root level="INFO" includeLocation="false">
+                <AppenderRef ref="CONSOLE_PROD"/>
+            </Root>
+        </SpringProfile>
+    </Loggers>
+</Configuration>
