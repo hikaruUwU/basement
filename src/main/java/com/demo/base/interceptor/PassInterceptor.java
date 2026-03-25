@@ -1,9 +1,16 @@
 package com.demo.base.interceptor;
 
 import com.demo.base.annotation.RequiredSession;
+import com.demo.base.util.ASMAnnotationScanner;
 import jakarta.annotation.Nonnull;
+import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.RequiredArgsConstructor;
+import lombok.SneakyThrows;
+import lombok.extern.log4j.Log4j2;
+import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.security.access.AccessDeniedException;
@@ -16,10 +23,15 @@ import java.io.Serial;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.atomic.AtomicInteger;
 import java.util.function.Function;
 
+@Log4j2
 @Configuration
+@RequiredArgsConstructor
 public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
+    private final ApplicationContext applicationContext;
+
     private final AccessDeniedException $ACCESS_DENIED = new AccessDeniedException(null) {
         @Serial
         private static final long serialVersionUID = 8935745108846751860L;
@@ -43,6 +55,20 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     };
 
     private final Function<Method, Boolean> singletonFinderLambda = m -> AnnotationUtils.findAnnotation(m, RequiredSession.class) != null;
+
+    @SneakyThrows
+    @PostConstruct
+    public void warm(){
+        AtomicInteger count = new AtomicInteger();
+        ASMAnnotationScanner.scanMethodAnnotation(AutoConfigurationPackages.get(applicationContext).getFirst(), RequiredSession.class).forEach((clazz, methods) -> {
+            Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(clazz);
+            for (Method method : methods) {
+                authMap.put(method, Boolean.TRUE);
+                count.getAndIncrement();
+            }
+        });
+        log.info("{} methods are annotated with @RequiredSession", count.get());
+    }
 
     @Override
     public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) {
