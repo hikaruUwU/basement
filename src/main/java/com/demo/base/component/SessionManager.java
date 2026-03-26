@@ -1,5 +1,6 @@
-package com.demo.base.config;
+package com.demo.base.component;
 
+import com.mybatisflex.core.util.LambdaUtil;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionEvent;
@@ -33,6 +34,13 @@ public class SessionManager implements HttpSessionListener {
             attributes.getRequest().getSession(false).invalidate();
         attributes.getRequest().getSession(true).setAttribute(USER_SESSION_IDENTIFIER, identifier);
         attributes.getRequest().getSession(true).setAttribute(USER_SESSION_PROPERTIES, properties);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <T> T getIdentifier(){
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert attributes != null;
+        return (T) attributes.getRequest().getSession(false).getAttribute(USER_SESSION_IDENTIFIER);
     }
 
     @SuppressWarnings("unchecked")
