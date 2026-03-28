@@ -22,7 +22,6 @@ import java.util.concurrent.ConcurrentHashMap;
 @Log4j2
 @Aspect
 @Component
-@Order(2)
 @RequiredArgsConstructor
 public class LogWrapper {
     private final ObjectMapper objectMapper;
@@ -39,7 +38,7 @@ public class LogWrapper {
         Object execute(ProceedingJoinPoint jp) throws Throwable;
     }
 
-    @Around("@annotation(com.demo.base.annotation.logger.Monitor) || @annotation(com.demo.base.annotation.logger.FullyMonitor)")
+    @Around("@annotation(com.demo.base.annotation.logger.Monitor)")
     public Object dynamicLogAround(ProceedingJoinPoint joinPoint) throws Throwable {
         MethodSignature signature = (MethodSignature) joinPoint.getSignature();
         Method method = signature.getMethod();

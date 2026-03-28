@@ -8,14 +8,13 @@ import java.lang.annotation.Target;
 @Target({ElementType.METHOD, ElementType.ANNOTATION_TYPE})
 @Retention(RetentionPolicy.RUNTIME)
 public @interface Monitor {
-    LogRange[] range();
+    LogRange[] range() default {LogRange.POST};
 
-    LogLevel level();
+    LogLevel level() default LogLevel.INFO;
 
-    boolean Timer();
+    boolean Timer() default true;
 
-    boolean Argument();
+    boolean Argument() default true;
 
-    boolean Result();
+    boolean Result() default true;
 }
-

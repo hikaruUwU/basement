@@ -10,7 +10,6 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 @SpringBootApplication
 @EnableTransactionManagement
 @EnableScheduling
-//@EnablePerformanceSeer
 @EnableSqlLighthouse
 public class BaseApplication {
     public static void main(String[] args) {
