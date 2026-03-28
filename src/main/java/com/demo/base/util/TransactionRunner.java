@@ -8,18 +8,28 @@ import org.springframework.transaction.support.TransactionTemplate;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 import java.util.function.Supplier;
 
 @Component
 @RequiredArgsConstructor
 public class TransactionRunner {
-    private final static ExecutorService virtualThreadExecutor = Executors.newVirtualThreadPerTaskExecutor();
 
+    private final ExecutorService virtualThreadExecutor = Executors.newVirtualThreadPerTaskExecutor();
     private final TransactionTemplate transactionTemplate;
 
     @PreDestroy
     public void destroy() {
+
         virtualThreadExecutor.shutdown();
+        try {
+            if (!virtualThreadExecutor.awaitTermination(30, TimeUnit.SECONDS)) {
+                virtualThreadExecutor.shutdownNow();
+            }
+        } catch (InterruptedException e) {
+            virtualThreadExecutor.shutdownNow();
+            Thread.currentThread().interrupt();
+        }
     }
 
     public <T> T runSynchronously(Supplier<T> supplier) {
@@ -27,14 +37,10 @@ public class TransactionRunner {
     }
 
     public CompletableFuture<Void> runAsync(Runnable runnable) {
-        return CompletableFuture.runAsync(() -> transactionTemplate.execute(status -> {
-            try {
+        return CompletableFuture.runAsync(() -> {
+            transactionTemplate.executeWithoutResult(status -> {
                 runnable.run();
-                return null;
-            } catch (Exception e) {
-                status.setRollbackOnly();
-                throw e;
-            }
-        }), virtualThreadExecutor);
+            });
+        }, virtualThreadExecutor);
     }
 }

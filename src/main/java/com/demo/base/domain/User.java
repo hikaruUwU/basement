@@ -1,7 +1,5 @@
 package com.demo.base.domain;
 
-import com.demo.base.annotation.mask.Sensitive;
-import com.demo.base.aspect.mask.Preset;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.fasterxml.jackson.databind.ser.std.ToStringSerializer;
@@ -39,7 +37,6 @@ public class User implements Serializable {
     @Id(keyType = KeyType.Auto)
     BigInteger uuid;
     String username;
-    @Sensitive(Preset.PASSWORD)
     String password;
     @JsonIgnore
     @Column(version = true)

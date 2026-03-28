@@ -1,7 +1,5 @@
 package com.demo.base.domain.response;
 
-import com.demo.base.aspect.mask.MaskManagerDecorator;
-import com.demo.base.annotation.mask.Sensitive;
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -25,7 +23,6 @@ public class Result<T> implements Serializable {
     @Serial
     private static final long serialVersionUID = 5851715478786703393L;
     String message;
-    @Sensitive(MaskManagerDecorator.PENETRATE)
     T data;
     int code;
 

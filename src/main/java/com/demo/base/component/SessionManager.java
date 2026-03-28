@@ -1,23 +1,27 @@
 package com.demo.base.component;
 
-import com.mybatisflex.core.util.LambdaUtil;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpSessionEvent;
 import jakarta.servlet.http.HttpSessionListener;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.stereotype.Component;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
 import java.util.Collections;
 import java.util.Map;
 
-@Configuration
+@Component
 public class SessionManager implements HttpSessionListener {
-    //for User.class
     public final static String USER_SESSION_IDENTIFIER = "client$identifier";
-    //for Custom
     public static final String USER_SESSION_PROPERTIES = "client$properties";
+
+    public static boolean hasSession() {
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert attributes != null;
+        return attributes.getRequest().getSession(false) != null;
+    }
 
     public static void authorize(@Nonnull Object identifier) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
