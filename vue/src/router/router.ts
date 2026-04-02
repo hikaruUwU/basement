@@ -1,28 +1,31 @@
-import type { Router, RouteRecordRaw } from 'vue-router';
-import { createRouter, createWebHashHistory } from 'vue-router';
+import {createRouter, createWebHashHistory, type Router, type RouteRecordRaw} from 'vue-router';
 import NProgress from 'nprogress';
 
 import('nprogress/nprogress.css');
 
+export const $router = () => {
+    return router as Router;
+};
+
 const routes: Array<RouteRecordRaw> = [
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'fallback',
-    component: () => import('../component/demonstrator/index.vue'),
-  },
+    // {
+    //   path: '/:pathMatch(.*)*',
+    //   name: 'fallback',
+    //   component: () => import('../component/demonstrator/index.vue'),
+    // },
 ];
 
 const router: Router = createRouter({
-  history: createWebHashHistory(),
-  routes,
+    history: createWebHashHistory(),
+    routes,
 });
 
 router.beforeEach((_t, _f, next) => {
-  NProgress.start();
-  next();
+    NProgress.start();
+    next();
 });
 router.afterEach(() => {
-  NProgress.done();
+    NProgress.done();
 });
 
 export default router;
