@@ -5,7 +5,7 @@ import type {NotificationProps} from "element-plus/es/components/notification/sr
 const joint = {
     duration: 3000,
     showClose: true,
-} satisfies Partial<NotificationProps>
+} as const satisfies Partial<NotificationProps>
 
 export const elNotificationPresetProp = {
     success: {
@@ -24,10 +24,6 @@ export const elNotificationPresetProp = {
         type: 'info',
         ...joint
     }
-} satisfies Record<string, Partial<NotificationProps>>
+} as const satisfies Record<string, Partial<NotificationProps>>
 
 export const $notify = (options?: NotificationOptions) => ElNotification(options, $applicationContext)
-
-export const $notify_preset = (which: keyof typeof elNotificationPresetProp) => {
-    return elNotificationPresetProp[which]
-}

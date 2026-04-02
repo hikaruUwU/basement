@@ -7,7 +7,7 @@ const joint = {
     plain: true,
     showClose: true,
     grouping: true,
-} satisfies Partial<MessageProps>
+} as const satisfies Partial<MessageProps>
 
 export const elMessagePresetProp = {
     success: {
@@ -26,10 +26,6 @@ export const elMessagePresetProp = {
         type: 'info',
         ...joint
     }
-} satisfies Record<string, Partial<MessageProps>>
+} as const satisfies Record<string, Partial<MessageProps>>
 
 export const $message = (options?: MessageParams) => ElMessage(options, $applicationContext)
-
-export const $message_preset = (which: keyof typeof elMessagePresetProp) => {
-    return elMessagePresetProp[which]
-}

@@ -1,15 +1,17 @@
-export const $api = {
-    module: {
-        user: {
-            login: '/login'
-        },
+export const $api = Object.freeze(
+    {
+        module: {
+            user: {
+                login: '/login'
+            },
 
-        good: {
-            list: (id: string | number) => `/good/list/${id}`
-        },
+            good: {
+                list: (id: string | number) => `/good/list/${id}`
+            },
 
-        cart: {
-            list: '/cart/list/unpurchased'
+            cart: {
+                list: '/cart/list/unpurchased'
+            }
         }
     }
-}
+)
