@@ -1,7 +1,7 @@
 import type {
     AxiosInstance,
     AxiosResponse,
-    InternalAxiosRequestConfig,
+    InternalAxiosRequestConfig, ResponseType,
 } from 'axios';
 import axios from 'axios';
 
@@ -11,7 +11,7 @@ export const instance: AxiosInstance = axios.create({
     headers: {
         'Content-Type': 'application/json',
     },
-    responseType: 'json',
+    responseType: 'json' as ResponseType,
 });
 
 instance.interceptors.request.use(

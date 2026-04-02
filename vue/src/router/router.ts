@@ -3,9 +3,7 @@ import NProgress from 'nprogress';
 
 import('nprogress/nprogress.css');
 
-export const $router = () => {
-    return router as Router;
-};
+export const $router = () =>  router as Router;
 
 const routes: Array<RouteRecordRaw> = [
     // {
