@@ -20,7 +20,7 @@ const router: Router = createRouter({
 
 router.beforeEach((_t, _f, next) => {
     NProgress.start();
-    next();
+    next(undefined);
 });
 router.afterEach(() => {
     NProgress.done();
