@@ -1,33 +1,31 @@
-export const $copy = (text: string | number) => {
-    const content = String(text);
-
-    const fallbackCopy = (resolve: () => void, reject: (e: any) => void) => {
-        const textArea = document.createElement("textarea");
-        textArea.value = content;
-        Object.assign(textArea.style, {
-            position: "fixed",
-            left: "-9999px",
-            top: "0"
-        });
-        document.body.appendChild(textArea);
-        textArea.focus();
-        textArea.select();
-        try {
-            document.execCommand('copy') ? resolve() : reject('ExecCommand failed');
-        } catch (err) {
-            reject(err);
-        } finally {
-            document.body.removeChild(textArea);
-        }
+export let $copy = (text: string): Promise<void> => {
+    const modernCopy = (content: string): Promise<void> => {
+        return navigator.clipboard.writeText(content);
     };
 
-    return new Promise<void>((resolve, reject) => {
-        if (navigator.clipboard && window.isSecureContext) {
-            navigator.clipboard.writeText(content)
-                .then(resolve)
-                .catch(() => fallbackCopy(resolve, reject));
-        } else {
-            fallbackCopy(resolve, reject);
-        }
-    });
+    const fallbackCopy = (content: string): Promise<void> => {
+        return new Promise((resolve, reject) => {
+            const textArea = document.createElement("textarea");
+            textArea.value = content;
+            Object.assign(textArea.style, {
+                position: "fixed",
+                left: "-9999px",
+                top: "0"
+            });
+            document.body.appendChild(textArea);
+            textArea.focus();
+            textArea.select();
+            try {
+                document.execCommand('copy') ? resolve() : reject('ExecCommand failed');
+            } catch (err) {
+                reject(err);
+            } finally {
+                document.body.removeChild(textArea);
+            }
+        });
+    };
+
+    $copy = (navigator.clipboard && window.isSecureContext) ? modernCopy : fallbackCopy;
+
+    return $copy(text);
 };
