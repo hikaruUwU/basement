@@ -1,8 +1,10 @@
 {
   "compilerOptions": {
-    "lib": ["DOM", "ES2020"],
+    "lib": ["DOM", "DOM.Iterable", "ESNext"],
+
+    "target": "ESNext",
+
     "jsx": "preserve",
-    "target": "ES2020",
     "noEmit": true,
     "skipLibCheck": true,
     "jsxImportSource": "vue",
@@ -22,5 +24,6 @@
     "noUnusedLocals": true,
     "noUnusedParameters": true
   },
-  "include": ["src"]
+
+  "include": ["src", "rsbuild.config.ts", "env.d.ts"]
 }

@@ -1,4 +1,4 @@
-import { defineConfig, ProxyConfig } from '@rsbuild/core';
+import { defineConfig, type ProxyConfig } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
 import AutoImport from 'unplugin-auto-import/rspack';
 import Components from 'unplugin-vue-components/rspack';
@@ -24,7 +24,28 @@ export default defineConfig({
   //     css: true
   //   }
   // },
-  plugins: [pluginVue()],
+  plugins: [
+      pluginVue(),
+    {
+      name: 'flag',
+      setup(api){
+        api.onBeforeBuild(()=>{
+          console.log(`
+              <-.(\`-')  (\`-')  _  (\`-').->(\`-')  _<-. (\`-')   (\`-')  _<-. (\`-')_ (\`-')      
+               __( OO)  (OO ).-/  ( OO)_  ( OO).-/   \\(OO )_  ( OO).-/   \\( OO) )( OO).->   
+              '-'---.\\  / ,---.  (_)--\\_)(,------.,--./  ,-.)(,------.,--./ ,--/ /    '._   
+              | .-. (/  | \\ /\`.\\ /    _ / |  .---'|   \`.'   | |  .---'|   \\ |  | |'--...__) 
+              | '-' \`.) '-'|_.' |\\_..\`--.(|  '--. |  |'.'|  |(|  '--. |  . '|  |)\`--.  .--' 
+              | /\`'.  |(|  .-.  |.-._)   \\|  .--' |  |   |  | |  .--' |  |\\    |    |  |    
+              | '--'  / |  | |  |\\       /|  \`---.|  |   |  | |  \`---.|  | \\   |    |  |    
+              \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
+          `);
+
+          console.log("-".repeat(108))
+        })
+      }
+    }
+  ],
   tools: {
     rspack: {
       plugins: [
