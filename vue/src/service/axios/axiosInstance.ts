@@ -4,6 +4,7 @@ import type {
     InternalAxiosRequestConfig, ResponseType,
 } from 'axios';
 import axios from 'axios';
+import axiosRetry from "axios-retry";
 
 export const instance: AxiosInstance = axios.create({
     baseURL: import.meta.env.DEV ? '/api' : '/',
@@ -12,6 +13,15 @@ export const instance: AxiosInstance = axios.create({
         'Content-Type': 'application/json',
     },
     responseType: 'json' as ResponseType,
+});
+
+axiosRetry(instance, {
+    retries: 2,
+    retryDelay: (retryCount: number) => retryCount * 1000,
+    retryCondition: (error) => {
+        return !error.response || error.code === 'ECONNABORTED';
+    },
+    shouldResetTimeout: true,
 });
 
 instance.interceptors.request.use(
