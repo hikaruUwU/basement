@@ -5,7 +5,7 @@ import('nprogress/nprogress.css');
 
 export const $router = () =>  router as Router;
 
-const routes: Array<RouteRecordRaw> = [
+export const routes: Readonly<RouteRecordRaw[]> = [
     // {
     //   path: '/:pathMatch(.*)*',
     //   name: 'fallback',

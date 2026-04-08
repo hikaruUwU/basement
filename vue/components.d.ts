@@ -11,13 +11,7 @@ export {}
 /* prettier-ignore */
 declare module 'vue' {
   export interface GlobalComponents {
-    ElButton: typeof import('element-plus/es')['ElButton']
-    ElTable: typeof import('element-plus/es')['ElTable']
-    ElTableColumn: typeof import('element-plus/es')['ElTableColumn']
     RouterLink: typeof import('vue-router')['RouterLink']
     RouterView: typeof import('vue-router')['RouterView']
-  }
-  export interface GlobalDirectives {
-    vLoading: typeof import('element-plus/es')['ElLoadingDirective']
   }
 }
