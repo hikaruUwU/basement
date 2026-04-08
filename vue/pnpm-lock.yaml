@@ -17,6 +17,9 @@ importers:
       element-plus:
         specifier: ^2.13.4
         version: 2.13.4(vue@3.5.29(typescript@5.9.3))
+      js-cookie:
+        specifier: ^3.0.5
+        version: 3.0.5
       nprogress:
         specifier: ^0.2.0
         version: 0.2.0
@@ -42,6 +45,9 @@ importers:
       '@rsbuild/plugin-vue':
         specifier: ^1.2.2
         version: 1.2.6(@rsbuild/core@1.7.3)(@rspack/core@1.7.7(@swc/helpers@0.5.19))(@vue/compiler-sfc@3.5.29)(vue@3.5.29(typescript@5.9.3))
+      '@types/js-cookie':
+        specifier: ^3.0.6
+        version: 3.0.6
       '@types/nprogress':
         specifier: ^0.2.3
         version: 0.2.3
@@ -234,6 +240,9 @@ packages:
 
   '@types/estree@1.0.8':
     resolution: {integrity: sha512-dWHzHa2WqEXI/O1E9OjrocMTKJl2mSrEolh1Iomrv6U+JuNwaHXsXx9bLu5gG7BUWFIN0skIQJQ/L1rIex4X6w==}
+
+  '@types/js-cookie@3.0.6':
+    resolution: {integrity: sha512-wkw9yd1kEXOPnvEeEV1Go1MmxtBJL0RR79aOTAApecWFVu7w0NNXNqhcWgvw2YgZDYadliXkl14pa3WXw5jlCQ==}
 
   '@types/lodash-es@4.17.12':
     resolution: {integrity: sha512-0NgftHUcV4v34VhXm8QBSftKVXtbkBG3ViCjs6+eJ5a6y6Mi/jiFGPc1sC7QK+9BFhWrURE3EOggmWaSxL9OzQ==}
@@ -501,6 +510,10 @@ packages:
   jiti@2.6.1:
     resolution: {integrity: sha512-ekilCSN1jwRvIbgeg/57YFh8qQDNbwDb9xT/qu2DAHbFFZUicIl4ygVaAvzveMhMVr3LnpSKTNnwt8PoOfmKhQ==}
     hasBin: true
+
+  js-cookie@3.0.5:
+    resolution: {integrity: sha512-cEiJEAEoIbWfCZYKWhVwFuvPX1gETRYPw6LlaTKoxD3s2AkXzkCjnp6h0V77ozyqj0jakteJ4YqDJT830+lVGw==}
+    engines: {node: '>=14'}
 
   js-tokens@9.0.1:
     resolution: {integrity: sha512-mxa9E9ITFOt0ban3j6L5MpjwegGz6lBQmM1IJkWeBZGcMxto50+eWdjC/52xDbS2vy0k7vIMK0Fe2wfL9OQSpQ==}
@@ -965,6 +978,8 @@ snapshots:
 
   '@types/estree@1.0.8': {}
 
+  '@types/js-cookie@3.0.6': {}
+
   '@types/lodash-es@4.17.12':
     dependencies:
       '@types/lodash': 4.17.24
@@ -1272,6 +1287,8 @@ snapshots:
   is-what@5.5.0: {}
 
   jiti@2.6.1: {}
+
+  js-cookie@3.0.5: {}
 
   js-tokens@9.0.1: {}
 
