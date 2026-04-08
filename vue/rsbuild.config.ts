@@ -25,11 +25,11 @@ export default defineConfig({
   //   }
   // },
   plugins: [
-      pluginVue(),
+    pluginVue(),
     {
       name: 'flag',
-      setup(api){
-        api.onBeforeBuild(()=>{
+      setup(api) {
+        api.onBeforeBuild(() => {
           console.log(`
               <-.(\`-')  (\`-')  _  (\`-').->(\`-')  _<-. (\`-')   (\`-')  _<-. (\`-')_ (\`-')      
                __( OO)  (OO ).-/  ( OO)_  ( OO).-/   \\(OO )_  ( OO).-/   \\( OO) )( OO).->   
@@ -41,10 +41,10 @@ export default defineConfig({
               \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
           `);
 
-          console.log("-".repeat(108))
-        })
-      }
-    }
+          console.log('-'.repeat(108));
+        });
+      },
+    },
   ],
   tools: {
     rspack: {
