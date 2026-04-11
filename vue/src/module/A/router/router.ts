@@ -10,7 +10,6 @@ export const ModuleARoutes: RouteRecordRaw[] = [
     children: [
       {
         path: 'first',
-        name: 'fallback',
         component: () => import('../index.vue'),
       },
       {
