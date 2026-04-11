@@ -24,6 +24,7 @@
   "devDependencies": {
     "@rsbuild/core": "^1.7.1",
     "@rsbuild/plugin-vue": "^1.2.2",
+    "@rsbuild/plugin-vue-jsx": "^2.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/nprogress": "^0.2.3",
     "prettier": "^3.7.3",
