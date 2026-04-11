@@ -1,9 +1,10 @@
 import { type AppContext, createApp } from 'vue';
 import App from './App.vue';
 import './index.css';
-import pinia from './pinia/pinia.ts';
-import router from './router/router.ts';
+
 import 'element-plus/dist/index.css';
+import pinia from '@shared/pinia/pinia.ts';
+import router from '@/src/router/router.ts';
 
 const elementApp = createApp(App);
 

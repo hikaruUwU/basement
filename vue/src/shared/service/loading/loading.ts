@@ -3,7 +3,7 @@ import {
   type LoadingInstance,
   type LoadingOptions,
 } from 'element-plus';
-import { $applicationContext } from '../../index.ts';
+import { $applicationContext } from '@/src';
 
 const getInstance = (options?: LoadingOptions) =>
   ElLoading.service(

@@ -5,16 +5,21 @@ import {
   type RouteRecordRaw,
 } from 'vue-router';
 import NProgress from 'nprogress';
+import { ModuleARoutes } from '@/src/module/A/router/router.ts';
+import { ModuleBRoutes } from '@/src/module/B/router/router.ts';
 
 import('nprogress/nprogress.css');
 
 export const $router = () => router as Router;
 
 export const routes: Readonly<RouteRecordRaw[]> = [
+  ...ModuleARoutes,
+  ...ModuleBRoutes,
+  //
   // {
-  //   path: '/:pathMatch(.*)*',
-  //   name: 'fallback',
-  //   component: () => import('../component/demonstrator/index.vue'),
+  //     path: '/:pathMatch(.*)*',
+  //     name: 'fallback',
+  //     component: () => import('../component/demonstrator/index.vue'),
   // },
 ];
 

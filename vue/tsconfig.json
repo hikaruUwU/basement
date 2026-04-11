@@ -1,7 +1,6 @@
 {
   "compilerOptions": {
     "lib": ["DOM", "DOM.Iterable", "ESNext"],
-
     "target": "ESNext",
 
     "jsx": "preserve",
@@ -22,8 +21,13 @@
     /* type checking */
     "strict": true,
     "noUnusedLocals": true,
-    "noUnusedParameters": true
+    "noUnusedParameters": true,
+    "baseUrl": ".",
+    "paths": {
+      "@shared/*": ["./src/shared/*"],
+      "@/*": ["./*"]
+    }
   },
 
-  "include": ["src", "rsbuild.config.ts", "env.d.ts"]
+  "include": ["src/**/*", "rsbuild.config.ts", "env.d.ts"]
 }

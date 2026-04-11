@@ -2,4 +2,5 @@ ignoredBuiltDependencies:
   - core-js
 
 onlyBuiltDependencies:
+  - '@parcel/watcher'
   - vue-demi

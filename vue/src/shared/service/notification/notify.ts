@@ -1,6 +1,6 @@
 import { ElNotification, type NotificationOptions } from 'element-plus';
-import { $applicationContext } from '../../index.ts';
 import type { NotificationProps } from 'element-plus/es/components/notification/src/notification';
+import { $applicationContext } from '@/src';
 
 const joint = {
   duration: 3000,
@@ -26,5 +26,9 @@ export const elNotificationPresetProp = {
   },
 } as const satisfies Record<string, Partial<NotificationProps>>;
 
-export const $notify = (options?: NotificationOptions) =>
-  ElNotification(options, $applicationContext);
+export const $notify = (options?: NotificationOptions) => {
+  return {
+    call: ElNotification(options, $applicationContext),
+    preset: elNotificationPresetProp,
+  };
+};
