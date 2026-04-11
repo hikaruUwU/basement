@@ -1,35 +1,12 @@
 {
-  "name": "base",
-  "version": "1.0.0",
+  "name": "base-workspace",
   "private": true,
-  "type": "module",
   "scripts": {
-    "build": "rsbuild build",
-    "dev": "rsbuild dev --open",
-    "format": "prettier --write .",
-    "preview": "rsbuild preview"
-  },
-  "dependencies": {
-    "axios": "^1.13.6",
-    "axios-retry": "^4.5.0",
-    "element-plus": "^2.13.4",
-    "js-cookie": "^3.0.5",
-    "nprogress": "^0.2.0",
-    "pinia": "^3.0.4",
-    "radash": "^12.1.1",
-    "scss": "^0.2.4",
-    "vue": "^3.5.26",
-    "vue-router": "^5.0.3"
+    "dev": "pnpm --filter @base/web dev",
+    "build": "pnpm --filter @base/web build",
+    "format": "prettier --write ."
   },
   "devDependencies": {
-    "@rsbuild/core": "^1.7.1",
-    "@rsbuild/plugin-vue": "^1.2.2",
-    "@rsbuild/plugin-vue-jsx": "^2.0.0",
-    "@types/js-cookie": "^3.0.6",
-    "@types/nprogress": "^0.2.3",
-    "prettier": "^3.7.3",
-    "typescript": "^5.9.3",
-    "unplugin-auto-import": "^21.0.0",
-    "unplugin-vue-components": "^31.0.0"
+    "prettier": "^3.7.3"
   }
 }
