@@ -26,9 +26,10 @@ export const elNotificationPresetProp = {
   },
 } as const satisfies Record<string, Partial<NotificationProps>>;
 
-export const $notify = (options?: NotificationOptions) => {
+export const $notify = () => {
   return {
-    call: ElNotification(options, $applicationContext),
+    call: (options?: NotificationOptions) =>
+      ElNotification(options, $applicationContext),
     preset: elNotificationPresetProp,
   };
 };

@@ -4,7 +4,7 @@ import './index.css';
 
 import 'element-plus/dist/index.css';
 import pinia from '@shared/pinia/pinia.ts';
-import router from '@/src/router/router.ts';
+import router from '@/src/router/router.tsx';
 
 const elementApp = createApp(App);
 

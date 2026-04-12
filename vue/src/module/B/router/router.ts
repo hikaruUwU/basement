@@ -1,12 +1,11 @@
-import { type RouteRecordRaw, RouterView } from 'vue-router';
-import { h } from 'vue';
+import { type RouteRecordRaw } from 'vue-router';
 
 const prefix = '/B';
 
 export const ModuleBRoutes: RouteRecordRaw[] = [
   {
     path: prefix,
-    component: () => h(RouterView),
+    redirect: `${prefix}/first`,
     children: [
       {
         path: 'first',

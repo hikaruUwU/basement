@@ -7,20 +7,22 @@ import {
 import NProgress from 'nprogress';
 import { ModuleARoutes } from '@/src/module/A/router/router.ts';
 import { ModuleBRoutes } from '@/src/module/B/router/router.ts';
+import { ElEmpty } from 'element-plus';
 
 import('nprogress/nprogress.css');
 
-export const $router = () => router as Router;
+const Fallback = () => <ElEmpty description="Not Found" />;
+Fallback.displayName = 'Fallback';
 
 export const routes: Readonly<RouteRecordRaw[]> = [
   ...ModuleARoutes,
   ...ModuleBRoutes,
-  //
-  // {
-  //     path: '/:pathMatch(.*)*',
-  //     name: 'fallback',
-  //     component: () => import('../component/demonstrator/index.vue'),
-  // },
+
+  {
+    path: '/:pathMatch(.*)*',
+    name: 'fallback',
+    component: Fallback,
+  },
 ];
 
 const router: Router = createRouter({
@@ -28,12 +30,14 @@ const router: Router = createRouter({
   routes,
 });
 
-router.beforeEach((_t, _f, next) => {
+router.beforeEach(() => {
   NProgress.start();
-  next(undefined);
+
 });
 router.afterEach(() => {
   NProgress.done();
 });
+
+export const $router = () => router as Router;
 
 export default router;
