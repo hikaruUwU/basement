@@ -28,9 +28,7 @@ export const elMessagePresetProp = {
   },
 } as const satisfies Record<string, Partial<MessageProps>>;
 
-export const $message = () => {
-  return {
-    call: (options?: MessageParams) => ElMessage(options, $applicationContext),
-    preset: elMessagePresetProp,
-  };
+export const $message = {
+  call: (options?: MessageParams) => ElMessage(options, $applicationContext),
+  preset: elMessagePresetProp,
 };

@@ -16,38 +16,40 @@ const getInstance = (options?: LoadingOptions) =>
     $applicationContext,
   );
 
-export const $loading = (options?: LoadingOptions) => {
-  let instance: LoadingInstance | null = null;
+export const $loading = {
+  call: (options?: LoadingOptions) => {
+    let instance: LoadingInstance | null = null;
 
-  const activate = () => {
-    if (!instance) {
-      instance = getInstance(options);
-    }
-    return instance;
-  };
-
-  const deactivate = () => {
-    if (instance) {
-      instance.close();
-      instance = null;
-    }
-  };
-
-  const closeAfter = async <T>(runner: () => T | Promise<T>): Promise<T> => {
-    activate();
-    try {
-      return await runner();
-    } finally {
-      deactivate();
-    }
-  };
-
-  return {
-    get instance() {
+    const activate = () => {
+      if (!instance) {
+        instance = getInstance(options);
+      }
       return instance;
-    },
-    activate,
-    deactivate,
-    closeAfter,
-  };
+    };
+
+    const deactivate = () => {
+      if (instance) {
+        instance.close();
+        instance = null;
+      }
+    };
+
+    const closeAfter = async <T>(runner: () => T | Promise<T>): Promise<T> => {
+      activate();
+      try {
+        return await runner();
+      } finally {
+        deactivate();
+      }
+    };
+
+    return {
+      get instance() {
+        return instance;
+      },
+      activate,
+      deactivate,
+      closeAfter,
+    };
+  },
 };
