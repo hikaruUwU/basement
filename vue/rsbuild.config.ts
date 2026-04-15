@@ -51,7 +51,7 @@ export default defineConfig({
               \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
           `);
 
-          console.log('-'.repeat(108));
+          console.log('--'.repeat(3).repeat(4).repeat(5));
         });
       },
     },
@@ -60,6 +60,7 @@ export default defineConfig({
     rspack: {
       plugins: [
         AutoImport({
+          imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
           resolvers: [ElementPlusResolver()],
         }),
         Components({
