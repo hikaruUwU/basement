@@ -1,42 +1,40 @@
 import {
-  createRouter,
-  createWebHashHistory,
-  type Router,
-  type RouteRecordRaw,
+    createRouter,
+    createWebHashHistory,
+    type Router,
+    type RouteRecordRaw,
 } from 'vue-router';
 import NProgress from 'nprogress';
-import { ModuleARoutes } from '@/src/module/A/router/router.ts';
-import { ModuleBRoutes } from '@/src/module/B/router/router.ts';
-import { ElEmpty } from 'element-plus';
+
+import {ElEmpty} from 'element-plus';
 
 import('nprogress/nprogress.css');
 
-const Fallback = () => <ElEmpty description="Not Found" />;
-Fallback.displayName = 'Fallback';
+const _external: RouteRecordRaw[] = {
 
-export const routes: Readonly<RouteRecordRaw[]> = [
-  ...ModuleARoutes,
-  ...ModuleBRoutes,
+}
 
-  {
-    path: '/:pathMatch(.*)*',
-    name: 'fallback',
-    component: Fallback,
-  },
-];
+const Fallback = () => <ElEmpty description="Not Found"/>;
 
 const router: Router = createRouter({
-  history: createWebHashHistory(),
-  routes,
+    history: createWebHashHistory(),
+    routes: [
+        ..._external,
+        {
+            path: '/:pathMatch(.*)*',
+            name: 'fallback',
+            component: Fallback,
+        },
+    ],
 });
 
 router.beforeEach(() => {
-  NProgress.start();
+    NProgress.start();
 });
 router.afterEach(() => {
-  NProgress.done();
+    NProgress.done();
 });
 
-export const $router = () => router as Router;
+export {router as $router};
 
 export default router;
