@@ -1,8 +1,4 @@
-import {
-  ElLoading,
-  type LoadingInstance,
-  type LoadingOptions,
-} from 'element-plus';
+import { ElLoading, type LoadingInstance, type LoadingOptions } from 'element-plus';
 import { $applicationContext } from '@/src';
 
 const getInstance = (options?: LoadingOptions) =>

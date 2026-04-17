@@ -1,9 +1,4 @@
-import {
-  createRouter,
-  createWebHashHistory,
-  type Router,
-  type RouteRecordRaw,
-} from 'vue-router';
+import { createRouter, createWebHashHistory, type Router, type RouteRecordRaw } from 'vue-router';
 import NProgress from 'nprogress';
 
 import { ElEmpty } from 'element-plus';

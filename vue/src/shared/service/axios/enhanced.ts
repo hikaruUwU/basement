@@ -1,12 +1,6 @@
 import { instance } from './axiosInstance.ts';
 import type { AxiosRequestConfig, AxiosResponse } from 'axios';
-import {
-  type MaybeRefOrGetter,
-  readonly,
-  shallowReactive,
-  toRefs,
-  toValue,
-} from 'vue';
+import { type MaybeRefOrGetter, readonly, shallowReactive, toRefs, toValue } from 'vue';
 import { tryit } from 'radash';
 
 const axios = instance;
@@ -16,9 +10,7 @@ export const $axios = {
     configuration: MaybeRefOrGetter<AxiosRequestConfig>,
     hooks: {
       onBefore?: (configuration: AxiosRequestConfig) => void;
-      onFinally?: (
-        result: [Error | undefined, AxiosResponse<T> | undefined],
-      ) => void;
+      onFinally?: (result: [Error | undefined, AxiosResponse<T> | undefined]) => void;
     } = {},
   ) => {
     const state = shallowReactive<{

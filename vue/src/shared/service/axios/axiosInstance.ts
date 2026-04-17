@@ -1,9 +1,4 @@
-import type {
-  AxiosInstance,
-  AxiosResponse,
-  InternalAxiosRequestConfig,
-  ResponseType,
-} from 'axios';
+import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig, ResponseType } from 'axios';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 
