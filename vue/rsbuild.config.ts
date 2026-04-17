@@ -20,6 +20,11 @@ export default defineConfig({
   server: {
     proxy: proxies,
   },
+  source: {
+    define: {
+      // 'import.meta.env.BUILD_TIME': JSON.stringify(new Date().toLocaleString()),
+    },
+  },
   output: {
     // sourceMap: {
     //   js: 'source-map',
@@ -57,11 +62,13 @@ export default defineConfig({
     },
   ],
   tools: {
+    lightningcssLoader: true,
     rspack: {
       plugins: [
         AutoImport({
           imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
           resolvers: [ElementPlusResolver()],
+          dts: true,
         }),
         Components({
           resolvers: [ElementPlusResolver()],

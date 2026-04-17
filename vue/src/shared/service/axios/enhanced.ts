@@ -44,7 +44,7 @@ export const $axios = {
 
       hooks.onFinally?.([err, res]);
 
-      return [err, res] as const;
+      return [res, err] as const;
     };
 
     return {
