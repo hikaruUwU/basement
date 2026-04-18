@@ -40,6 +40,8 @@ export const scanRouting = async () => {
       });
     }
   });
+
+  return context;
 };
 
 export { router as $router };
