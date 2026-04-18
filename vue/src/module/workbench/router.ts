@@ -7,5 +7,3 @@ export const route: RouteRecordRaw[] = [
     component: () => import('./index.vue'),
   },
 ];
-
-export { route as ModuleWorkBenchRouting };

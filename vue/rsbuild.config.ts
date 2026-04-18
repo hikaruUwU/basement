@@ -5,7 +5,7 @@ import Components from 'unplugin-vue-components/rspack';
 import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { pluginVueJsx } from '@rsbuild/plugin-vue-jsx';
 import { pluginSass } from '@rsbuild/plugin-sass';
-
+import ElementPlus from 'unplugin-element-plus';
 const proxies: ProxyConfig = {
   '/mock': {
     target: 'https://jsonplaceholder.typicode.com/posts',
@@ -67,11 +67,22 @@ export default defineConfig({
       plugins: [
         AutoImport({
           imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
-          resolvers: [ElementPlusResolver()],
+          resolvers: [
+            ElementPlusResolver({
+              importStyle: 'sass',
+            }),
+          ],
           dts: true,
         }),
         Components({
-          resolvers: [ElementPlusResolver()],
+          resolvers: [
+            ElementPlusResolver({
+              importStyle: 'sass',
+            }),
+          ],
+        }),
+        ElementPlus.rspack({
+          useSource: false,
         }),
       ],
       experiments: {
