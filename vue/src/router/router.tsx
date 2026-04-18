@@ -32,8 +32,7 @@ export const scanRouting = async () => {
 
   context.keys().forEach((key: string) => {
     const mod = context(key) as any;
-    const routes = mod.route as RouteRecordRaw[];
-
+    const routes: RouteRecordRaw[] = mod.route || mod.default;
     if (Array.isArray(routes)) {
       routes.forEach((singleRoute) => {
         router.addRoute(singleRoute);
