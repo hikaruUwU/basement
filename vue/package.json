@@ -28,9 +28,9 @@
     "@rsbuild/plugin-vue-jsx": "^2.0.0",
     "@types/js-cookie": "^3.0.6",
     "@types/nprogress": "^0.2.3",
-    "prettier": "^3.8.2",
+    "prettier": "^3.8.3",
     "sass": "^1.99.0",
-    "typescript": "^6.0.2",
+    "typescript": "^6.0.3",
     "unplugin-auto-import": "^21.0.0",
     "unplugin-vue-components": "^32.0.0"
   }
