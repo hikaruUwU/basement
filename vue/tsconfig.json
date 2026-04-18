@@ -25,7 +25,8 @@
     "baseUrl": ".",
     "paths": {
       "@shared/*": ["./src/shared/*"],
-      "@/*": ["./*"]
+      "@/*": ["./*"],
+      "@public/*": ["./public/*"]
     }
   },
 
