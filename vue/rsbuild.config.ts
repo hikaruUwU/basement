@@ -113,6 +113,9 @@ export default defineConfig({
       type: 'async-chunks',
     },
     buildCache: true,
+    printFileSize: {
+      diff: true,
+    },
     // bundleAnalyze: {
     //     analyzerMode: 'static',
     //     reportTitle: () => `PerformanceAnalyzer - ${new Date().toLocaleString()}`,
