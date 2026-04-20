@@ -1,6 +1,6 @@
 import type { MessageProps } from 'element-plus/es/components/message/src/message';
 import { ElMessage, type MessageParams } from 'element-plus';
-import { $applicationContext } from '@/src';
+import { getAppContext } from '@shared/util/context.ts';
 
 const joint = {
   duration: 3000,
@@ -29,6 +29,6 @@ export const elMessagePresetProp = {
 } as const satisfies Record<string, Partial<MessageProps>>;
 
 export const $message = {
-  call: (options?: MessageParams) => ElMessage(options, $applicationContext),
+  call: (options?: MessageParams) => ElMessage(options, getAppContext()),
   preset: elMessagePresetProp,
 };

@@ -1,5 +1,5 @@
 import { ElLoading, type LoadingInstance, type LoadingOptions } from 'element-plus';
-import { $applicationContext } from '@/src';
+import { getAppContext } from '@shared/util/context.ts';
 
 const getInstance = (options?: LoadingOptions) =>
   ElLoading.service(
@@ -9,7 +9,7 @@ const getInstance = (options?: LoadingOptions) =>
       background: 'rgba(0, 0, 0, 0.7)',
       ...options,
     },
-    $applicationContext,
+    getAppContext(),
   );
 
 export const $loading = {

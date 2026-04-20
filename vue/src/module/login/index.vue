@@ -1,10 +1,9 @@
 <template>
-  <el-button @click="activate">root</el-button>
+  <el-text @click="activate">root</el-text>
 </template>
 <script setup lang="ts">
-  import { $notify } from '@shared/service/notification/notify.ts';
-
   import { onMounted } from 'vue';
+  import {$notify} from "@shared/notification/notify.ts";
 
   const activate = () => {
     $notify.call({

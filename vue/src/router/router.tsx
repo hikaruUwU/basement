@@ -30,15 +30,15 @@ router.afterEach(() => {
 export const scanRouting = async () => {
   const context = require.context('../module', true, /router\.ts$/);
 
-  context.keys().forEach((key: string) => {
-    const mod = context(key) as any;
+  for (const key of context.keys()) {
+    const mod = (await context(key)) as any;
     const routes: Array<RouteRecordRaw> = mod.route || mod.default;
     if (Array.isArray(routes)) {
       routes.forEach((singleRoute) => {
         router.addRoute(singleRoute);
       });
     }
-  });
+  }
 
   return context;
 };

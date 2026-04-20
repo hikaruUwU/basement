@@ -1,6 +1,6 @@
 import { h, ref, render, type VNode, watch } from 'vue';
 import { type DialogProps, ElButton, ElDialog, ElDivider } from 'element-plus';
-import { $applicationContext } from '@/src';
+import { getAppContext } from '@shared/util/context.ts';
 
 export const $dialog = {
   call: (content: VNode | string, dialogProps: Partial<DialogProps> = {}) => {
@@ -27,7 +27,7 @@ export const $dialog = {
         { default: () => content },
       );
 
-      if ($applicationContext) vnode.appContext = $applicationContext;
+      if (getAppContext()) vnode.appContext = getAppContext();
       render(vnode, container);
     };
 
