@@ -1,11 +1,19 @@
 <template>
-  <el-text>root</el-text>
+  <el-text @click="activate">root</el-text>
 </template>
 <script setup lang="ts">
   import { $notify } from '@shared/service/notification/notify.ts';
 
-  $notify.call({
-    message: 'root',
-    ...$notify.preset.success,
+  import { onMounted } from 'vue';
+
+  const activate = () => {
+    $notify.call({
+      message: 'root',
+      ...$notify.preset.success,
+    });
+  };
+
+  onMounted(() => {
+    activate();
   });
 </script>
