@@ -1,5 +1,5 @@
 <template>
-  <el-text @click="activate">root</el-text>
+  <el-button @click="activate">root</el-button>
 </template>
 <script setup lang="ts">
   import { $notify } from '@shared/service/notification/notify.ts';
