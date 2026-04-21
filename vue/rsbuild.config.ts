@@ -69,10 +69,6 @@ export default defineConfig((_env) => ({
           );
         });
         api.onAfterStartDevServer(() => flag(_env.envMode));
-        api.onAfterDevCompile(() => {
-        });
-        api.onBeforeDevCompile(() => {});
-        api.onCloseDevServer(() => {});
       },
     } as RsbuildPlugin,
   ],

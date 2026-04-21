@@ -6,9 +6,8 @@
   import { $notify } from '@shared/notification/notify.ts';
 
   const activate = () => {
-    $notify.call({
+    $notify.preset('success')({
       message: 'root',
-      ...$notify.preset.success,
     });
   };
 

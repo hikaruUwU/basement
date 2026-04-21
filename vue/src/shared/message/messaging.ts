@@ -30,5 +30,12 @@ export const elMessagePresetProp = {
 
 export const $message = {
   call: (options?: MessageParams) => ElMessage(options, getAppContext()),
-  preset: elMessagePresetProp,
+  preset: (key: keyof typeof elMessagePresetProp) => (options?: Partial<MessageProps>) => {
+    const union = {
+      ...elMessagePresetProp[key],
+      ...options,
+    };
+
+    ElMessage(union, getAppContext());
+  },
 };

@@ -28,5 +28,7 @@ export const elNotificationPresetProp = {
 
 export const $notify = {
   call: (options?: NotificationOptions) => ElNotification(options, getAppContext()),
-  preset: elNotificationPresetProp,
+  preset: (key: keyof typeof elNotificationPresetProp) => (options?: NotificationOptions) => {
+    ElNotification({ ...elNotificationPresetProp[key], ...options }, getAppContext());
+  },
 };
