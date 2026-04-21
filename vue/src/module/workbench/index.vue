@@ -3,7 +3,7 @@
 </template>
 <script setup lang="ts">
   import { onMounted } from 'vue';
-  import {$notify} from "@shared/notification/notify.ts";
+  import { $notify } from '@shared/notification/notify.ts';
 
   const activate = () => {
     $notify.call({

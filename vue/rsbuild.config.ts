@@ -1,4 +1,4 @@
-import { defineConfig, type ProxyConfig } from '@rsbuild/core';
+import { defineConfig, type RsbuildPlugin } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
 import AutoImport from 'unplugin-auto-import/rspack';
 import Components from 'unplugin-vue-components/rspack';
@@ -6,19 +6,26 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { pluginVueJsx } from '@rsbuild/plugin-vue-jsx';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import ElementPlus from 'unplugin-element-plus';
-const proxies: ProxyConfig = {
-  '/mock': {
-    target: 'https://jsonplaceholder.typicode.com/posts',
-    changeOrigin: true,
-    pathRewrite: {
-      '^/mock': '',
-    },
-  },
+
+const flag = (mode: string | undefined) => {
+  console.log(`
+              <-.(\`-')  (\`-')  _  (\`-').->(\`-')  _<-. (\`-')   (\`-')  _<-. (\`-')_ (\`-')      
+               __( OO)  (OO ).-/  ( OO)_  ( OO).-/   \\(OO )_  ( OO).-/   \\( OO) )( OO).->   
+              '-'---.\\  / ,---.  (_)--\\_)(,------.,--./  ,-.)(,------.,--./ ,--/ /    '._   
+              | .-. (/  | \\ /\`.\\ /    _ / |  .---'|   \`.'   | |  .---'|   \\ |  | |'--...__) 
+              | '-' \`.) '-'|_.' |\\_..\`--.(|  '--. |  |'.'|  |(|  '--. |  . '|  |)\`--.  .--' 
+              | /\`'.  |(|  .-.  |.-._)   \\|  .--' |  |   |  | |  .--' |  |\\    |    |  |    
+              | '--'  / |  | |  |\\       /|  \`---.|  |   |  | |  \`---.|  | \\   |    |  |    
+              \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
+          `);
+
+  console.log(`${mode}, ${new Date().toDateString()} ${new Date().toTimeString().split(' ')[0]}`);
+  console.log(`--`.repeat(7).repeat(8));
 };
 
-export default defineConfig({
+export default defineConfig((_env) => ({
   server: {
-    proxy: proxies,
+    proxy: [],
   },
   source: {
     define: {
@@ -26,11 +33,18 @@ export default defineConfig({
     },
   },
   output: {
+    ...(_env.envMode === 'development'
+      ? {
+          sourceMap: {
+            js: 'source-map',
+            css: true,
+          },
+        }
+      : {}),
     // sourceMap: {
     //   js: 'source-map',
     //   css: true
     // },
-    // manifest: true
   },
   plugins: [
     pluginVue(),
@@ -44,22 +58,10 @@ export default defineConfig({
     {
       name: 'flag',
       setup(api) {
-        api.onBeforeBuild(() => {
-          console.log(`
-              <-.(\`-')  (\`-')  _  (\`-').->(\`-')  _<-. (\`-')   (\`-')  _<-. (\`-')_ (\`-')      
-               __( OO)  (OO ).-/  ( OO)_  ( OO).-/   \\(OO )_  ( OO).-/   \\( OO) )( OO).->   
-              '-'---.\\  / ,---.  (_)--\\_)(,------.,--./  ,-.)(,------.,--./ ,--/ /    '._   
-              | .-. (/  | \\ /\`.\\ /    _ / |  .---'|   \`.'   | |  .---'|   \\ |  | |'--...__) 
-              | '-' \`.) '-'|_.' |\\_..\`--.(|  '--. |  |'.'|  |(|  '--. |  . '|  |)\`--.  .--' 
-              | /\`'.  |(|  .-.  |.-._)   \\|  .--' |  |   |  | |  .--' |  |\\    |    |  |    
-              | '--'  / |  | |  |\\       /|  \`---.|  |   |  | |  \`---.|  | \\   |    |  |    
-              \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
-          `);
-
-          console.log('--'.repeat(3).repeat(4).repeat(5));
-        });
+        api.onBeforeBuild(() => flag(_env.envMode));
+        api.onAfterStartDevServer(() => flag(_env.envMode));
       },
-    },
+    } as RsbuildPlugin,
   ],
   tools: {
     lightningcssLoader: true,
@@ -129,4 +131,4 @@ export default defineConfig({
   dev: {
     lazyCompilation: true,
   },
-});
+}));

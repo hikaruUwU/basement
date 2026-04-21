@@ -1,9 +1,10 @@
 import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig, ResponseType } from 'axios';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
+import { $notify } from '@shared/notification/notify.ts';
 
 export const instance: AxiosInstance = axios.create({
-  baseURL: import.meta.env.DEV ? '/api' : '/',
+  baseURL: import.meta.env.PUBLIC_AXIOS_BASE_URL as string,
   timeout: 10000,
   headers: {
     'Content-Type': 'application/json',
@@ -12,7 +13,7 @@ export const instance: AxiosInstance = axios.create({
 });
 
 axiosRetry(instance, {
-  retries: 2,
+  retries: 1,
   retryDelay: (retryCount: number) => retryCount * 1000,
   retryCondition: (error) => {
     return !error.response || error.code === 'ECONNABORTED';
@@ -35,6 +36,10 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
+    $notify.call({
+      message: error,
+      ...$notify.preset.error,
+    });
     return Promise.reject(error);
   },
 );
