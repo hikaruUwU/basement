@@ -6,6 +6,7 @@ import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
 import { pluginVueJsx } from '@rsbuild/plugin-vue-jsx';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import ElementPlus from 'unplugin-element-plus';
+import os from 'os';
 
 const flag = (mode: string | undefined) => {
   console.log(`
@@ -58,8 +59,20 @@ export default defineConfig((_env) => ({
     {
       name: 'flag',
       setup(api) {
-        api.onBeforeBuild(() => flag(_env.envMode));
+        api.onBeforeBuild(() => {
+          flag(_env.envMode);
+          console.log(
+            `[Build] ${os.hostname()}, Node:${process.version}, ` +
+              `CPU(S):${os.cpus().length}, ` +
+              `RAM:${((os.totalmem() - os.freemem()) / 1024 / 1024 / 1024).toFixed(2)}GB/${(os.totalmem() / 1024 / 1024 / 1024).toFixed(2)}GB` +
+              '\n',
+          );
+        });
         api.onAfterStartDevServer(() => flag(_env.envMode));
+        api.onAfterDevCompile(() => {
+        });
+        api.onBeforeDevCompile(() => {});
+        api.onCloseDevServer(() => {});
       },
     } as RsbuildPlugin,
   ],
