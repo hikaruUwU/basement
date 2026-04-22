@@ -36,9 +36,8 @@ instance.interceptors.response.use(
     return response;
   },
   (error) => {
-    $message.call({
+    $message.preset('error')({
       message: error,
-      ...$message.preset.error,
     });
     return Promise.reject(error);
   },
