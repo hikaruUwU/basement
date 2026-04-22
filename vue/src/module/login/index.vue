@@ -1,6 +1,7 @@
 <template>
   <div class="login-page">
-    <section class="hero-panel" :style="{ backgroundImage: `url(${backgroundImage})` }">
+    <section class="hero-panel">
+      <el-image class="hero-background" lazy :src="backgroundImage" fit="cover" />
       <div class="hero-mask" />
 
       <div class="brand">
@@ -198,9 +199,14 @@
     flex-direction: column;
     justify-content: center;
     padding: 56px 72px;
-    background-size: cover;
-    background-position: center;
     isolation: isolate;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    inset: 0;
+    z-index: -2;
   }
 
   .hero-mask {
@@ -211,6 +217,12 @@
       linear-gradient(120deg, rgba(240, 247, 255, 0.92) 0%, rgba(226, 237, 255, 0.72) 100%);
     backdrop-filter: blur(2px);
     z-index: -1;
+  }
+
+  .hero-background :deep(.el-image__inner) {
+    width: 100%;
+    height: 100%;
+    object-position: center;
   }
 
   .brand,
