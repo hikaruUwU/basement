@@ -1,11 +1,11 @@
 import type { RouteRecordRaw } from 'vue-router';
 
-const prefix: string = '/workbench';
+const prefix: string = '/';
 
 export const route: RouteRecordRaw[] = [
   {
     path: prefix,
-    name: 'workbench',
-    component: () => import('./index.vue'),
+    name: 'root',
+    component: () => import('../index.vue'),
   },
 ];
