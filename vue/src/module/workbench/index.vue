@@ -16,9 +16,7 @@
           <el-button type="primary" class="primary-action" @click="focusShelf">
             Sync Collection
           </el-button>
-          <el-button plain class="secondary-action" @click="openIntake">
-            Review Intake
-          </el-button>
+          <el-button plain class="secondary-action" @click="openIntake"> Review Intake </el-button>
         </div>
 
         <div class="signal-row">
@@ -205,22 +203,70 @@
   const intakeQueue = [
     { stage: 'Metadata enrichment', summary: '312 titles awaiting semantic tags', progress: 82 },
     { stage: 'Vendor confirmations', summary: '48 orders pending contract approval', progress: 61 },
-    { stage: 'Archival migration', summary: 'Rare collection batch 07 in validation', progress: 44 },
+    {
+      stage: 'Archival migration',
+      summary: 'Rare collection batch 07 in validation',
+      progress: 44,
+    },
   ];
 
   const spotlightTags = ['Urban futures', 'High circulation', 'Cross-campus demand'];
 
   const activityFeed = [
-    { title: 'Acquisition batch approved', detail: 'North Hall added 84 architecture titles.', time: '08m ago' },
-    { title: 'Hold surge detected', detail: 'Speculative fiction queue exceeded forecast by 13%.', time: '19m ago' },
-    { title: 'Inventory drift resolved', detail: 'Shelf cluster C-12 reconciled after scan sync.', time: '43m ago' },
+    {
+      title: 'Acquisition batch approved',
+      detail: 'North Hall added 84 architecture titles.',
+      time: '08m ago',
+    },
+    {
+      title: 'Hold surge detected',
+      detail: 'Speculative fiction queue exceeded forecast by 13%.',
+      time: '19m ago',
+    },
+    {
+      title: 'Inventory drift resolved',
+      detail: 'Shelf cluster C-12 reconciled after scan sync.',
+      time: '43m ago',
+    },
   ];
 
   const books = [
-    { title: 'Signal & Stacks', author: 'Mira Chen', status: 'Available', statusClass: 'available', format: 'Print + eBook', demand: 'High', genre: 'Systems Design' },
-    { title: 'After the Last Archive', author: 'Jonas Vale', status: 'Trending', statusClass: 'trending', format: 'Audiobook', demand: 'Very High', genre: 'Speculative Fiction' },
-    { title: 'Atlas of Quiet Cities', author: 'Leonie Hart', status: 'Reserved', statusClass: 'reserved', format: 'Collector Print', demand: 'Rising', genre: 'Urbanism' },
-    { title: 'Paper Memory', author: 'Asha Moreno', status: 'Archived', statusClass: 'archived', format: 'Digital Vault', demand: 'Steady', genre: 'History' },
+    {
+      title: 'Signal & Stacks',
+      author: 'Mira Chen',
+      status: 'Available',
+      statusClass: 'available',
+      format: 'Print + eBook',
+      demand: 'High',
+      genre: 'Systems Design',
+    },
+    {
+      title: 'After the Last Archive',
+      author: 'Jonas Vale',
+      status: 'Trending',
+      statusClass: 'trending',
+      format: 'Audiobook',
+      demand: 'Very High',
+      genre: 'Speculative Fiction',
+    },
+    {
+      title: 'Atlas of Quiet Cities',
+      author: 'Leonie Hart',
+      status: 'Reserved',
+      statusClass: 'reserved',
+      format: 'Collector Print',
+      demand: 'Rising',
+      genre: 'Urbanism',
+    },
+    {
+      title: 'Paper Memory',
+      author: 'Asha Moreno',
+      status: 'Archived',
+      statusClass: 'archived',
+      format: 'Digital Vault',
+      demand: 'Steady',
+      genre: 'History',
+    },
   ];
 
   const filteredBooks = computed(() => {
@@ -273,10 +319,7 @@
       radial-gradient(circle at 82% 14%, rgba(37, 99, 235, 0.16), transparent 24%),
       linear-gradient(135deg, #f7fbff 0%, #f3f7fc 46%, #edf3fa 100%);
     color: var(--text-primary);
-    font-family:
-      'Space Grotesk',
-      'Segoe UI',
-      sans-serif;
+    font-family: 'Space Grotesk', 'Segoe UI', sans-serif;
   }
 
   .background-orb {

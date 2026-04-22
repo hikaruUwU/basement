@@ -13,7 +13,7 @@
   },
   "dependencies": {
     "@vueuse/core": "^14.2.1",
-    "axios": "^1.15.1",
+    "axios": "^1.15.2",
     "axios-retry": "^4.5.0",
     "element-plus": "^2.13.7",
     "nprogress": "^0.2.0",
@@ -23,7 +23,7 @@
     "vue-router": "^5.0.4"
   },
   "devDependencies": {
-    "@rsbuild/core": "^1.7.5",
+    "@rsbuild/core": "^2.0.0",
     "@rsbuild/plugin-sass": "^1.5.1",
     "@rsbuild/plugin-vue": "^1.2.7",
     "@rsbuild/plugin-vue-jsx": "^2.0.0",
