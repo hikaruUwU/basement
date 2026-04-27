@@ -26,9 +26,12 @@ export const $axios = {
     const execute = async () => {
       state.loading = true;
       state.error = undefined;
-      hooks.onBefore?.(toValue(configuration));
 
-      const [err, res] = await tryit(axios.request)<T>(toValue(configuration));
+      const axiosRequestConfig = toValue(configuration);
+
+      hooks.onBefore?.(axiosRequestConfig);
+
+      const [err, res] = await tryit(axios.request)<T>(axiosRequestConfig);
 
       [state.error, state.data] = [err as Error, res ?? undefined];
 
