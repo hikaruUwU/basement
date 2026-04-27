@@ -1,6 +1,6 @@
-import type {AxiosRequestConfig} from "axios";
+import type { AxiosRequestConfig } from 'axios';
 
-export type API = Partial<AxiosRequestConfig<any>> & Required<Pick<AxiosRequestConfig<any>, 'url' | 'method'>>
+export type API = Partial<AxiosRequestConfig<any>> & Required<Pick<AxiosRequestConfig<any>, 'url' | 'method'>>;
 
 export const API = {
   authenticate: (parameter: { username: string; password: string }) => ({

@@ -10,7 +10,7 @@ export const $axios = {
     configuration: MaybeRefOrGetter<AxiosRequestConfig>,
     hooks: {
       onBefore?: (configuration: AxiosRequestConfig) => void;
-      onFinally?: (result: [Error | undefined, AxiosResponse<T> | undefined]) => void;
+      onFinally?: (result: [AxiosResponse<T> | undefined, Error | undefined]) => void;
     } = {},
   ) => {
     const state = shallowReactive<{
@@ -37,7 +37,7 @@ export const $axios = {
 
       state.loading = false;
 
-      hooks.onFinally?.([err, res]);
+      hooks.onFinally?.([res, err]);
 
       return [res, err] as const;
     };
