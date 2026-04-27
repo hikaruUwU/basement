@@ -33,7 +33,12 @@
           <el-link type="primary" :underline="false">Forgot password?</el-link>
         </div>
 
-        <el-button type="primary" class="submit-button" :loading="submitting" @click="$emit('submit')">
+        <el-button
+          type="primary"
+          class="submit-button"
+          :loading="submitting"
+          @click="$emit('submit')"
+        >
           Sign In
         </el-button>
       </el-form>

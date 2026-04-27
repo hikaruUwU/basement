@@ -41,9 +41,7 @@
         </div>
 
         <div class="spotlight-copy">
-          <p>
-            Demand telemetry suggests a 27% lift among design, urbanism, and travel segments.
-          </p>
+          <p> Demand telemetry suggests a 27% lift among design, urbanism, and travel segments. </p>
           <div class="tag-row">
             <span v-for="tag in spotlightTags" :key="tag">{{ tag }}</span>
           </div>
