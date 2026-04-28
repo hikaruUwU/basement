@@ -1,10 +1,11 @@
 interface base {
-    id: string;
-    username: string;
-    password: string;
-    roles: string[];
-    enabled: boolean;
+  id: string;
+  username: string;
+  password: string;
+  roles: string[];
+  enabled: boolean;
 }
 
+export type User = Partial<base>;
 
-export type User = Partial<base>
+export type UserLogin = Pick<base, 'username' | 'password'>;
