@@ -19,12 +19,12 @@
     "nprogress": "^0.2.0",
     "pinia": "^3.0.4",
     "radash": "^12.1.1",
-    "vue": "^3.5.32",
-    "vue-router": "^5.0.4"
+    "vue": "^3.5.33",
+    "vue-router": "^5.0.6"
   },
   "devDependencies": {
-    "@rsbuild/core": "^2.0.0",
-    "@rsbuild/plugin-sass": "^1.5.1",
+    "@rsbuild/core": "^2.0.3",
+    "@rsbuild/plugin-sass": "^1.5.2",
     "@rsbuild/plugin-vue": "^1.2.7",
     "@rsbuild/plugin-vue-jsx": "^2.0.0",
     "@types/js-cookie": "^3.0.6",

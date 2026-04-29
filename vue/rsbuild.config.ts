@@ -1,4 +1,4 @@
-import { defineConfig, type RsbuildPlugin } from '@rsbuild/core';
+import { defineConfig, type ProxyConfig, type RsbuildPlugin } from '@rsbuild/core';
 import { pluginVue } from '@rsbuild/plugin-vue';
 import AutoImport from 'unplugin-auto-import/rspack';
 import Components from 'unplugin-vue-components/rspack';
@@ -8,6 +8,41 @@ import { pluginSass } from '@rsbuild/plugin-sass';
 import ElementPlus from 'unplugin-element-plus';
 import os from 'os';
 
+const fixed_proxy: ProxyConfig = [];
+
+//---------------------------------------------------------------------------------------------
+
+const resolveProxy = () => {
+  const convert = () => {
+    try {
+      return JSON.parse(process.env.PUBLIC_PROXY_FROM_TO || '{}') as Record<string, string>;
+    } catch (e) {
+      throw new Error('PUBLIC_PROXY_FROM_TO is not a valid Record<string, string> : ' + e);
+    }
+  };
+
+  return {
+    convertor: () => convert(),
+    resolved: () => {
+      return Object.entries(convert()).reduce(
+        (acc, [path, target]) => {
+          acc[path] = {
+            target,
+            ws: true,
+            changeOrigin: true,
+            secure: false,
+            pathRewrite: {
+              [`^${path}`]: '',
+            },
+          };
+
+          return acc;
+        },
+        {} as Record<string, any>,
+      );
+    },
+  };
+};
 const flag = (mode: string | undefined) => {
   console.log(`
               <-.(\`-')  (\`-')  _  (\`-').->(\`-')  _<-. (\`-')   (\`-')  _<-. (\`-')_ (\`-')      
@@ -20,13 +55,18 @@ const flag = (mode: string | undefined) => {
               \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
           `);
 
-  console.log(`${mode}, ${new Date().toDateString()} ${new Date().toTimeString().split(' ')[0]}`);
+  console.log(
+    `${mode}, ${new Date().toDateString()} ${new Date().toTimeString().split(' ')[0]}`,
+  );
+
   console.log(`--`.repeat(7).repeat(8));
 };
 
+//------------------------------------------------------------------------------------
+
 export default defineConfig((_env) => ({
   server: {
-    proxy: [],
+    proxy: Object.assign({}, resolveProxy().resolved(), fixed_proxy),
   },
   source: {
     define: {
@@ -62,7 +102,7 @@ export default defineConfig((_env) => ({
         api.onBeforeBuild(() => {
           flag(_env.envMode);
           console.log(
-            `[Build] ${os.hostname()}, Node:${process.version}, ` +
+            `[STATE] ${os.hostname()}, Node:${process.version}, ` +
               `CPU(S):${os.cpus().length}, ` +
               `RAM:${((os.totalmem() - os.freemem()) / 1024 / 1024 / 1024).toFixed(2)}GB/${(os.totalmem() / 1024 / 1024 / 1024).toFixed(2)}GB` +
               '\n',

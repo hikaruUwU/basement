@@ -6,7 +6,7 @@
   </el-card>
 </template>
 <script setup lang="ts">
-import {onMounted, onUnmounted, shallowReactive} from 'vue';
+  import { onMounted, onUnmounted, shallowReactive } from 'vue';
 
   const load = shallowReactive({
     date: new Date() as Date,
@@ -21,5 +21,5 @@ import {onMounted, onUnmounted, shallowReactive} from 'vue';
 
   onUnmounted(() => {
     clearTimeout(load.watcher);
-  })
+  });
 </script>
