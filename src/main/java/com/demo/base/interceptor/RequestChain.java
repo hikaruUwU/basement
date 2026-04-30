@@ -32,6 +32,7 @@ public class RequestChain implements HandlerInterceptor, WebMvcConfigurer {
 
     public static void truncate() {
         local.remove();
+        local.set(new HashMap<>());
     }
 
     @Override
