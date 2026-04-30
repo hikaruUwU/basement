@@ -1,7 +1,7 @@
-package com.demo.base.component.rate;
+package com.demo.base.spi.rate;
 
 import com.demo.base.util.FastAccess;
-import com.demo.base.annotation.RateLimit;
+import com.demo.base.annotation.rateLimit.RateLimit;
 import lombok.Setter;
 import lombok.experimental.Accessors;
 import org.springframework.context.annotation.Fallback;
@@ -15,7 +15,7 @@ import java.util.concurrent.atomic.LongAdder;
 
 @Component
 @Fallback
-public class LocalRateLimitation implements RateLimiterStrategy {
+public class LocalRateStrategy implements RateLimiterStrategy {
     private final ConcurrentHashMap<String, RateEntry> methodCache = new ConcurrentHashMap<>();
 
     @Override

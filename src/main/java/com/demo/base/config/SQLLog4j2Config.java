@@ -23,8 +23,8 @@ public class SQLLog4j2Config implements MessageReporter {
     public void sendMessages(List<AuditMessage> list) {
         for (AuditMessage message : list)
             if (message.getElapsedTime() > 256L)
-                log.warn(">>> SLOW SQL PLAN > {} >> [{} ms]", message.getFullSql(), message.getElapsedTime());
+                log.warn(">>> SQL > {} >> [{} ms]", message.getFullSql(), message.getElapsedTime());
             else
-                log.info(">>> SQL PLAN > {} >> [{} ms]", message.getFullSql(), message.getElapsedTime());
+                log.info(">>> SQL > {} >> [{} ms]", message.getFullSql(), message.getElapsedTime());
     }
 }

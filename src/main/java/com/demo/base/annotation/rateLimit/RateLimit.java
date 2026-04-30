@@ -1,4 +1,4 @@
-package com.demo.base.annotation;
+package com.demo.base.annotation.rateLimit;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

@@ -1,7 +1,7 @@
 package com.demo.base.interceptor;
 
-import com.demo.base.annotation.RateLimit;
-import com.demo.base.component.rate.RateLimiterStrategy;
+import com.demo.base.annotation.rateLimit.RateLimit;
+import com.demo.base.spi.rate.RateLimiterStrategy;
 import com.demo.base.exception.LimitationOverLoadException;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletRequest;

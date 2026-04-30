@@ -1,4 +1,6 @@
-package com.demo.base.annotation;
+package com.demo.base.annotation.requireSession;
+
+import org.intellij.lang.annotations.Language;
 
 import java.lang.annotation.*;
 
@@ -6,5 +8,6 @@ import java.lang.annotation.*;
 @Retention(RetentionPolicy.RUNTIME)
 @Documented
 public @interface RequiredSession {
+    @Language("SpEL")
     String value() default "";
 }

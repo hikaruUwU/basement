@@ -1,6 +1,7 @@
 package com.demo.base.interceptor;
 
-import com.demo.base.annotation.RequiredSession;
+import com.demo.base.annotation.requireSession.RequiredSession;
+import com.demo.base.config.GlobalWarmUpManager;
 import com.demo.base.util.ASMAnnotationScanner;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.PostConstruct;
@@ -58,16 +59,22 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     @SneakyThrows
     @PostConstruct
-    public void warm(){
-        AtomicInteger count = new AtomicInteger();
-        ASMAnnotationScanner.scanMethodAnnotation(AutoConfigurationPackages.get(applicationContext).getFirst(), RequiredSession.class).forEach((clazz, methods) -> {
-            Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(clazz);
-            for (Method method : methods) {
-                authMap.put(method, Boolean.TRUE);
-                count.getAndIncrement();
+    public void warm() {
+        GlobalWarmUpManager.executor.execute(()->{
+            AtomicInteger count = new AtomicInteger();
+            try {
+                ASMAnnotationScanner.scanMethodAnnotation(AutoConfigurationPackages.get(applicationContext).getFirst(), RequiredSession.class).forEach((clazz, methods) -> {
+                    Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(clazz);
+                    for (Method method : methods) {
+                        authMap.put(method, Boolean.TRUE);
+                        count.getAndIncrement();
+                    }
+                });
+            } catch (Exception e) {
+                log.warn("Failed to warm up RequiredSession", e);
             }
+            log.info("{} methods annotated with @RequiredSession scanned.", count.get());
         });
-        log.info("{} methods are annotated with @RequiredSession", count.get());
     }
 
     @Override

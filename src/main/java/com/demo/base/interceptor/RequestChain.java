@@ -1,4 +1,4 @@
-package com.demo.base.component;
+package com.demo.base.interceptor;
 
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletRequest;
