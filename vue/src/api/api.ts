@@ -11,4 +11,4 @@ export const API = {
     data: parameter,
   }),
   logout: () => ({ url: '/logout', method: 'post' }),
-} satisfies Record<string, (...args: any[]) => API>;
+} satisfies Record<string | symbol, (...args: any[]) => API>;

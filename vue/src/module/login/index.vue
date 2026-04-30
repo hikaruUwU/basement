@@ -22,12 +22,12 @@
   const { execute: authenticate, loading } = $axios.call(
     () => API.authenticate({ ...payload.user }),
     {
-      onFinally: ([res, _err]) => {
+      onFinally: async ([res, _err]) => {
         if (res) {
           $message.preset('success')({
             message: 'Authenticated successfully.',
           });
-          $router.push('/workbench');
+          await $router.push('/workbench');
         }
       },
     },
