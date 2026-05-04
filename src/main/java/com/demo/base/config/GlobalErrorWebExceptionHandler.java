@@ -2,6 +2,7 @@ package com.demo.base.config;
 
 import com.demo.base.domain.response.Result;
 import com.demo.base.exception.RootException;
+import com.demo.base.exception.UnauthenticatedAccessException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
@@ -30,7 +31,7 @@ public class GlobalErrorWebExceptionHandler {
         return Result.fail(Objects.requireNonNull(ex.getBindingResult().getFieldError()).getDefaultMessage());
     }
 
-    @ExceptionHandler(AccessDeniedException.class)
+    @ExceptionHandler(UnauthenticatedAccessException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ProblemDetail handleAccessDeniedException(AccessDeniedException ignored) {
         return $401;

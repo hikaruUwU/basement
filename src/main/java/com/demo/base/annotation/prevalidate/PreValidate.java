@@ -10,4 +10,6 @@ import java.lang.annotation.*;
 public @interface PreValidate {
     @Language("SpEL")
     String value();
+
+    String message() default "";
 }

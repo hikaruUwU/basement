@@ -10,6 +10,6 @@ public final class LimitationOverLoadException extends RootException {
     private static final long serialVersionUID = 4252814178348178760L;
 
     public LimitationOverLoadException() {
-        super("Too Many Request, please retry.");
+        super("Too Many Request, please retry after a while.");
     }
 }

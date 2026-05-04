@@ -2,6 +2,7 @@ package com.demo.base.interceptor;
 
 import com.demo.base.annotation.requireSession.RequiredSession;
 import com.demo.base.config.GlobalWarmUpManager;
+import com.demo.base.exception.UnauthenticatedAccessException;
 import com.demo.base.util.ASMAnnotationScanner;
 import jakarta.annotation.Nonnull;
 import jakarta.annotation.PostConstruct;
@@ -14,13 +15,11 @@ import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.annotation.AnnotationUtils;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import java.io.Serial;
 import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
@@ -33,20 +32,7 @@ import java.util.function.Function;
 public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     private final ApplicationContext applicationContext;
 
-    private final AccessDeniedException $ACCESS_DENIED = new AccessDeniedException(null) {
-        @Serial
-        private static final long serialVersionUID = 8935745108846751860L;
-
-        @Override
-        public synchronized Throwable fillInStackTrace() {
-            return this;
-        }
-
-        @Override
-        public synchronized Throwable initCause(Throwable cause) {
-            throw new UnsupportedOperationException("Cannot wrap any cause in this specified exception");
-        }
-    };
+    private final UnauthenticatedAccessException $ACCESS_DENIED = new UnauthenticatedAccessException();
 
     private static final ClassValue<Map<Method, Boolean>> SESSION_CHECK_CV = new ClassValue<>() {
         @Override
@@ -98,6 +84,6 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(this).addPathPatterns("/**");
+        registry.addInterceptor(this).addPathPatterns("/**").order(0);
     }
 }
