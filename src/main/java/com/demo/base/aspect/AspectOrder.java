@@ -5,7 +5,7 @@ import com.demo.base.aspect.preValidate.PreValidator;
 
 import java.util.Map;
 
-public final class AspectOrder {
+public abstract class AspectOrder {
     private static final Map<Class<?>,Integer> order = Map.ofEntries(
             Map.entry(PreValidator.class, 0),
             Map.entry(LogWrapper.class, 1)

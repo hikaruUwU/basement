@@ -1,14 +1,15 @@
 package com.demo.base.config;
 
 import jakarta.annotation.PreDestroy;
-import lombok.experimental.UtilityClass;
 import lombok.extern.log4j.Log4j2;
 
-import java.util.concurrent.*;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 @Log4j2
-@UtilityClass
-public class GlobalWarmUpManager {
+public abstract class GlobalWarmUpManager {
     public static final ExecutorService executor = warmupExecutor();
 
     @PreDestroy
