@@ -21,13 +21,23 @@ public class RequestChain implements HandlerInterceptor, WebMvcConfigurer {
         local.get().put(key, value);
     }
 
+    public static void putAll(Map<?, ?> map) {
+        local.get().putAll(map);
+    }
+
     @SuppressWarnings("unchecked")
     public static <T> T get(Object key) {
         return (T) local.get().get(key);
     }
 
-    public static Map<Object, Object> peek() {
-        return Collections.unmodifiableMap(local.get());
+    @SuppressWarnings("unchecked")
+    public static <T> T getOrDefault(Object key, T defaultValue) {
+        return (T) local.get().getOrDefault(key, defaultValue);
+    }
+
+    @SuppressWarnings("unchecked")
+    public static <K,V> Map<K,V> peek() {
+        return (Map<K, V>) Collections.unmodifiableMap(local.get());
     }
 
     public static void truncate() {
