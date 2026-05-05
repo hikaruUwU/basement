@@ -21,10 +21,12 @@ public class SQLLog4j2Config implements MessageReporter {
 
     @Override
     public void sendMessages(List<AuditMessage> list) {
-        for (AuditMessage message : list)
-            if (message.getElapsedTime() > 256L)
-                log.warn(">>> SQL > {} >> [{} ms]", message::getFullSql, message::getElapsedTime);
+        for (AuditMessage message : list) {
+            long elapsedTime = message.getElapsedTime();
+            if (elapsedTime > 256L)
+                log.warn(">>> SQL > {} >> [{} ms]", message::getFullSql, () -> elapsedTime);
             else
-                log.info(">>> SQL > {} >> [{} ms]", message::getFullSql, message::getElapsedTime);
+                log.info(">>> SQL > {} >> [{} ms]", message::getFullSql, () -> elapsedTime);
+        }
     }
 }
