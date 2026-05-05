@@ -1,6 +1,7 @@
 package com.demo.base.aspect.preValidate;
 
 import com.demo.base.annotation.prevalidate.PreValidate;
+import com.demo.base.aspect.AspectOrder;
 import com.demo.base.config.GlobalWarmUpManager;
 import com.demo.base.exception.PreConditionNotValidatedException;
 import com.demo.base.util.ASMAnnotationScanner;
@@ -15,6 +16,7 @@ import org.aspectj.lang.reflect.MethodSignature;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.context.ApplicationContext;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.expression.Expression;
 import org.springframework.expression.ExpressionParser;
@@ -33,9 +35,14 @@ import java.util.function.Function;
 @Aspect
 @Component
 @RequiredArgsConstructor
-public class PreValidator {
+public class PreValidator implements Ordered {
     private final SpelEvaluator spelEvaluator;
     private final ApplicationContext applicationContext;
+
+    @Override
+    public int getOrder() {
+        return AspectOrder.getOrder(this);
+    }
 
     private record ValidateCacheEntry(byte hasExpression, Expression expression, String $message) {}
 

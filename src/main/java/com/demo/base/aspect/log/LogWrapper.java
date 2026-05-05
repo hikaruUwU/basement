@@ -2,6 +2,7 @@ package com.demo.base.aspect.log;
 
 import com.demo.base.annotation.logger.LogRange;
 import com.demo.base.annotation.logger.Monitor;
+import com.demo.base.aspect.AspectOrder;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
@@ -11,6 +12,7 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 
@@ -22,7 +24,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Aspect
 @Component
 @RequiredArgsConstructor
-public class LogWrapper {
+public class LogWrapper implements Ordered {
     private final ObjectMapper objectMapper;
 
     private final ClassValue<Map<Method, LogExecutor>> CACHE = new ClassValue<>() {
@@ -31,6 +33,11 @@ public class LogWrapper {
             return new ConcurrentHashMap<>();
         }
     };
+
+    @Override
+    public int getOrder() {
+        return AspectOrder.getOrder(this);
+    }
 
     @FunctionalInterface
     private interface LogExecutor {

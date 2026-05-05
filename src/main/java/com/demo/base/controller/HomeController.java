@@ -1,5 +1,6 @@
 package com.demo.base.controller;
 
+import com.demo.base.annotation.logger.Monitor;
 import com.demo.base.annotation.prevalidate.PreValidate;
 import lombok.RequiredArgsConstructor;
 import org.springframework.context.MessageSource;
@@ -15,6 +16,7 @@ public class HomeController {
 
     @GetMapping("/hello/{name}")
     @PreValidate(value = "T(Math).random() > 0.5", message = "Unauthed")
+    @Monitor
     public String home(@PathVariable String name) {
         return messageSource.getMessage("i.hello", null, LocaleContextHolder.getLocale()) + "," + name;
     }
