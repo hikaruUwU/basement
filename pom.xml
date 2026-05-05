@@ -65,7 +65,7 @@
         <dependency>
             <groupId>org.bouncycastle</groupId>
             <artifactId>bcprov-jdk18on</artifactId>
-            <version>1.83</version>
+            <version>1.84</version>
         </dependency>
         <dependency>
             <groupId>org.springframework.security</groupId>
@@ -85,7 +85,7 @@
         <dependency>
             <groupId>com.mybatis-flex</groupId>
             <artifactId>mybatis-flex-spring-boot3-starter</artifactId>
-            <version>1.11.6</version>
+            <version>1.11.7</version>
         </dependency>
         <dependency>
             <groupId>com.mybatis-flex</groupId>
@@ -105,7 +105,7 @@
         <dependency>
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
-            <version>1.18.44</version>
+            <version>1.18.46</version>
             <scope>compile</scope>
         </dependency>
         <!-- Source: https://mvnrepository.com/artifact/com.mybatis-flex/mybatis-flex-codegen -->
