@@ -30,7 +30,7 @@ public abstract class GlobalWarmUpManager {
 
     private static class Notify {
         static {
-            log.warn("PreHeat Task overlimited, some are discarded");
+            log.warn("PreHeat Task queue overlimited, some task will be discarded");
         }
 
         public static void trigger() {

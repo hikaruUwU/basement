@@ -55,7 +55,7 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
             } catch (Exception e) {
                 log.warn("Failed to warm up RequiredSession", e);
             }
-            log.info("{} @RequiredSession methods scanned.", count.get());
+            log.info("{} @RequiredSession method(s) scanned.", count.get());
         });
     }
 
