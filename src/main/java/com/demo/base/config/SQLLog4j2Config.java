@@ -4,19 +4,22 @@ import com.mybatisflex.core.audit.AuditManager;
 import com.mybatisflex.core.audit.AuditMessage;
 import com.mybatisflex.core.audit.MessageReporter;
 import com.mybatisflex.core.audit.ScheduledMessageCollector;
-import jakarta.annotation.PostConstruct;
 import lombok.extern.log4j.Log4j2;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 
 import java.util.List;
 
 @Log4j2
 public class SQLLog4j2Config implements MessageReporter {
 
-    @PostConstruct
+    @EventListener(ApplicationReadyEvent.class)
     public void init() {
         AuditManager.setAuditEnable(true);
         AuditManager.setMessageCollector(new ScheduledMessageCollector());
         AuditManager.setMessageReporter(this);
+
+        log.info("SQL Audit enabled.");
     }
 
     @Override

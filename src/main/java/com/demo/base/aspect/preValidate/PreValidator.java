@@ -6,7 +6,6 @@ import com.demo.base.config.GlobalWarmUpManager;
 import com.demo.base.exception.PreConditionNotValidatedException;
 import com.demo.base.util.ASMAnnotationScanner;
 import com.demo.base.util.SpelEvaluator;
-import jakarta.annotation.PostConstruct;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.aspectj.lang.ProceedingJoinPoint;
@@ -15,7 +14,9 @@ import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.jetbrains.annotations.NotNull;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.event.EventListener;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.expression.Expression;
@@ -65,7 +66,7 @@ public class PreValidator implements Ordered {
         }
     };
 
-    @PostConstruct
+    @EventListener(ApplicationReadyEvent.class)
     public void warmUp() {
         GlobalWarmUpManager.executor.execute(()->{
             try {

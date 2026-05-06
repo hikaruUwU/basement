@@ -2,7 +2,6 @@ package com.demo.base.util;
 
 import jakarta.annotation.Nonnull;
 import lombok.SneakyThrows;
-import lombok.experimental.UtilityClass;
 
 import java.lang.invoke.MethodHandle;
 import java.lang.invoke.MethodHandles;
@@ -11,9 +10,8 @@ import java.lang.invoke.VarHandle;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-@UtilityClass
 @SuppressWarnings("unused")
-public class FastAccess {
+public abstract class FastAccess {
     private static final MethodHandles.Lookup LOOKUP = MethodHandles.lookup();
 
 //======================================================================================================================

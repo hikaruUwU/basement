@@ -5,15 +5,15 @@ import com.demo.base.config.GlobalWarmUpManager;
 import com.demo.base.exception.UnauthenticatedAccessException;
 import com.demo.base.util.ASMAnnotationScanner;
 import jakarta.annotation.Nonnull;
-import jakarta.annotation.PostConstruct;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
-import lombok.SneakyThrows;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
@@ -43,8 +43,7 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     private final Function<Method, Boolean> singletonFinderLambda = m -> AnnotationUtils.findAnnotation(m, RequiredSession.class) != null;
 
-    @SneakyThrows
-    @PostConstruct
+    @EventListener(ApplicationReadyEvent.class)
     public void warm() {
         GlobalWarmUpManager.executor.execute(()->{
             AtomicInteger count = new AtomicInteger();
