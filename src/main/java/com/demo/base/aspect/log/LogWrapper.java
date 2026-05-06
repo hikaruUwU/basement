@@ -43,6 +43,7 @@ public class LogWrapper implements Ordered {
     @EventListener(ApplicationReadyEvent.class)
     public void warmUp() {
         GlobalWarmUpManager.executor.execute(() -> {
+            long start = System.currentTimeMillis();
             try {
                 Map<Class<?>, List<Method>> annotatedData = asmAnnotationScanner.scanMethodAnnotation(Monitor.class);
                 annotatedData.forEach((clazz, methods) -> {
@@ -51,7 +52,7 @@ public class LogWrapper implements Ordered {
                         methodMap.put(method, buildExecutor(method));
                     }
                 });
-                log.info("LogWrapper warm-up complete with {} class(es) scanned.", annotatedData.size());
+                log.info("LogWrapper warm-up complete in {} ms with {} class(es) scanned.", System.currentTimeMillis() - start, annotatedData.size());
             } catch (Exception e) {
                 log.error("LogWrapper warm-up failed", e);
             }

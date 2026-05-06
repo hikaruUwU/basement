@@ -9,6 +9,7 @@ import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ProblemDetail;
+import org.springframework.http.converter.HttpMessageNotReadableException;
 import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
@@ -45,6 +46,12 @@ public class GlobalErrorWebExceptionHandler {
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
     public ProblemDetail handleAccessDeniedException(AccessDeniedException ignored) {
         return $401;
+    }
+
+    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ResponseStatus(HttpStatus.OK)
+    public Result<Void> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
+        return Result.fail(ex.getMessage());
     }
 
 

@@ -16,4 +16,9 @@ public class BaseApplication {
         SpringApplication.run(BaseApplication.class, args);
     }
 
+    static {
+        if ("prod".equalsIgnoreCase(System.getProperty("spring.profiles.active"))) {
+            System.setProperty("log4j2.contextSelector", "org.apache.logging.log4j.core.async.AsyncLoggerContextSelector");
+        }
+    }
 }

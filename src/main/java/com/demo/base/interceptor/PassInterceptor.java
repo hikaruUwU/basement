@@ -43,6 +43,7 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     @EventListener(ApplicationReadyEvent.class)
     public void warm() {
         GlobalWarmUpManager.executor.execute(()->{
+            long start = System.currentTimeMillis();
             AtomicInteger count = new AtomicInteger();
             try {
                 asmAnnotationScanner.scanMethodAnnotation(RequiredSession.class).forEach((clazz, methods) -> {
@@ -55,7 +56,7 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
             } catch (Exception e) {
                 log.warn("Failed to warm up RequiredSession", e);
             }
-            log.info("{} @RequiredSession method(s) scanned.", count.get());
+            log.info("{} @RequiredSession method(s) scanned in {} ms.", count.get(),System.currentTimeMillis() - start);
         });
     }
 

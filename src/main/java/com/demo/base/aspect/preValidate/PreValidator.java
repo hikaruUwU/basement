@@ -66,6 +66,7 @@ public class PreValidator implements Ordered {
     @EventListener(ApplicationReadyEvent.class)
     public void warmUp() {
         GlobalWarmUpManager.executor.execute(()->{
+            long start = System.currentTimeMillis();
             try {
                 Map<Class<?>, List<Method>> annotatedData = asmAnnotationScanner.scanMethodAnnotation(PreValidate.class);
 
@@ -76,7 +77,7 @@ public class PreValidator implements Ordered {
                     }
 
                 });
-                log.info("PreValidate warm-up complete with {} class(es) scanned.", annotatedData.size());
+                log.info("PreValidate warm-up complete in {} ms with {} class(es) scanned.", System.currentTimeMillis() - start, annotatedData.size());
             } catch (Exception e) {
                 log.error("PreValidate warm-up failed", e);
             }
