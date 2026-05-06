@@ -3,6 +3,8 @@ package com.demo.base.aspect.log;
 import com.demo.base.annotation.logger.LogRange;
 import com.demo.base.annotation.logger.Monitor;
 import com.demo.base.aspect.AspectOrder;
+import com.demo.base.config.GlobalWarmUpManager;
+import com.demo.base.util.ASMAnnotationScanner;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import jakarta.annotation.Nonnull;
 import lombok.RequiredArgsConstructor;
@@ -12,11 +14,14 @@ import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
+import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.event.EventListener;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
 import org.springframework.stereotype.Component;
 
 import java.lang.reflect.Method;
+import java.util.List;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
@@ -25,6 +30,7 @@ import java.util.concurrent.ConcurrentHashMap;
 @Component
 @RequiredArgsConstructor
 public class LogWrapper implements Ordered {
+    private final ASMAnnotationScanner asmAnnotationScanner;
     private final ObjectMapper objectMapper;
 
     private final ClassValue<Map<Method, LogExecutor>> CACHE = new ClassValue<>() {
@@ -33,6 +39,24 @@ public class LogWrapper implements Ordered {
             return new ConcurrentHashMap<>();
         }
     };
+
+    @EventListener(ApplicationReadyEvent.class)
+    public void warmUp() {
+        GlobalWarmUpManager.executor.execute(() -> {
+            try {
+                Map<Class<?>, List<Method>> annotatedData = asmAnnotationScanner.scanMethodAnnotation(Monitor.class);
+                annotatedData.forEach((clazz, methods) -> {
+                    Map<Method, LogExecutor> methodMap = CACHE.get(clazz);
+                    for (Method method : methods) {
+                        methodMap.put(method, buildExecutor(method));
+                    }
+                });
+                log.info("LogWrapper warm-up complete with {} class(es) scanned.", annotatedData.size());
+            } catch (Exception e) {
+                log.error("LogWrapper warm-up failed", e);
+            }
+        });
+    }
 
     @Override
     public int getOrder() {

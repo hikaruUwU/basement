@@ -76,7 +76,7 @@ public class PreValidator implements Ordered {
                     }
 
                 });
-                log.info("PreValidate warm-up complete with {} scanned.", annotatedData.size());
+                log.info("PreValidate warm-up complete with {} class(es) scanned.", annotatedData.size());
             } catch (Exception e) {
                 log.error("PreValidate warm-up failed", e);
             }
