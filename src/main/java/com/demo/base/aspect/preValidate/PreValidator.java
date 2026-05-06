@@ -13,9 +13,7 @@ import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.reflect.MethodSignature;
 import org.jetbrains.annotations.NotNull;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -38,8 +36,7 @@ import java.util.function.Function;
 @RequiredArgsConstructor
 public class PreValidator implements Ordered {
     private final SpelEvaluator spelEvaluator;
-    private final ApplicationContext applicationContext;
-
+    private final ASMAnnotationScanner asmAnnotationScanner;
     @Override
     public int getOrder() {
         return AspectOrder.getOrder(this);
@@ -70,8 +67,7 @@ public class PreValidator implements Ordered {
     public void warmUp() {
         GlobalWarmUpManager.executor.execute(()->{
             try {
-                String basePackage = AutoConfigurationPackages.get(applicationContext).getFirst();
-                Map<Class<?>, List<Method>> annotatedData = ASMAnnotationScanner.scanMethodAnnotation(basePackage, PreValidate.class);
+                Map<Class<?>, List<Method>> annotatedData = asmAnnotationScanner.scanMethodAnnotation(PreValidate.class);
 
                 annotatedData.forEach((clazz, methods) -> {
                     Map<Method, ValidateCacheEntry> methodMap = CLASS_CACHE.get(clazz);

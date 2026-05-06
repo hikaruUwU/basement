@@ -9,9 +9,7 @@ import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
-import org.springframework.boot.autoconfigure.AutoConfigurationPackages;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
-import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -30,8 +28,7 @@ import java.util.function.Function;
 @Configuration
 @RequiredArgsConstructor
 public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
-    private final ApplicationContext applicationContext;
-
+    private final ASMAnnotationScanner asmAnnotationScanner;
     private final UnauthenticatedAccessException $ACCESS_DENIED = new UnauthenticatedAccessException();
 
     private static final ClassValue<Map<Method, Boolean>> SESSION_CHECK_CV = new ClassValue<>() {
@@ -48,7 +45,7 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
         GlobalWarmUpManager.executor.execute(()->{
             AtomicInteger count = new AtomicInteger();
             try {
-                ASMAnnotationScanner.scanMethodAnnotation(AutoConfigurationPackages.get(applicationContext).getFirst(), RequiredSession.class).forEach((clazz, methods) -> {
+                asmAnnotationScanner.scanMethodAnnotation(RequiredSession.class).forEach((clazz, methods) -> {
                     Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(clazz);
                     for (Method method : methods) {
                         authMap.put(method, Boolean.TRUE);
