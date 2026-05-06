@@ -8,9 +8,7 @@ import lombok.extern.log4j.Log4j2;
 import org.springframework.core.Ordered;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
-import org.springframework.http.ProblemDetail;
 import org.springframework.http.converter.HttpMessageNotReadableException;
-import org.springframework.security.access.AccessDeniedException;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -22,7 +20,7 @@ import java.util.Objects;
 @RestControllerAdvice
 @Order(Ordered.HIGHEST_PRECEDENCE)
 public class GlobalErrorWebExceptionHandler {
-    private static final ProblemDetail $401 = ProblemDetail.forStatusAndDetail(HttpStatus.UNAUTHORIZED, "Access Denied");
+    private static final Result<Void> $401 = Result.fail("Access Denied");
 
     @ExceptionHandler(RootException.class)
     @ResponseStatus(HttpStatus.OK)
@@ -44,7 +42,7 @@ public class GlobalErrorWebExceptionHandler {
 
     @ExceptionHandler(UnauthenticatedAccessException.class)
     @ResponseStatus(HttpStatus.UNAUTHORIZED)
-    public ProblemDetail handleAccessDeniedException(AccessDeniedException ignored) {
+    public Result<Void> handleAccessDeniedException(UnauthenticatedAccessException ignored) {
         return $401;
     }
 
@@ -53,7 +51,6 @@ public class GlobalErrorWebExceptionHandler {
     public Result<Void> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
         return Result.fail(ex.getMessage());
     }
-
 
     @ExceptionHandler(Exception.class)
     @ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)

@@ -18,6 +18,14 @@ public class SessionManager implements HttpSessionListener {
         return attributes.getRequest().getSession(false) != null;
     }
 
+    public static void authorize(){
+        ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
+        assert attributes != null;
+        if (attributes.getRequest().getSession(false) != null)
+            attributes.getRequest().getSession(false).invalidate();
+        attributes.getRequest().getSession(true);
+    }
+
     public static void authorize(@Nonnull Object identifier) {
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
         assert attributes != null;

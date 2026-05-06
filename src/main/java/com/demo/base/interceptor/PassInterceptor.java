@@ -3,13 +3,13 @@ package com.demo.base.interceptor;
 import com.demo.base.annotation.requireSession.RequiredSession;
 import com.demo.base.config.GlobalWarmUpManager;
 import com.demo.base.exception.UnauthenticatedAccessException;
-import com.demo.base.util.ASMAnnotationScanner;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.context.event.ApplicationReadyEvent;
+import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.event.EventListener;
 import org.springframework.core.annotation.AnnotationUtils;
@@ -17,6 +17,8 @@ import org.springframework.web.method.HandlerMethod;
 import org.springframework.web.servlet.HandlerInterceptor;
 import org.springframework.web.servlet.config.annotation.InterceptorRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
+import org.springframework.web.servlet.mvc.method.RequestMappingInfo;
+import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerMapping;
 
 import java.lang.reflect.Method;
 import java.util.Map;
@@ -28,7 +30,7 @@ import java.util.function.Function;
 @Configuration
 @RequiredArgsConstructor
 public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
-    private final ASMAnnotationScanner asmAnnotationScanner;
+    private final ApplicationContext applicationContext;
     private final UnauthenticatedAccessException $ACCESS_DENIED = new UnauthenticatedAccessException();
 
     private static final ClassValue<Map<Method, Boolean>> SESSION_CHECK_CV = new ClassValue<>() {
@@ -42,21 +44,26 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     @EventListener(ApplicationReadyEvent.class)
     public void warm() {
-        GlobalWarmUpManager.executor.execute(()->{
-            long start = System.currentTimeMillis();
+        GlobalWarmUpManager.executor.execute(() -> {
+            final long start = System.currentTimeMillis();
             AtomicInteger count = new AtomicInteger();
             try {
-                asmAnnotationScanner.scanMethodAnnotation(RequiredSession.class).forEach((clazz, methods) -> {
+                Map<RequestMappingInfo, HandlerMethod> handlerMethods = applicationContext.getBean(RequestMappingHandlerMapping.class).getHandlerMethods();
+                for (HandlerMethod hm : handlerMethods.values()) {
+                    Class<?> clazz = hm.getBeanType();
+                    Method method = hm.getMethod();
                     Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(clazz);
-                    for (Method method : methods) {
+                    boolean required = AnnotationUtils.findAnnotation(method, RequiredSession.class) != null;
+
+                    if (required) {
                         authMap.put(method, Boolean.TRUE);
-                        count.getAndIncrement();
+                        count.incrementAndGet();
                     }
-                });
+                }
             } catch (Exception e) {
                 log.warn("Failed to warm up RequiredSession", e);
             }
-            log.info("{} @RequiredSession method(s) scanned in {} ms.", count.get(),System.currentTimeMillis() - start);
+            log.info("{} @RequiredSession method(s) warmed in {} ms.", count.get(), System.currentTimeMillis() - start);
         });
     }
 
