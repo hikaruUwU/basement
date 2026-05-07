@@ -4,7 +4,7 @@ import com.demo.base.annotation.prevalidate.PreValidate;
 import com.demo.base.annotation.rateLimit.RateLimit;
 import com.demo.base.annotation.requireSession.RequiredSession;
 import com.demo.base.domain.User;
-import com.demo.base.interceptor.SessionManager;
+import com.demo.base.interceptor.web.SessionManager;
 import lombok.RequiredArgsConstructor;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.GetMapping;

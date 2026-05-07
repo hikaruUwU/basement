@@ -61,7 +61,7 @@ public class LogWrapper implements Ordered {
 
     @Override
     public int getOrder() {
-        return AspectOrder.getOrder(this);
+        return AspectOrder.LOG_WRAPPER.getOrder();
     }
 
     @FunctionalInterface

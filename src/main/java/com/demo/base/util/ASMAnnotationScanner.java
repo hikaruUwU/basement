@@ -1,5 +1,6 @@
 package com.demo.base.util;
 
+import com.demo.base.config.GlobalWarmUpManager;
 import jakarta.annotation.PostConstruct;
 import lombok.extern.log4j.Log4j2;
 import org.jetbrains.annotations.NotNull;
@@ -50,6 +51,24 @@ public class ASMAnnotationScanner implements ApplicationContextAware {
     public void init() {
         try {
             this.baseSearchPath = ResourcePatternResolver.CLASSPATH_ALL_URL_PREFIX + ClassUtils.convertClassNameToResourcePath(AutoConfigurationPackages.get(applicationContext).getFirst()) + "/**/*.class";
+
+            GlobalWarmUpManager.executor.execute(() -> {
+                final long start = System.currentTimeMillis();
+                try {
+                    Resource[] resources = getPackageResources();
+
+                    for (Resource resource : resources) {
+                        if (resource.isReadable()) {
+                            metadataFactory.getMetadataReader(resource);
+                        }
+                    }
+
+                    log.info("ASMMetadata warmup complete {} resource(s) in {}ms.", resources.length, System.currentTimeMillis() - start);
+                } catch (Exception e) {
+                    log.error("warmup failed", e);
+                }
+            });
+
             log.info(baseSearchPath);
         } catch (Exception e) {
             throw new RuntimeException(e);

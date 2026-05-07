@@ -1,8 +1,10 @@
-package com.demo.base.interceptor;
+package com.demo.base.interceptor.web;
 
-import com.demo.base.annotation.requireSession.RequiredSession;
+import com.demo.base.annotation.rateLimit.RateLimit;
 import com.demo.base.config.GlobalWarmUpManager;
-import com.demo.base.exception.UnauthenticatedAccessException;
+import com.demo.base.interceptor.WebInterceptorOrder;
+import com.demo.base.spi.rate.RateLimiterStrategy;
+import com.demo.base.exception.LimitationOverLoadException;
 import jakarta.annotation.Nonnull;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -29,58 +31,69 @@ import java.util.function.Function;
 @Log4j2
 @Configuration
 @RequiredArgsConstructor
-public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
+public class RateLimitInterceptor implements HandlerInterceptor, WebMvcConfigurer {
     private final ApplicationContext applicationContext;
-    private final UnauthenticatedAccessException $ACCESS_DENIED = new UnauthenticatedAccessException();
 
-    private static final ClassValue<Map<Method, Boolean>> SESSION_CHECK_CV = new ClassValue<>() {
+    private final RateLimiterStrategy rateLimiterStrategy;
+
+    private final LimitationOverLoadException $overload = new LimitationOverLoadException();
+
+    private static final ClassValue<Map<Method, RateLimit>> RATE_LIMIT_CV = new ClassValue<>() {
         @Override
-        protected Map<Method, Boolean> computeValue(@Nonnull Class<?> type) {
+        protected Map<Method, RateLimit> computeValue(@Nonnull Class<?> type) {
             return new ConcurrentHashMap<>();
         }
     };
 
-    private final Function<Method, Boolean> singletonFinderLambda = m -> AnnotationUtils.findAnnotation(m, RequiredSession.class) != null;
+    private final Function<Method, RateLimit> singletonFinderLambda = m -> AnnotationUtils.findAnnotation(m, RateLimit.class);
 
     @EventListener(ApplicationReadyEvent.class)
-    public void warm() {
+    public void warmRateLimit() {
         GlobalWarmUpManager.executor.execute(() -> {
-            final long start = System.currentTimeMillis();
+            long start = System.currentTimeMillis();
             AtomicInteger count = new AtomicInteger();
             try {
                 Map<RequestMappingInfo, HandlerMethod> handlerMethods = applicationContext.getBean(RequestMappingHandlerMapping.class).getHandlerMethods();
+
                 for (HandlerMethod hm : handlerMethods.values()) {
                     Class<?> clazz = hm.getBeanType();
                     Method method = hm.getMethod();
-                    Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(clazz);
-                    boolean required = AnnotationUtils.findAnnotation(method, RequiredSession.class) != null;
 
-                    if (required) {
-                        authMap.put(method, Boolean.TRUE);
+                    Map<Method, RateLimit> rateMap = RATE_LIMIT_CV.get(clazz);
+
+                    RateLimit rateLimit = AnnotationUtils.findAnnotation(method, RateLimit.class);
+
+                    if (rateLimit != null) {
+                        rateMap.put(method, rateLimit);
                         count.incrementAndGet();
                     }
                 }
             } catch (Exception e) {
-                log.warn("Failed to warm up RequiredSession", e);
+                log.warn("Failed to warm up RateLimit", e);
             }
-            log.info("{} @RequiredSession method(s) warmed in {} ms.", count.get(), System.currentTimeMillis() - start);
+            log.info("{} @RateLimit method(s) warmed in {} ms.", count.get(), System.currentTimeMillis() - start);
         });
     }
 
     @Override
     public boolean preHandle(@Nonnull HttpServletRequest request, @Nonnull HttpServletResponse response, @Nonnull Object handler) {
-        if (!(handler instanceof HandlerMethod hm)) return true;
+        if (!(handler instanceof HandlerMethod hm))
+            return true;
 
-        Map<Method, Boolean> authMap = SESSION_CHECK_CV.get(hm.getBeanType());
+        Map<Method, RateLimit> rateMap = RATE_LIMIT_CV.get(hm.getBeanType());
 
-        Boolean required = authMap.get(hm.getMethod());
+        RateLimit rateLimit = rateMap.get(hm.getMethod());
 
-        if (required == null) {
-            required = authMap.computeIfAbsent(hm.getMethod(), singletonFinderLambda);
+        if (rateLimit == null) {
+            rateLimit = rateMap.computeIfAbsent(hm.getMethod(), singletonFinderLambda);
         }
 
-        if (required == Boolean.TRUE && (request.getSession(false) == null)) {
-            throw $ACCESS_DENIED;
+        // if-return-proceed inline
+        if (rateLimit != null) {
+            boolean allowed = rateLimiterStrategy.allow(rateLimit.key(), rateLimit);
+            if (!allowed) {
+                throw $overload;
+            }
         }
 
         return true;
@@ -88,6 +101,6 @@ public class PassInterceptor implements HandlerInterceptor, WebMvcConfigurer {
 
     @Override
     public void addInterceptors(InterceptorRegistry registry) {
-        registry.addInterceptor(this).addPathPatterns("/**").order(0);
+        registry.addInterceptor(this).addPathPatterns("/**").order(WebInterceptorOrder.RATE_LIMIT.getOrder());
     }
 }

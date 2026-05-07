@@ -39,7 +39,7 @@ public class PreValidator implements Ordered {
     private final ASMAnnotationScanner asmAnnotationScanner;
     @Override
     public int getOrder() {
-        return AspectOrder.getOrder(this);
+        return AspectOrder.PRE_VALIDATOR.getOrder();
     }
 
     private record ValidateCacheEntry(byte hasExpression, Expression expression, String $message) {}
