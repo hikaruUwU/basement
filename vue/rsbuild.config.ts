@@ -78,7 +78,7 @@ export default defineConfig((_env) => ({
       ? {
           sourceMap: {
             js: 'source-map',
-            css: true,
+            css: false,
           },
         }
       : {}),
@@ -174,15 +174,7 @@ export default defineConfig((_env) => ({
     printFileSize: {
       diff: true,
     },
-    // bundleAnalyze: {
-    //     analyzerMode: 'static',
-    //     reportTitle: () => `PerformanceAnalyzer - ${new Date().toLocaleString()}`,
-    //     defaultSizes: 'gzip',
-    //     openAnalyzer: false,
-    //     excludeAssets: [/\.(png|jpe?g|gif|svg|webp)$/i],
-    //     generateStatsFile: true,
-    //     statsFilename: 'bundle-stats.json',
-    // }
+
   },
   dev: {
     lazyCompilation: true,
