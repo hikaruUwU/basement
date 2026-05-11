@@ -155,10 +155,17 @@ export default defineConfig((_env) => ({
       },
     },
   },
+  security:{
+    sri:{
+      algorithm: 'sha512',
+      enable: 'auto'
+    }
+  },
   performance: {
     chunkSplit: {
       strategy: 'split-by-experience',
     },
+
     preload: true,
     prefetch: {
       type: 'async-chunks',
@@ -179,5 +186,10 @@ export default defineConfig((_env) => ({
   },
   dev: {
     lazyCompilation: true,
+    browserLogs: {
+      stackTrace: "summary"
+    },
+    progressBar: true,
+
   },
 }));
