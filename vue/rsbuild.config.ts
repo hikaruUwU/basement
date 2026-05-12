@@ -1,50 +1,52 @@
-import { defineConfig, type ProxyConfig, type RsbuildPlugin } from '@rsbuild/core';
-import { pluginVue } from '@rsbuild/plugin-vue';
+import {defineConfig, type ProxyConfig, type RsbuildPlugin} from '@rsbuild/core';
+import {pluginVue} from '@rsbuild/plugin-vue';
 import AutoImport from 'unplugin-auto-import/rspack';
 import Components from 'unplugin-vue-components/rspack';
-import { ElementPlusResolver } from 'unplugin-vue-components/resolvers';
-import { pluginVueJsx } from '@rsbuild/plugin-vue-jsx';
-import { pluginSass } from '@rsbuild/plugin-sass';
+import {ElementPlusResolver} from 'unplugin-vue-components/resolvers';
+import {pluginVueJsx} from '@rsbuild/plugin-vue-jsx';
+import {pluginSass} from '@rsbuild/plugin-sass';
 import ElementPlus from 'unplugin-element-plus';
 import os from 'os';
+import {pluginCompression} from "rsbuild-plugin-compression";
+import * as zlib from "node:zlib";
 
 const fixed_proxy: ProxyConfig = [];
 
 //---------------------------------------------------------------------------------------------
 
 const resolveProxy = () => {
-  const convert = () => {
-    try {
-      return JSON.parse(process.env.PUBLIC_PROXY_FROM_TO || '{}') as Record<string, string>;
-    } catch (e) {
-      throw new Error('PUBLIC_PROXY_FROM_TO is not a valid Record<string, string> : ' + e);
-    }
-  };
+    const convert = () => {
+        try {
+            return JSON.parse(process.env.PUBLIC_PROXY_FROM_TO || '{}') as Record<string, string>;
+        } catch (e) {
+            throw new Error('PUBLIC_PROXY_FROM_TO is not a valid Record<string, string> : ' + e);
+        }
+    };
 
-  return {
-    convertor: () => convert(),
-    resolved: () => {
-      return Object.entries(convert()).reduce(
-        (acc, [path, target]) => {
-          acc[path] = {
-            target,
-            ws: true,
-            changeOrigin: true,
-            secure: false,
-            pathRewrite: {
-              [`^${path}`]: '',
-            },
-          };
+    return {
+        convertor: () => convert(),
+        resolved: () => {
+            return Object.entries(convert()).reduce(
+                (acc, [path, target]) => {
+                    acc[path] = {
+                        target,
+                        ws: true,
+                        changeOrigin: true,
+                        secure: false,
+                        pathRewrite: {
+                            [`^${path}`]: '',
+                        },
+                    };
 
-          return acc;
+                    return acc;
+                },
+                {} as Record<string, any>,
+            );
         },
-        {} as Record<string, any>,
-      );
-    },
-  };
+    };
 };
 const flag = (mode: string | undefined) => {
-  console.log(`
+    console.log(`
               <-.(\`-')  (\`-')  _  (\`-').->(\`-')  _<-. (\`-')   (\`-')  _<-. (\`-')_ (\`-')      
                __( OO)  (OO ).-/  ( OO)_  ( OO).-/   \\(OO )_  ( OO).-/   \\( OO) )( OO).->   
               '-'---.\\  / ,---.  (_)--\\_)(,------.,--./  ,-.)(,------.,--./ ,--/ /    '._   
@@ -55,133 +57,156 @@ const flag = (mode: string | undefined) => {
               \`------'  \`--' \`--' \`-----' \`------'\`--'   \`--' \`------'\`--'  \`--'    \`--'    
           `);
 
-  console.log(
-    `${mode}, ${new Date().toDateString()} ${new Date().toTimeString().split(' ')[0]}`,
-  );
+    console.log(
+        `${mode}, ${new Date().toDateString()} ${new Date().toTimeString().split(' ')[0]}`,
+    );
 
-  console.log(`--`.repeat(7).repeat(8));
+    console.log(`--`.repeat(7).repeat(8));
 };
 
 //------------------------------------------------------------------------------------
 
 export default defineConfig((_env) => ({
-  server: {
-    proxy: Object.assign({}, resolveProxy().resolved(), fixed_proxy),
-  },
-  source: {
-    define: {
-      // 'import.meta.env.BUILD_TIME': JSON.stringify(new Date().toLocaleString()),
+    server: {
+        proxy: Object.assign({}, resolveProxy().resolved(), fixed_proxy),
     },
-  },
-  output: {
-    ...(_env.envMode === 'development'
-      ? {
-          sourceMap: {
-            js: 'source-map',
-            css: false,
-          },
+    source: {
+        define: {
+            // 'import.meta.env.BUILD_TIME': JSON.stringify(new Date().toLocaleString()),
+        },
+    },
+    output: {
+        ...(_env.envMode === 'development'
+            ? {
+                sourceMap: {
+                    js: 'source-map',
+                    css: false,
+                },
+            }
+            : {}),
+        // sourceMap: {
+        //   js: 'source-map',
+        //   css: true
+        // },
+    },
+    plugins: [
+        pluginCompression({
+            algorithms: [
+                {
+                    name: "gzip",
+                    options:{
+                        level: 9
+                    }
+                },
+                {
+                    name: "brotli",
+                    options:{
+                        params: {
+                            [zlib.constants.BROTLI_PARAM_QUALITY]: 11
+                        }
+                    }
+                }
+            ],
+            threshold: 10240,
+            concurrency: 8,
+            printResult: true
+        }),
+        pluginVue({
+            splitChunks: {
+                vue: true,
+                router: true
+            }
+        }),
+        pluginSass(),
+        pluginVueJsx({
+            vueJsxOptions: {
+                resolveType: true,
+                enableObjectSlots: true,
+            },
+        }),
+        {
+            name: 'flag',
+            setup(api) {
+                api.onBeforeBuild(() => {
+                    flag(_env.envMode);
+                    console.log(
+                        `[STATE] ${os.hostname()}, Node:${process.version}, ` +
+                        `CPU(S):${os.cpus().length}, ` +
+                        `RAM:${((os.totalmem() - os.freemem()) / 1024 / 1024 / 1024).toFixed(2)}GB/${(os.totalmem() / 1024 / 1024 / 1024).toFixed(2)}GB` +
+                        '\n',
+                    );
+                });
+                api.onAfterStartDevServer(() => flag(_env.envMode));
+            },
+        } as RsbuildPlugin,
+    ],
+    tools: {
+        lightningcssLoader: true,
+        rspack: {
+            plugins: [
+                AutoImport({
+                    imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
+                    resolvers: [
+                        ElementPlusResolver({
+                            importStyle: 'sass',
+                        }),
+                    ],
+                    dts: true,
+                }),
+                Components({
+                    resolvers: [
+                        ElementPlusResolver({
+                            importStyle: 'sass',
+                        }),
+                    ],
+                }),
+                ElementPlus.rspack({
+                    useSource: false,
+                }),
+            ],
+            experiments: {
+                nativeWatcher: true,
+            },
+        },
+        swc: {
+            jsc: {
+                parser: {
+                    syntax: 'typescript',
+                    tsx: true,
+                },
+                transform: {
+                    react: {
+                        runtime: 'automatic',
+                        importSource: 'vue',
+                    },
+                },
+            },
+        },
+    },
+    security: {
+        sri: {
+            algorithm: 'sha512',
+            enable: 'auto'
         }
-      : {}),
-    // sourceMap: {
-    //   js: 'source-map',
-    //   css: true
-    // },
-  },
-  plugins: [
-    pluginVue(),
-    pluginSass(),
-    pluginVueJsx({
-      vueJsxOptions: {
-        resolveType: true,
-        enableObjectSlots: true,
-      },
-    }),
-    {
-      name: 'flag',
-      setup(api) {
-        api.onBeforeBuild(() => {
-          flag(_env.envMode);
-          console.log(
-            `[STATE] ${os.hostname()}, Node:${process.version}, ` +
-              `CPU(S):${os.cpus().length}, ` +
-              `RAM:${((os.totalmem() - os.freemem()) / 1024 / 1024 / 1024).toFixed(2)}GB/${(os.totalmem() / 1024 / 1024 / 1024).toFixed(2)}GB` +
-              '\n',
-          );
-        });
-        api.onAfterStartDevServer(() => flag(_env.envMode));
-      },
-    } as RsbuildPlugin,
-  ],
-  tools: {
-    lightningcssLoader: true,
-    rspack: {
-      plugins: [
-        AutoImport({
-          imports: ['vue', 'vue-router', 'pinia', '@vueuse/core'],
-          resolvers: [
-            ElementPlusResolver({
-              importStyle: 'sass',
-            }),
-          ],
-          dts: true,
-        }),
-        Components({
-          resolvers: [
-            ElementPlusResolver({
-              importStyle: 'sass',
-            }),
-          ],
-        }),
-        ElementPlus.rspack({
-          useSource: false,
-        }),
-      ],
-      experiments: {
-        nativeWatcher: true,
-      },
     },
-    swc: {
-      jsc: {
-        parser: {
-          syntax: 'typescript',
-          tsx: true,
+    performance: {
+        chunkSplit: {
+            strategy: 'split-by-experience',
         },
-        transform: {
-          react: {
-            runtime: 'automatic',
-            importSource: 'vue',
-          },
+
+        preload: true,
+        prefetch: {
+            type: 'async-chunks',
         },
-      },
+        buildCache: true,
+        printFileSize: false
     },
-  },
-  security:{
-    sri:{
-      algorithm: 'sha512',
-      enable: 'auto'
-    }
-  },
-  performance: {
-    chunkSplit: {
-      strategy: 'split-by-experience',
-    },
+    dev: {
+        lazyCompilation: true,
+        browserLogs: {
+            stackTrace: "summary"
+        },
+        progressBar: true,
 
-    preload: true,
-    prefetch: {
-      type: 'async-chunks',
     },
-    buildCache: true,
-    printFileSize: {
-      diff: true,
-    },
-
-  },
-  dev: {
-    lazyCompilation: true,
-    browserLogs: {
-      stackTrace: "summary"
-    },
-    progressBar: true,
-
-  },
 }));

@@ -31,6 +31,7 @@
     "@types/node": "^25.7.0",
     "@types/nprogress": "^0.2.3",
     "prettier": "^3.8.3",
+    "rsbuild-plugin-compression": "^0.1.1",
     "sass": "^1.99.0",
     "typescript": "^6.0.3",
     "unplugin-auto-import": "^21.0.0",
