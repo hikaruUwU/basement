@@ -1,4 +1,10 @@
-import type { AxiosInstance, AxiosResponse, InternalAxiosRequestConfig, ResponseType } from 'axios';
+import {
+  AxiosError,
+  type AxiosInstance,
+  type AxiosResponse,
+  type InternalAxiosRequestConfig,
+  type ResponseType
+} from 'axios';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
 import { $message } from '@shared/message/messaging.ts';
@@ -16,7 +22,7 @@ axiosRetry(instance, {
   retries: 1,
   retryDelay: (retryCount: number) => retryCount * 1024,
   retryCondition: (error) => {
-    return !error.response || error.code === 'ECONNABORTED';
+    return axiosRetry.isNetworkOrIdempotentRequestError(error) || error.code === AxiosError.ECONNABORTED
   },
   shouldResetTimeout: true,
 });
