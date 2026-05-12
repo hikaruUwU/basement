@@ -1,4 +1,4 @@
-import {defineConfig, type ProxyConfig, type RsbuildPlugin} from '@rsbuild/core';
+import {defineConfig, type ProxyConfig, type RsbuildPlugin, rspack} from '@rsbuild/core';
 import {pluginVue} from '@rsbuild/plugin-vue';
 import AutoImport from 'unplugin-auto-import/rspack';
 import Components from 'unplugin-vue-components/rspack';
@@ -163,6 +163,8 @@ export default defineConfig((_env) => ({
                 ElementPlus.rspack({
                     useSource: false,
                 }),
+                new rspack.CircularDependencyRspackPlugin({}),
+                new rspack.CaseSensitivePlugin()
             ],
             experiments: {
                 nativeWatcher: true,
