@@ -21,7 +21,7 @@ public class RequestChain implements HandlerInterceptor, WebMvcConfigurer {
         local.get().put(key, value);
     }
 
-    public static void putAll(Map<?, ?> map) {
+    public static void putAll(Map<Object, Object> map) {
         local.get().putAll(map);
     }
 
@@ -36,7 +36,7 @@ public class RequestChain implements HandlerInterceptor, WebMvcConfigurer {
     }
 
     @SuppressWarnings("unchecked")
-    public static <K,V> Map<K,V> peek() {
+    public static <K, V> Map<K, V> peek() {
         return (Map<K, V>) Collections.unmodifiableMap(local.get());
     }
 

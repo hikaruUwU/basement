@@ -3,14 +3,20 @@ package com.demo.base.config;
 import jakarta.annotation.PreDestroy;
 import lombok.extern.log4j.Log4j2;
 
+import java.io.Closeable;
 import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.ThreadPoolExecutor;
 import java.util.concurrent.TimeUnit;
 
 @Log4j2
-public abstract class GlobalWarmUpManager {
+public abstract class GlobalWarmUpManager implements Closeable {
     public static final ExecutorService executor = warmupExecutor();
+
+    @Override
+    public void close() {
+        executor.shutdownNow();
+    }
 
     @PreDestroy
     public void destroy(){
