@@ -162,7 +162,7 @@ export default defineConfig((_env) => ({
                     ],
                 }),
                 ElementPlus.rspack({
-                    useSource: false,
+                    useSource: true,
                 }),
                 new rspack.CircularDependencyRspackPlugin({}),
                 new rspack.CaseSensitivePlugin()
