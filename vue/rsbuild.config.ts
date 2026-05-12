@@ -69,6 +69,7 @@ const flag = (mode: string | undefined) => {
 export default defineConfig((_env) => ({
     server: {
         proxy: Object.assign({}, resolveProxy().resolved(), fixed_proxy),
+        compress: false
     },
     source: {
         define: {
