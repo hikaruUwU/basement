@@ -212,4 +212,7 @@ export default defineConfig((_env) => ({
         progressBar: true,
 
     },
+    html: {
+        template: './src/template.html',
+    }
 }));
