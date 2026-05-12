@@ -95,14 +95,14 @@ export default defineConfig((_env) => ({
                 {
                     name: "gzip",
                     options:{
-                        level: 9
+                        level: _env.envMode === 'development' ? 1 : 9
                     }
                 },
                 {
                     name: "brotli",
                     options:{
                         params: {
-                            [zlib.constants.BROTLI_PARAM_QUALITY]: 11
+                            [zlib.constants.BROTLI_PARAM_QUALITY]: _env.envMode === 'development' ? 4 : 11
                         }
                     }
                 }
