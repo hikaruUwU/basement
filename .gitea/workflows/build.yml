@@ -4,9 +4,7 @@ on:
   workflow_dispatch:
 
 jobs:
-
   build:
-
     runs-on: ubuntu-latest
 
     container:
@@ -25,23 +23,17 @@ jobs:
 
       - name: prepare artifact
         run: |
-
-          mkdir artifact
-
+          mkdir -p artifact
           JAR=$(find source/target -name "*.jar" | head -n 1)
-
           cp "$JAR" artifact/app.jar
 
       - name: upload package
-
         env:
-          GITEA_TOKEN: "ce28902bb9f56a326a5abe5c967a2871d664ee7f"
-
+          GITEA_TOKEN: ce28902bb9f56a326a5abe5c967a2871d664ee7f
         run: |
-
           VERSION=$(date +%Y%m%d-%H%M%S)
 
-          curl \
+          curl -X PUT \
             --user UwU:${GITEA_TOKEN} \
             --upload-file artifact/app.jar \
             http://47.121.125.149:3000/api/packages/UwU/generic/basement/${VERSION}/app.jar
