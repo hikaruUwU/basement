@@ -14,7 +14,7 @@ jobs:
 
       - name: clone
         run: |
-          git clone http://47.121.125.149:3000/UwU/basement.git source
+          git clone http://47.121.125.149:3000/mizuki/basement source
 
       - name: build
         run: |
@@ -36,4 +36,4 @@ jobs:
           curl -X PUT \
             --user UwU:${GITEA_TOKEN} \
             --upload-file artifact/app.jar \
-            http://47.121.125.149:3000/api/packages/UwU/generic/basement/${VERSION}/app.jar
+            http://47.121.125.149:3000/api/packages/mizuki/generic/basement/${VERSION}/app.jar
