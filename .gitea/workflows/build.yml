@@ -12,28 +12,27 @@ jobs:
 
     steps:
 
-      - name: debug workspace
-        run: |
-          pwd
-          ls -lah
-
       - name: clone
+        env:
+          GITEA_TOKEN: 3fa3dc8de6e269cd8d20d09f0bb93051b286b4e4
         run: |
-          git clone http://$GITEA_ACTOR:$GITEA_TOKEN@47.121.125.149:3000/mizuki/basement source
+          git config --global http.extraHeader "Authorization: token ${GITEA_TOKEN}"
+          git clone http://47.121.125.149:3000/mizuki/basement source
 
       - name: build
         run: |
+          cd source
           mvn clean package -DskipTests
 
       - name: prepare artifact
         run: |
           mkdir -p artifact
-          JAR=$(find target -name "*.jar" | head -n 1)
+          JAR=$(find source/target -name "*.jar" | head -n 1)
           cp "$JAR" artifact/app.jar
 
       - name: upload package
         env:
-          GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
+          GITEA_TOKEN: 3fa3dc8de6e269cd8d20d09f0bb93051b286b4e4
         run: |
           VERSION=$(date +%Y%m%d-%H%M%S)
 
