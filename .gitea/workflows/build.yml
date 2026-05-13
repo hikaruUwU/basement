@@ -1,42 +1,46 @@
-name: build-java
+name: build-and-push-image
 
 on:
   workflow_dispatch:
+  push:
+    branches:
+      - main
 
 jobs:
   build:
     runs-on: ubuntu-latest
 
-    container:
-      image: maven:3.9.9-eclipse-temurin-21
-
     steps:
+      - name: checkout
+        uses: actions/checkout@v4
 
-      - name: clone
-        env:
-          GITEA_TOKEN: 3fa3dc8de6e269cd8d20d09f0bb93051b286b4e4
-        run: |
-          git config --global http.extraHeader "Authorization: token ${GITEA_TOKEN}"
-          git clone http://47.121.125.149:3000/mizuki/basement source
+      - name: setup java
+        uses: actions/setup-java@v4
+        with:
+          distribution: temurin
+          java-version: 21
 
-      - name: build
+      - name: build jar
         run: |
-          cd source
           mvn clean package -DskipTests
 
-      - name: prepare artifact
+      - name: set version
         run: |
-          mkdir -p artifact
-          JAR=$(find source/target -name "*.jar" | head -n 1)
-          cp "$JAR" artifact/app.jar
+          echo "VERSION=$(date +%Y%m%d-%H%M%S)" >> $GITHUB_ENV
 
-      - name: upload package
-        env:
-          GITEA_TOKEN: 3fa3dc8de6e269cd8d20d09f0bb93051b286b4e4
+      - name: docker login
         run: |
-          VERSION=$(date +%Y%m%d-%H%M%S)
+          echo "3fa3dc8de6e269cd8d20d09f0bb93051b286b4e4" | docker login 47.121.125.149:3000 \
+            -u mizuki \
+            --password-stdin
 
-          curl -X PUT \
-            --user UwU:${GITEA_TOKEN} \
-            --upload-file artifact/app.jar \
-            http://47.121.125.149:3000/api/packages/mizuki/generic/basement/${VERSION}/app.jar
+      - name: build docker image
+        run: |
+          docker build -t 47.121.125.149:3000/mizuki/basement:${VERSION} .
+          docker tag 47.121.125.149:3000/mizuki/basement:${VERSION} \
+                     47.121.125.149:3000/mizuki/basement:latest
+
+      - name: push image
+        run: |
+          docker push 47.121.125.149:3000/mizuki/basement:${VERSION}
+          docker push 47.121.125.149:3000/mizuki/basement:latest
