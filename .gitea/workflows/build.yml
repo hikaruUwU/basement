@@ -17,6 +17,10 @@ jobs:
           pwd
           ls -lah
 
+      - name: clone
+        run: |
+          git clone http://$GITEA_ACTOR:$GITEA_TOKEN@47.121.125.149:3000/mizuki/basement source
+
       - name: build
         run: |
           mvn clean package -DskipTests
