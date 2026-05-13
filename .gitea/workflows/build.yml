@@ -12,24 +12,24 @@ jobs:
 
     steps:
 
-      - name: clone
+      - name: debug workspace
         run: |
-          git clone http://47.121.125.149:3000/mizuki/basement source
+          pwd
+          ls -lah
 
       - name: build
         run: |
-          cd source
           mvn clean package -DskipTests
 
       - name: prepare artifact
         run: |
           mkdir -p artifact
-          JAR=$(find source/target -name "*.jar" | head -n 1)
+          JAR=$(find target -name "*.jar" | head -n 1)
           cp "$JAR" artifact/app.jar
 
       - name: upload package
         env:
-          GITEA_TOKEN: ce28902bb9f56a326a5abe5c967a2871d664ee7f
+          GITEA_TOKEN: ${{ secrets.GITEA_TOKEN }}
         run: |
           VERSION=$(date +%Y%m%d-%H%M%S)
 
