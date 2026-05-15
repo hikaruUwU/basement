@@ -206,6 +206,6 @@ export default defineConfig((_env) => ({
 
     },
     html: {
-        template: './src/template.html',
+        template: './src/template.html'
     }
 }));

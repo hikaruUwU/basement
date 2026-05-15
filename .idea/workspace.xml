@@ -5,72 +5,16 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/lombok.config" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/AMVCGenerator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/BaseApplication.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/detective/EnableSqlLighthouse.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/logger/LogLevel.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/logger/LogRange.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/logger/Monitor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/prevalidate/PreValidate.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/rateLimit/RateLimit.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/requireSession/RequiredSession.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/aspect/AspectOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/aspect/log/LogWrapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/aspect/preValidate/PreValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/GlobalWarmUpManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/InternationalizationConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/MapstructConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/SQLLog4j2Config.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/SerializationConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/ValidatorConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/WebConfig.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/controller/HomeController.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/domain/User.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/domain/response/Result.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/LimitationOverLoadException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/PreConditionNotValidatedException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/RootException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/UnauthenticatedAccessException.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/WebInterceptorOrder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/web/PassInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/web/RateLimitInterceptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/web/SessionManager.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/mapper/UserMapper.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/mapstruct/UserConverter.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/repository/MybatisFlexUserRepository.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/service/AuthService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/spi/encoder/PwdEncoder.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/spi/rate/LocalRateStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/spi/rate/RateLimiterStrategy.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/ASMAnnotationScanner.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/FastAccess.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/ParameterValidator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/RequestChain.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/SpelEvaluator.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Internationalization/messages.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Internationalization/messages_ja_JP.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/Internationalization/messages_zh_CN.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/agent/spring-instrument-6.2.12.jar" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/native-image/reflect-config.json" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/warming/warmup.sql" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore.p12" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/resources/springboot.cer" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/demo/base/BaseApplicationTests.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/template.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/watcher/arthas-boot.jar" beforeDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/nginx.conf" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/public/seo.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cicd/main.go" beforeDir="false" afterPath="$PROJECT_DIR$/cicd/main.go" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/rsbuild.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/rsbuild.config.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -87,6 +31,7 @@
         <option value="Exception" />
         <option value="Enum" />
         <option value="Class" />
+        <option value="Dockerfile" />
       </list>
     </option>
   </component>
@@ -158,6 +103,7 @@
     &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\UwU\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.3\\plugins\\Shell Script\\shellcheck.exe&quot;,
     &quot;Spring Boot.BaseApplication.executor&quot;: &quot;Run&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
@@ -168,10 +114,18 @@
     &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
     &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\UwU\\IdeaProjects\\basement\\vue\\node_modules\\typescript\\lib&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;G:\\IntelliJ IDEA 2025.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\public" />
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\src" />
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue" />
+      <recent name="C:\Users\UwU\IdeaProjects\basement\java" />
+    </key>
+  </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
       <command value="mvn dependency:tree" />
@@ -179,22 +133,6 @@
       <command value="mvn compile jib:jib:build" />
       <command value="mvn jib:build" />
       <command value="mvn clean package" />
-    </option>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationStatuses">
-      <map>
-        <entry key="HttpClient.HttpRequestRunConfigurationType">
-          <value>
-            <map>
-              <entry key="generated-requests | #1" value="STOPPED" />
-              <entry key="generated-requests | #2" value="STOPPED" />
-              <entry key="generated-requests | #5" value="STOPPED" />
-              <entry key="generated-requests | #7" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.BaseApplication">
@@ -213,14 +151,14 @@
     </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <working_directory value="$PROJECT_DIR$" />
-      <kind />
+      <kind value="FILE" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <method v="2" />
     </configuration>
     <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
       <working_directory value="$PROJECT_DIR$" />
-      <kind />
+      <kind value="DIRECTORY" />
       <directory value="$PROJECT_DIR$" />
       <filePath value="$PROJECT_DIR$" />
       <framework value="gotest" />
@@ -253,6 +191,12 @@
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
+    </configuration>
+    <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
+      <deployment type="docker-compose.yml">
+        <settings />
+      </deployment>
+      <method v="2" />
     </configuration>
     <recent_temporary>
       <list>
@@ -318,6 +262,7 @@
       <workItem from="1778754132268" duration="1072000" />
       <workItem from="1778814087607" duration="86000" />
       <workItem from="1778814187628" duration="258000" />
+      <workItem from="1778821248883" duration="1987000" />
     </task>
     <task id="LOCAL-00002" summary="latest">
       <option name="closed" value="true" />

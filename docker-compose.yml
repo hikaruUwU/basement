@@ -1,0 +1,22 @@
+services:
+
+  backend:
+    build:
+      context: ./java
+    container_name: base-backend
+    restart: always
+    ports:
+      - "8080:80"
+    environment:
+      SPRING_PROFILES_ACTIVE: dev
+      TZ: Asia/Shanghai
+
+  frontend:
+    build:
+      context: ./vue
+    container_name: base-frontend
+    restart: always
+    ports:
+      - "80:80"
+    depends_on:
+      - backend
