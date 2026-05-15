@@ -1,10 +1,13 @@
 import { createRouter, createWebHashHistory, type Router, type RouteRecordRaw } from 'vue-router';
 import NProgress from 'nprogress';
 import { ElEmpty } from 'element-plus';
+import { defineComponent } from 'vue';
 
 import('nprogress/nprogress.css');
 
-const Fallback = () => <ElEmpty description="Not Found" />;
+const Fallback = defineComponent(() => {
+  return () => <ElEmpty description="Not Found" />;
+});
 
 let _fixed_routing: RouteRecordRaw[] = [];
 

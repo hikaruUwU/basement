@@ -12,7 +12,7 @@ RUN pnpm install
 
 
 COPY . .
-RUN pnpm build
+RUN pnpm build:production
 
 FROM fholzer/nginx-brotli:latest
 
