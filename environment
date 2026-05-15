@@ -1,0 +1,9 @@
+DB_HOST=172.22.208.1
+DB_PORT=3306
+DB_NAME=connector
+DB_PARAMS=TimeZone=Asia/Shanghai
+
+DB_USERNAME=remote
+DB_PASSWORD=remote
+
+SYSTEM_TZ=Asia/Shanghai
