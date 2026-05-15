@@ -1,0 +1,751 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="AutoImportSettings">
+    <option name="autoReloadType" value="SELECTIVE" />
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
+      <change beforePath="$PROJECT_DIR$/.gitattributes" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/lombok.config" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/mvnw.cmd" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/AMVCGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/BaseApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/detective/EnableSqlLighthouse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/logger/LogLevel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/logger/LogRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/logger/Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/prevalidate/PreValidate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/rateLimit/RateLimit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/annotation/requireSession/RequiredSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/aspect/AspectOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/aspect/log/LogWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/aspect/preValidate/PreValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/GlobalWarmUpManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/InternationalizationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/MapstructConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/SQLLog4j2Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/SerializationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/ValidatorConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/domain/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/domain/response/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/LimitationOverLoadException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/PreConditionNotValidatedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/RootException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/exception/UnauthenticatedAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/WebInterceptorOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/web/PassInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/web/RateLimitInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/interceptor/web/SessionManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/mapstruct/UserConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/repository/MybatisFlexUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/spi/encoder/PwdEncoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/spi/rate/LocalRateStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/spi/rate/RateLimiterStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/ASMAnnotationScanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/FastAccess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/ParameterValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/RequestChain.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/demo/base/util/SpelEvaluator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Internationalization/messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Internationalization/messages_ja_JP.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/Internationalization/messages_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/agent/spring-instrument-6.2.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/native-image/reflect-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/META-INF/warming/warmup.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-dev.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/keystore.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/log4j2-spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/resources/springboot.cer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/java/com/demo/base/BaseApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/template.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/watcher/arthas-boot.jar" beforeDir="false" />
+    </list>
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="AnnotationType" />
+        <option value="Exception" />
+        <option value="Enum" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="GOROOT" url="file://G:/Go" />
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitHubPullRequestSearchHistory">{
+  &quot;lastFilter&quot;: {
+    &quot;state&quot;: &quot;OPEN&quot;,
+    &quot;assignee&quot;: &quot;hikaruUwU&quot;
+  }
+}</component>
+  <component name="GithubPullRequestsUISettings">{
+  &quot;selectedUrlAndAccountId&quot;: {
+    &quot;url&quot;: &quot;git@github.com:hikaruUwU/basement.git&quot;,
+    &quot;accountId&quot;: &quot;1a25bfea-cf2e-4e1b-bde0-2f45d6aaa804&quot;
+  }
+}</component>
+  <component name="HttpClientOnboardingState">{
+  &quot;isOnboardingCommentShown&quot;: true
+}</component>
+  <component name="KubernetesApiPersistence">{}</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="useMavenConfig" value="false" />
+      </MavenGeneralSettings>
+    </option>
+  </component>
+  <component name="ProblemsViewState">
+    <option name="selectedTabId" value="CurrentFile" />
+  </component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 7
+}</component>
+  <component name="ProjectId" id="3CvRzCCP4ggGijH2VhRvIiShgDl" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;Application.AxiosGenerator.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #1.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #2.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #3.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #4.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #5.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #6.executor&quot;: &quot;Run&quot;,
+    &quot;HTTP Request.generated-requests | #7.executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [clean,package].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [compile,jib:dockerBuild].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [compile,jib:jib:build].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [dependency:tree].executor&quot;: &quot;Run&quot;,
+    &quot;Maven.base [jib:build].executor&quot;: &quot;Run&quot;,
+    &quot;ModuleVcsDetector.initialDetectionPerformed&quot;: &quot;true&quot;,
+    &quot;Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;New/updated database configurations found&quot;,
+    &quot;Notification.DoNotAsk-DatabaseConfigFileWatcher.found&quot;: &quot;true&quot;,
+    &quot;RequestMappingsPanelOrder0&quot;: &quot;0&quot;,
+    &quot;RequestMappingsPanelOrder1&quot;: &quot;1&quot;,
+    &quot;RequestMappingsPanelWidth0&quot;: &quot;75&quot;,
+    &quot;RequestMappingsPanelWidth1&quot;: &quot;75&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.go.formatter.settings.were.checked&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\UwU\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.3\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;Spring Boot.BaseApplication.executor&quot;: &quot;Run&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Libraries&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.0&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.0&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;MavenSettings&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;C:\\Users\\UwU\\IdeaProjects\\basement\\vue\\node_modules\\typescript\\lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  }
+}</component>
+  <component name="RunAnythingCache">
+    <option name="myCommands">
+      <command value="mvn dependency:tree" />
+      <command value="mvn compile jib:dockerBuild" />
+      <command value="mvn compile jib:jib:build" />
+      <command value="mvn jib:build" />
+      <command value="mvn clean package" />
+    </option>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationStatuses">
+      <map>
+        <entry key="HttpClient.HttpRequestRunConfigurationType">
+          <value>
+            <map>
+              <entry key="generated-requests | #1" value="STOPPED" />
+              <entry key="generated-requests | #2" value="STOPPED" />
+              <entry key="generated-requests | #5" value="STOPPED" />
+              <entry key="generated-requests | #7" value="STOPPED" />
+            </map>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.BaseApplication">
+    <configuration name="AxiosGenerator" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.demo.base.AxiosGenerator" />
+      <module name="base" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.demo.base.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
+      <working_directory value="$PROJECT_DIR$" />
+      <kind />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
+      <working_directory value="$PROJECT_DIR$" />
+      <kind />
+      <directory value="$PROJECT_DIR$" />
+      <filePath value="$PROJECT_DIR$" />
+      <framework value="gotest" />
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #2" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#2" index="2" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #5" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#5" index="5" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration name="generated-requests | #7" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#7" index="7" runType="Run single request">
+      <method v="2" />
+    </configuration>
+    <configuration default="true" type="JetRunConfigurationType">
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
+      <option name="filePath" />
+      <method v="2" />
+    </configuration>
+    <configuration name="BaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="base" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.demo.base.BaseApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <recent_temporary>
+      <list>
+        <item itemvalue="Application.AxiosGenerator" />
+        <item itemvalue="HTTP Request.generated-requests | #2" />
+        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="HTTP Request.generated-requests | #5" />
+        <item itemvalue="HTTP Request.generated-requests | #7" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
+        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+      </set>
+    </attachedChunks>
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="" />
+      <created>1777264317241</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1777264317241</updated>
+      <workItem from="1777264318359" duration="535000" />
+      <workItem from="1777268882031" duration="3614000" />
+      <workItem from="1777277793242" duration="3274000" />
+      <workItem from="1777338479875" duration="3177000" />
+      <workItem from="1777370106730" duration="1676000" />
+      <workItem from="1777424782082" duration="12153000" />
+      <workItem from="1777511135938" duration="1450000" />
+      <workItem from="1777514173178" duration="2801000" />
+      <workItem from="1777520603160" duration="300000" />
+      <workItem from="1777529477028" duration="11084000" />
+      <workItem from="1777607864927" duration="41000" />
+      <workItem from="1777629009414" duration="190000" />
+      <workItem from="1777870360644" duration="4216000" />
+      <workItem from="1777958250749" duration="4345000" />
+      <workItem from="1777977106130" duration="4772000" />
+      <workItem from="1777985052500" duration="39000" />
+      <workItem from="1778029626973" duration="13787000" />
+      <workItem from="1778050958389" duration="621000" />
+      <workItem from="1778052871567" duration="4942000" />
+      <workItem from="1778077947092" duration="2094000" />
+      <workItem from="1778122607487" duration="4676000" />
+      <workItem from="1778128063506" duration="3292000" />
+      <workItem from="1778166197897" duration="2837000" />
+      <workItem from="1778313962204" duration="3750000" />
+      <workItem from="1778461593960" duration="716000" />
+      <workItem from="1778473400355" duration="10456000" />
+      <workItem from="1778548732724" duration="4590000" />
+      <workItem from="1778559466615" duration="1286000" />
+      <workItem from="1778565030495" duration="2516000" />
+      <workItem from="1778567855517" duration="523000" />
+      <workItem from="1778576115827" duration="1985000" />
+      <workItem from="1778659893838" duration="6281000" />
+      <workItem from="1778681469258" duration="802000" />
+      <workItem from="1778682286197" duration="83000" />
+      <workItem from="1778682381667" duration="1373000" />
+      <workItem from="1778753622744" duration="496000" />
+      <workItem from="1778754132268" duration="1072000" />
+      <workItem from="1778814087607" duration="86000" />
+      <workItem from="1778814187628" duration="258000" />
+    </task>
+    <task id="LOCAL-00002" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777277413799</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1777277413799</updated>
+    </task>
+    <task id="LOCAL-00003" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777278481710</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1777278481710</updated>
+    </task>
+    <task id="LOCAL-00004" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777278805540</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1777278805540</updated>
+    </task>
+    <task id="LOCAL-00005" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777371781329</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1777371781329</updated>
+    </task>
+    <task id="LOCAL-00006" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777456859700</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1777456859700</updated>
+    </task>
+    <task id="LOCAL-00007" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777516666803</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1777516666803</updated>
+    </task>
+    <task id="LOCAL-00008" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777539394454</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1777539394454</updated>
+    </task>
+    <task id="LOCAL-00009" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777541347906</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1777541347906</updated>
+    </task>
+    <task id="LOCAL-00010" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777872972766</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1777872972766</updated>
+    </task>
+    <task id="LOCAL-00011" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777959128321</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1777959128321</updated>
+    </task>
+    <task id="LOCAL-00012" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777959281712</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1777959281712</updated>
+    </task>
+    <task id="LOCAL-00013" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777960824504</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1777960824504</updated>
+    </task>
+    <task id="LOCAL-00014" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777962600594</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1777962600594</updated>
+    </task>
+    <task id="LOCAL-00015" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777982096530</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1777982096530</updated>
+    </task>
+    <task id="LOCAL-00016" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777983482038</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1777983482038</updated>
+    </task>
+    <task id="LOCAL-00017" summary="latest">
+      <option name="closed" value="true" />
+      <created>1777983511481</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1777983511481</updated>
+    </task>
+    <task id="LOCAL-00018" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778035581627</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1778035581627</updated>
+    </task>
+    <task id="LOCAL-00019" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778038197890</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1778038197890</updated>
+    </task>
+    <task id="LOCAL-00020" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778039216889</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1778039216889</updated>
+    </task>
+    <task id="LOCAL-00021" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778042145979</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1778042145979</updated>
+    </task>
+    <task id="LOCAL-00022" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778051397552</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1778051397552</updated>
+    </task>
+    <task id="LOCAL-00023" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778061348819</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1778061348819</updated>
+    </task>
+    <task id="LOCAL-00024" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778079950577</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1778079950577</updated>
+    </task>
+    <task id="LOCAL-00025" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778128076270</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1778128076270</updated>
+    </task>
+    <task id="LOCAL-00026" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778128119806</created>
+      <option name="number" value="00026" />
+      <option name="presentableId" value="LOCAL-00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1778128119806</updated>
+    </task>
+    <task id="LOCAL-00027" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778485536847</created>
+      <option name="number" value="00027" />
+      <option name="presentableId" value="LOCAL-00027" />
+      <option name="project" value="LOCAL" />
+      <updated>1778485536847</updated>
+    </task>
+    <task id="LOCAL-00028" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778486543905</created>
+      <option name="number" value="00028" />
+      <option name="presentableId" value="LOCAL-00028" />
+      <option name="project" value="LOCAL" />
+      <updated>1778486543905</updated>
+    </task>
+    <task id="LOCAL-00029" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778486567243</created>
+      <option name="number" value="00029" />
+      <option name="presentableId" value="LOCAL-00029" />
+      <option name="project" value="LOCAL" />
+      <updated>1778486567243</updated>
+    </task>
+    <task id="LOCAL-00030" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778489311324</created>
+      <option name="number" value="00030" />
+      <option name="presentableId" value="LOCAL-00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1778489311324</updated>
+    </task>
+    <task id="LOCAL-00031" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778548980009</created>
+      <option name="number" value="00031" />
+      <option name="presentableId" value="LOCAL-00031" />
+      <option name="project" value="LOCAL" />
+      <updated>1778548980009</updated>
+    </task>
+    <task id="LOCAL-00032" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778549933979</created>
+      <option name="number" value="00032" />
+      <option name="presentableId" value="LOCAL-00032" />
+      <option name="project" value="LOCAL" />
+      <updated>1778549933979</updated>
+    </task>
+    <task id="LOCAL-00033" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778559932589</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1778559932589</updated>
+    </task>
+    <task id="LOCAL-00034" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778560527184</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1778560527184</updated>
+    </task>
+    <task id="LOCAL-00035" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778566587215</created>
+      <option name="number" value="00035" />
+      <option name="presentableId" value="LOCAL-00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1778566587215</updated>
+    </task>
+    <task id="LOCAL-00036" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778566702655</created>
+      <option name="number" value="00036" />
+      <option name="presentableId" value="LOCAL-00036" />
+      <option name="project" value="LOCAL" />
+      <updated>1778566702655</updated>
+    </task>
+    <task id="LOCAL-00037" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778567521890</created>
+      <option name="number" value="00037" />
+      <option name="presentableId" value="LOCAL-00037" />
+      <option name="project" value="LOCAL" />
+      <updated>1778567521890</updated>
+    </task>
+    <task id="LOCAL-00038" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778568369885</created>
+      <option name="number" value="00038" />
+      <option name="presentableId" value="LOCAL-00038" />
+      <option name="project" value="LOCAL" />
+      <updated>1778568369885</updated>
+    </task>
+    <task id="LOCAL-00039" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778577201636</created>
+      <option name="number" value="00039" />
+      <option name="presentableId" value="LOCAL-00039" />
+      <option name="project" value="LOCAL" />
+      <updated>1778577201636</updated>
+    </task>
+    <task id="LOCAL-00040" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778661635997</created>
+      <option name="number" value="00040" />
+      <option name="presentableId" value="LOCAL-00040" />
+      <option name="project" value="LOCAL" />
+      <updated>1778661635997</updated>
+    </task>
+    <task id="LOCAL-00041" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778661822931</created>
+      <option name="number" value="00041" />
+      <option name="presentableId" value="LOCAL-00041" />
+      <option name="project" value="LOCAL" />
+      <updated>1778661822931</updated>
+    </task>
+    <task id="LOCAL-00042" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778661881980</created>
+      <option name="number" value="00042" />
+      <option name="presentableId" value="LOCAL-00042" />
+      <option name="project" value="LOCAL" />
+      <updated>1778661881980</updated>
+    </task>
+    <task id="LOCAL-00043" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778662202401</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1778662202401</updated>
+    </task>
+    <task id="LOCAL-00044" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778662314352</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1778662314352</updated>
+    </task>
+    <task id="LOCAL-00045" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778662582956</created>
+      <option name="number" value="00045" />
+      <option name="presentableId" value="LOCAL-00045" />
+      <option name="project" value="LOCAL" />
+      <updated>1778662582956</updated>
+    </task>
+    <task id="LOCAL-00046" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778662718477</created>
+      <option name="number" value="00046" />
+      <option name="presentableId" value="LOCAL-00046" />
+      <option name="project" value="LOCAL" />
+      <updated>1778662718477</updated>
+    </task>
+    <task id="LOCAL-00047" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778662883599</created>
+      <option name="number" value="00047" />
+      <option name="presentableId" value="LOCAL-00047" />
+      <option name="project" value="LOCAL" />
+      <updated>1778662883599</updated>
+    </task>
+    <task id="LOCAL-00048" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778663109016</created>
+      <option name="number" value="00048" />
+      <option name="presentableId" value="LOCAL-00048" />
+      <option name="project" value="LOCAL" />
+      <updated>1778663109016</updated>
+    </task>
+    <task id="LOCAL-00049" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778664094301</created>
+      <option name="number" value="00049" />
+      <option name="presentableId" value="LOCAL-00049" />
+      <option name="project" value="LOCAL" />
+      <updated>1778664094301</updated>
+    </task>
+    <task id="LOCAL-00050" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778684697116</created>
+      <option name="number" value="00050" />
+      <option name="presentableId" value="LOCAL-00050" />
+      <option name="project" value="LOCAL" />
+      <updated>1778684697117</updated>
+    </task>
+    <option name="localTasksCounter" value="51" />
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="rm/main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="latest" />
+    <option name="LAST_COMMIT_MESSAGE" value="latest" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
+  </component>
+</project>
