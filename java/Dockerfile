@@ -19,7 +19,7 @@ RUN mkdir -p ~/.m2 && \
 COPY pom.xml .
 
 RUN --mount=type=cache,target=/root/.m2 \
-    mvn dependency:go-offline -T 1C
+    mvn dependency:resolve -T 1C
 
 COPY src ./src
 
