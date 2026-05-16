@@ -3,16 +3,21 @@ FROM node:22-alpine AS builder
 ENV CI=true
 
 WORKDIR /app
-RUN npm install -g pnpm
+
+RUN --mount=type=cache,target=/root/.npm \
+    npm install -g pnpm
 
 RUN pnpm config set ignore-scripts true
 
 COPY package.json pnpm-workspace.yaml* pnpm-lock.yaml* ./
-RUN pnpm install
 
+RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
+    pnpm install
 
 COPY . .
-RUN pnpm build:production
+
+RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
+    pnpm build:production
 
 FROM fholzer/nginx-brotli:latest
 
