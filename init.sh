@@ -1,5 +1,7 @@
 #!/bin/bash
 
+git config --global credential.helper store
+
 if [ "$(id -u)" -ne 0 ]; then
   echo "Not root env"
   exit 1
@@ -13,9 +15,14 @@ cat <<EOF > /etc/docker/daemon.json
     "https://hub.rat.dev",
     "https://dockerpull.pw",
     "https://dockerproxy.cn"
-  ]
+  ],
+  "features": {
+    "buildkit": true
+  }
 }
 EOF
+
+systemctl restart docker
 
 systemctl daemon-reload
 systemctl restart docker
