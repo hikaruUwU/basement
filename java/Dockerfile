@@ -19,12 +19,12 @@ RUN mkdir -p ~/.m2 && \
 COPY pom.xml .
 
 RUN --mount=type=cache,target=/root/.m2 \
-    mvn dependency:go-offline
+    mvn dependency:go-offline -T 1C
 
 COPY src ./src
 
 RUN --mount=type=cache,target=/root/.m2 \
-    mvn clean package -DskipTests
+    mvn clean package -DskipTests -T 1C
 
 FROM eclipse-temurin:21-jre-alpine
 
