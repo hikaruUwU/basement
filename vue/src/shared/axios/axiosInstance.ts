@@ -43,7 +43,7 @@ instance.interceptors.response.use(
   },
   (error) => {
     $message.preset('error')({
-      message: error,
+      message: error?.response?.data?.message ?? error?.message ?? 'Unknown Error',
     });
     return Promise.reject(error);
   },
