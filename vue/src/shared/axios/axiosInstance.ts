@@ -3,7 +3,7 @@ import {
   type AxiosInstance,
   type AxiosResponse,
   type InternalAxiosRequestConfig,
-  type ResponseType
+  type ResponseType,
 } from 'axios';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
@@ -22,7 +22,9 @@ axiosRetry(instance, {
   retries: 1,
   retryDelay: (retryCount: number) => retryCount * 1024,
   retryCondition: (error) => {
-    return axiosRetry.isNetworkOrIdempotentRequestError(error) || error.code === AxiosError.ECONNABORTED
+    return (
+      axiosRetry.isNetworkOrIdempotentRequestError(error) || error.code === AxiosError.ECONNABORTED
+    );
   },
   shouldResetTimeout: true,
 });

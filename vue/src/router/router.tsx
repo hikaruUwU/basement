@@ -6,7 +6,7 @@ import { defineComponent } from 'vue';
 import('nprogress/nprogress.css');
 
 const Fallback = defineComponent(() => {
-  return () => <ElEmpty description="Not Found" />;
+  return () => <ElEmpty description="Not Found" style={{ margin: '100px' }} />;
 });
 
 let _fixed_routing: RouteRecordRaw[] = [];
