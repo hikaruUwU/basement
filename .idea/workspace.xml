@@ -4,16 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change beforePath="$PROJECT_DIR$/.idea/json_assistant_history.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/components.d.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/public/seo.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/public/seo.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/rsbuild.config.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/rsbuild.config.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/router/router.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/router/router.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/shared/axios/axiosInstance.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/shared/axios/axiosInstance.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/vue/src/template.html" beforeDir="false" afterPath="$PROJECT_DIR$/vue/src/template.html" afterDir="false" />
-    </list>
+    <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -248,15 +239,7 @@
       <workItem from="1778856366305" duration="1681000" />
       <workItem from="1778900428214" duration="2192000" />
       <workItem from="1778903907362" duration="1364000" />
-      <workItem from="1778907671188" duration="839000" />
-    </task>
-    <task id="LOCAL-00009" summary="latest">
-      <option name="closed" value="true" />
-      <created>1777541347906</created>
-      <option name="number" value="00009" />
-      <option name="presentableId" value="LOCAL-00009" />
-      <option name="project" value="LOCAL" />
-      <updated>1777541347906</updated>
+      <workItem from="1778907671188" duration="1317000" />
     </task>
     <task id="LOCAL-00010" summary="latest">
       <option name="closed" value="true" />
@@ -642,7 +625,15 @@
       <option name="project" value="LOCAL" />
       <updated>1778907567025</updated>
     </task>
-    <option name="localTasksCounter" value="58" />
+    <task id="LOCAL-00058" summary="latest">
+      <option name="closed" value="true" />
+      <created>1778908525907</created>
+      <option name="number" value="00058" />
+      <option name="presentableId" value="LOCAL-00058" />
+      <option name="project" value="LOCAL" />
+      <updated>1778908525907</updated>
+    </task>
+    <option name="localTasksCounter" value="59" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
