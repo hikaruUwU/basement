@@ -177,32 +177,31 @@
     </dependencies>
     <build>
         <plugins>
-            <plugin>
-                <groupId>com.google.cloud.tools</groupId>
-                <artifactId>jib-maven-plugin</artifactId>
-                <version>3.5.1</version>
-                <configuration>
-                    <from>
-                        <image>eclipse-temurin:21-jre-alpine</image>
-                    </from>
-                    <to>
-                        <image>localhost:5000/base</image>
-                        <tags>
-                            <tag>${project.version}</tag>
-                            <tag>latest</tag>
-                        </tags>
-                    </to>
-                    <container>
-                        <mainClass>com.demo.base.BaseApplication</mainClass> <jvmFlags>
-                        <jvmFlag>-XX:+UseContainerSupport</jvmFlag>
-                        <jvmFlag>-Xmx1024m</jvmFlag>
-                    </jvmFlags>
-                        <workingDirectory>/app</workingDirectory>
-<!--                        <user>spring:spring</user>-->
-                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>
-                    </container>
-                </configuration>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>com.google.cloud.tools</groupId>-->
+<!--                <artifactId>jib-maven-plugin</artifactId>-->
+<!--                <version>3.5.1</version>-->
+<!--                <configuration>-->
+<!--                    <from>-->
+<!--                        <image>eclipse-temurin:21-jre-alpine</image>-->
+<!--                    </from>-->
+<!--                    <to>-->
+<!--                        <image>localhost:5000/base</image>-->
+<!--                        <tags>-->
+<!--                            <tag>${project.version}</tag>-->
+<!--                            <tag>latest</tag>-->
+<!--                        </tags>-->
+<!--                    </to>-->
+<!--                    <container>-->
+<!--                        <mainClass>com.demo.base.BaseApplication</mainClass> <jvmFlags>-->
+<!--                        <jvmFlag>-XX:+UseContainerSupport</jvmFlag>-->
+<!--                        <jvmFlag>-Xmx1024m</jvmFlag>-->
+<!--                    </jvmFlags>-->
+<!--                        <workingDirectory>/app</workingDirectory>-->
+<!--                        <creationTime>USE_CURRENT_TIMESTAMP</creationTime>-->
+<!--                    </container>-->
+<!--                </configuration>-->
+<!--            </plugin>-->
 
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
