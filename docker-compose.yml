@@ -4,6 +4,8 @@ services:
       context: ./java
     container_name: base-backend
     restart: always
+    ports:
+      - "127.0.0.1:5005:5005"
     expose:
       - "8080"
     environment:

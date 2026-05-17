@@ -35,6 +35,7 @@ COPY --from=builder /app/target/*.jar app.jar
 EXPOSE 8080
 
 ENV JAVA_OPTS="-Xms1024m -Xmx1024m \
+    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 \
     -XX:+UseG1GC \
     -XX:MaxGCPauseMillis=200 \
     -XX:+ExitOnOutOfMemoryError \
@@ -43,5 +44,15 @@ ENV JAVA_OPTS="-Xms1024m -Xmx1024m \
     -Djava.security.egd=file:/dev/./urandom \
     -Dfile.encoding=UTF-8 \
     -XX:+PrintCommandLineFlags"
+
+#ENV JAVA_OPTS="-Xms1024m -Xmx1024m \
+#    -XX:+UseG1GC \
+#    -XX:MaxGCPauseMillis=200 \
+#    -XX:+ExitOnOutOfMemoryError \
+#    -XX:+HeapDumpOnOutOfMemoryError \
+#    -XX:HeapDumpPath=/app/logs/heapdump.hprof \
+#    -Djava.security.egd=file:/dev/./urandom \
+#    -Dfile.encoding=UTF-8 \
+#    -XX:+PrintCommandLineFlags"
 
 ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
