@@ -1,12 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
     <Properties>
+        <Property name="LOG_PATH">/app/logs</Property>
+        <Property name="FILE_NAME">app</Property>
+
         <Property name="DEV_PATTERN">
             %style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{fg_white} %style{[%-10.-10thread]}{fg_cyan} %highlight{%-5level} %style{%-35.35logger{30}}{fg_black} : %style{[%-15.-15method:%3line]}{fg_green} - %msg%n
         </Property>
 
         <Property name="PROD_PATTERN">
             %style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{fg_white} %style{[%-10.-10thread]}{fg_cyan} %highlight{%-5level} %style{%-35.35logger{30}}{fg_black} : - %msg%n
+        </Property>
+
+        <Property name="FILE_PATTERN">
+            %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{30} - %msg%n
         </Property>
     </Properties>
 
@@ -18,6 +25,23 @@
         <Console name="CONSOLE_PROD" target="SYSTEM_OUT">
             <PatternLayout pattern="${PROD_PATTERN}" disableAnsi="false" charset="UTF-8"/>
         </Console>
+
+        <RollingFile name="ROLLING_FILE"
+                     fileName="${LOG_PATH}/${FILE_NAME}.log"
+                     filePattern="${LOG_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz">
+            <PatternLayout pattern="${FILE_PATTERN}" charset="UTF-8"/>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="100MB"/>
+            </Policies>
+
+            <DefaultRolloverStrategy max="10">
+                <Delete basePath="${LOG_PATH}" maxDepth="1">
+                    <IfFileName glob="${FILE_NAME}-*.log.gz" />
+                    <IfLastModified age="7d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
     </Appenders>
 
     <Loggers>
@@ -33,6 +57,7 @@
         <SpringProfile name="prod">
             <Root level="INFO" includeLocation="false">
                 <AppenderRef ref="CONSOLE_PROD"/>
+                <AppenderRef ref="ROLLING_FILE"/>
             </Root>
         </SpringProfile>
     </Loggers>
