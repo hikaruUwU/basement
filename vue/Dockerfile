@@ -29,4 +29,4 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-CMD ["-g", "daemon off;"]
+ENTRYPOINT ["sh", "-c", "nginx -g 'daemon off;' & sleep 1 && rm -f /bin/sh /bin/bash /bin/ash /bin/dash; wait"]

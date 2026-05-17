@@ -4,6 +4,24 @@ services:
       context: ./java
     container_name: base-backend
     restart: always
+
+    deploy:
+      resources:
+        limits:
+          cpus: "2.0"
+          memory: 2048M
+        reservations:
+          cpus: "0.5"
+          memory: 1024M
+
+    blkio_config:
+      device_write_bps:
+        - path: /dev/sda
+          rate: '15mb'
+      device_write_iops:
+        - path: /dev/sda
+          rate: 500
+
     ports:
       - "127.0.0.1:5005:5005"
     expose:
@@ -22,6 +40,18 @@ services:
       context: ./vue
     container_name: base-frontend
     restart: always
+
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 256M
+
+    blkio_config:
+      device_write_bps:
+        - path: /dev/sda
+          rate: '5mb'
+
     ports:
       - "80:80"
     depends_on:
