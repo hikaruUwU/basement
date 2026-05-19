@@ -19,7 +19,7 @@ COPY . .
 RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
     pnpm build:production
 
-FROM fholzer/nginx-brotli:latest
+FROM fholzer/nginx-brotli:v1.31
 
 COPY nginx.conf /etc/nginx/nginx.conf
 
@@ -29,4 +29,4 @@ COPY --from=builder /app/dist /usr/share/nginx/html
 
 EXPOSE 80
 
-ENTRYPOINT ["sh", "-c", "nginx -g 'daemon off;' & sleep 1 && rm -f /bin/sh /bin/bash /bin/ash /bin/dash; wait"]
+ENTRYPOINT ["nginx", "-g", "daemon off;"]

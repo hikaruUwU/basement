@@ -5,9 +5,14 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
+      <change afterPath="$PROJECT_DIR$/java/.dockerignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/json_assistant_history.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/java/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/resources/log4j2-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/resources/log4j2-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vue/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/vue/nginx.conf" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -289,15 +294,10 @@
       <workItem from="1779009340271" duration="1295000" />
       <workItem from="1779024545147" duration="456000" />
       <workItem from="1779025015450" duration="22000" />
-      <workItem from="1779025377136" duration="3104000" />
-    </task>
-    <task id="LOCAL-00027" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778485536847</created>
-      <option name="number" value="00027" />
-      <option name="presentableId" value="LOCAL-00027" />
-      <option name="project" value="LOCAL" />
-      <updated>1778485536847</updated>
+      <workItem from="1779025377136" duration="3274000" />
+      <workItem from="1779103780313" duration="2417000" />
+      <workItem from="1779162319103" duration="4422000" />
+      <workItem from="1779170629418" duration="740000" />
     </task>
     <task id="LOCAL-00028" summary="latest">
       <option name="closed" value="true" />
@@ -683,7 +683,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779027469266</updated>
     </task>
-    <option name="localTasksCounter" value="76" />
+    <task id="LOCAL-00076" summary="latest">
+      <option name="closed" value="true" />
+      <created>1779028653268</created>
+      <option name="number" value="00076" />
+      <option name="presentableId" value="LOCAL-00076" />
+      <option name="project" value="LOCAL" />
+      <updated>1779028653268</updated>
+    </task>
+    <option name="localTasksCounter" value="77" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

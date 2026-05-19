@@ -3,25 +3,21 @@ services:
     build:
       context: ./java
     container_name: base-backend
-    restart: always
-
+    volumes:
+      - ./logs/jvm:/app/logs
     deploy:
+      restart_policy:
+        condition: on-failure
+        delay: 5s
+        max_attempts: 3
+        window: 120s
       resources:
         limits:
           cpus: "2.0"
           memory: 2048M
         reservations:
           cpus: "0.5"
-          memory: 1024M
-
-    blkio_config:
-      device_write_bps:
-        - path: /dev/sda
-          rate: '15mb'
-      device_write_iops:
-        - path: /dev/sda
-          rate: 500
-
+          memory: 1792M
     ports:
       - "127.0.0.1:5005:5005"
     expose:
@@ -34,23 +30,22 @@ services:
       MYBATIS_FLEX_DATASOURCE_MASTER_PASSWORD: ${DB_PASSWORD}
     networks:
       - app-tier
-
   frontend:
     build:
       context: ./vue
     container_name: base-frontend
     restart: always
+    volumes:
+      - ./logs/nginx:/var/log/nginx
 
     deploy:
       resources:
         limits:
-          cpus: '1.0'
-          memory: 256M
-
-    blkio_config:
-      device_write_bps:
-        - path: /dev/sda
-          rate: '5mb'
+          cpus: '2.0'
+          memory: 512M
+        reservations:
+          cpus: '0.2'
+          memory: 64M
 
     ports:
       - "80:80"
