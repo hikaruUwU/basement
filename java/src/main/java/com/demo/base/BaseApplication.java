@@ -19,6 +19,8 @@ public class BaseApplication {
     static {
         if ("prod".equalsIgnoreCase(System.getProperty("spring.profiles.active"))) {
             System.setProperty("log4j2.contextSelector", "org.apache.logging.log4j.core.async.AsyncLoggerContextSelector");
+            System.setProperty("log4j2.AsyncQueueFullPolicy", "Discard");
+            System.setProperty("log4j2.DiscardThreshold", "INFO");
         }
     }
 }

@@ -13,6 +13,7 @@ import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
+import org.springframework.web.servlet.resource.NoResourceFoundException;
 
 import java.util.Objects;
 
@@ -46,9 +47,9 @@ public class GlobalErrorWebExceptionHandler {
         return $401;
     }
 
-    @ExceptionHandler(HttpMessageNotReadableException.class)
+    @ExceptionHandler({HttpMessageNotReadableException.class, NoResourceFoundException.class})
     @ResponseStatus(HttpStatus.OK)
-    public Result<Void> handleHttpMessageNotReadableException(HttpMessageNotReadableException ex) {
+    public Result<Void> handleHttpMessageNotReadableException(Exception ex) {
         return Result.fail(ex.getMessage());
     }
 
