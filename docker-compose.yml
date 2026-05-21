@@ -54,6 +54,15 @@ services:
     networks:
       - app-tier
 
+  goaccess:
+    image: allinurl/goaccess:latest
+    container_name: base-monitor
+    profiles:
+      - tools
+    volumes:
+      - ./logs/nginx:/srv/logs
+    entrypoint: [ "goaccess", "/srv/logs/access.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
+
 networks:
   app-tier:
     driver: bridge
