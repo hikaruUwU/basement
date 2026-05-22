@@ -1,0 +1,44 @@
+services:
+  mysql-db:
+    image: mysql:9.7
+    container_name: mysql_server
+    restart: always
+    environment:
+      MYSQL_ROOT_PASSWORD: "${MYSQL_ROOT_PASSWORD}"
+      MYSQL_DATABASE: "myapp_db"
+      MYSQL_USER: "db_user"
+      MYSQL_PASSWORD: "UserPassword_123"
+    ports:
+      - "0.0.0.0:3306:3306"
+    volumes:
+      - ./database:/var/lib/mysql
+    command:
+      - --character-set-server=utf8mb4
+      - --collation-server=utf8mb4_unicode_ci
+      - --default-time-zone=+08:00
+      - --skip-name-resolve
+      - --max_connections=500
+    networks:
+      - mysql-network
+
+  mysql-backup-tool:
+    image: mysql:9.7
+    container_name: mysql_backup_runner
+    profiles:
+      - tools
+    networks:
+      - mysql-network
+    volumes:
+      - ./backups:/output
+    environment:
+      MYSQL_PWD: "${MYSQL_ROOT_PASSWORD}"
+    entrypoint: [ "/bin/sh", "-c" ]
+    command:
+      - |
+        echo "[Backup] Starting"
+        mysqldump -hmysql-db -uroot --all-databases --single-transaction --set-gtid-purged=OFF --triggers --routines --events > /output/backup_$$(date +%Y%m%d_%H%M%S).sql
+        echo "[Backup] Completed"
+
+networks:
+  mysql-network:
+    driver: bridge

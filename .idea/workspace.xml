@@ -5,10 +5,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
+      <change afterPath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cicd/.env" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/cicd/enviroment" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/BaseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/BaseApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/resources/log4j2-spring.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/resources/log4j2-spring.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/cicd@deprecated/go.mod" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cicd@deprecated/go.sum" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/cicd@deprecated/main.go" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -76,6 +79,8 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "Application.AxiosGenerator.executor": "Run",
+    "Docker.cicd.mysql-backup-tool: Compose Deployment.executor": "Run",
+    "Docker.cicd: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.goaccess: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
     "HTTP Request.generated-requests | #1.executor": "Run",
@@ -142,7 +147,7 @@
       <command value="mvn clean package -DskipTests -T 1C" />
     </option>
   </component>
-  <component name="RunManager" selected="Docker.docker-compose.yml.goaccess: Compose Deployment">
+  <component name="RunManager" selected="Docker.cicd.mysql-backup-tool: Compose Deployment">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
@@ -203,6 +208,27 @@
       </deployment>
       <method v="2" />
     </configuration>
+    <configuration name="cicd: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="cicd/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="cicd.mysql-backup-tool: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="mysql-backup-tool" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="cicd/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration name="docker-compose.yml: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
       <deployment type="docker-compose.yml">
         <settings>
@@ -242,6 +268,8 @@
       <method v="2" />
     </configuration>
     <list>
+      <item itemvalue="Docker.cicd.mysql-backup-tool: Compose Deployment" />
+      <item itemvalue="Docker.cicd: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml.goaccess: Compose Deployment" />
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="npm.dev" />
@@ -251,6 +279,8 @@
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="Docker.cicd.mysql-backup-tool: Compose Deployment" />
+        <item itemvalue="Docker.cicd: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.goaccess: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       </list>
@@ -327,15 +357,9 @@
       <workItem from="1779170629418" duration="740000" />
       <workItem from="1779174482119" duration="1056000" />
       <workItem from="1779268278356" duration="2317000" />
-      <workItem from="1779339736988" duration="5263000" />
-    </task>
-    <task id="LOCAL-00030" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778489311324</created>
-      <option name="number" value="00030" />
-      <option name="presentableId" value="LOCAL-00030" />
-      <option name="project" value="LOCAL" />
-      <updated>1778489311324</updated>
+      <workItem from="1779339736988" duration="5733000" />
+      <workItem from="1779373618220" duration="3005000" />
+      <workItem from="1779422656562" duration="2854000" />
     </task>
     <task id="LOCAL-00031" summary="latest">
       <option name="closed" value="true" />
@@ -721,7 +745,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779342606281</updated>
     </task>
-    <option name="localTasksCounter" value="79" />
+    <task id="LOCAL-00079" summary="latest">
+      <option name="closed" value="true" />
+      <created>1779365434948</created>
+      <option name="number" value="00079" />
+      <option name="presentableId" value="LOCAL-00079" />
+      <option name="project" value="LOCAL" />
+      <updated>1779365434948</updated>
+    </task>
+    <option name="localTasksCounter" value="80" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
