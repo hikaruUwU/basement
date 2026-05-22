@@ -12,7 +12,7 @@ const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 
 const rootDir = path.resolve(__dirname, '..');
-const targetRootDir = path.join(rootDir, 'target');
+const targetRootDir = path.join(rootDir, 'dist');
 
 if (fs.existsSync(targetRootDir)) {
     fs.rmSync(targetRootDir, {recursive: true, force: true});

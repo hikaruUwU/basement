@@ -3,9 +3,17 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
+  <component name="AutomaticModuleUnloader">
+    <loaded-modules>
+      <module name="base" />
+      <module name="web" />
+      <module name="packages" />
+      <module name="vue" />
+    </loaded-modules>
+  </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change afterPath="$PROJECT_DIR$/cicd/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -120,7 +128,7 @@
     "npm.dev.executor": "Run",
     "npm.prettier.executor": "Run",
     "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.0",
+    "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "ts.external.directory.path": "G:\\IntelliJ IDEA 2025.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
@@ -371,15 +379,7 @@
       <workItem from="1779339736988" duration="5733000" />
       <workItem from="1779373618220" duration="3005000" />
       <workItem from="1779422656562" duration="2902000" />
-      <workItem from="1779459826180" duration="7319000" />
-    </task>
-    <task id="LOCAL-00033" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778559932589</created>
-      <option name="number" value="00033" />
-      <option name="presentableId" value="LOCAL-00033" />
-      <option name="project" value="LOCAL" />
-      <updated>1778559932589</updated>
+      <workItem from="1779459826180" duration="7523000" />
     </task>
     <task id="LOCAL-00034" summary="latest">
       <option name="closed" value="true" />
@@ -765,11 +765,22 @@
       <option name="project" value="LOCAL" />
       <updated>1779468019240</updated>
     </task>
-    <option name="localTasksCounter" value="82" />
+    <task id="LOCAL-00082" summary="latest">
+      <option name="closed" value="true" />
+      <created>1779468184790</created>
+      <option name="number" value="00082" />
+      <option name="presentableId" value="LOCAL-00082" />
+      <option name="project" value="LOCAL" />
+      <updated>1779468184790</updated>
+    </task>
+    <option name="localTasksCounter" value="83" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="UnloadedModulesList">
+    <module name="apps" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
