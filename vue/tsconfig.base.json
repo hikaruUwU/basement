@@ -1,0 +1,15 @@
+{
+  "compilerOptions": {
+    "target": "ESNext",
+    "module": "ESNext",
+    "moduleResolution": "bundler",
+
+    "strict": true,
+
+    "allowImportingTsExtensions": true,
+
+    "jsx": "preserve",
+
+    "verbatimModuleSyntax": true
+  }
+}

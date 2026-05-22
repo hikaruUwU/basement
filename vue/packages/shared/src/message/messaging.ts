@@ -1,6 +1,6 @@
 import type { MessageProps } from 'element-plus/es/components/message/src/message';
 import { ElMessage, type MessageParams } from 'element-plus';
-import { getAppContext } from '@shared/util/context.ts';
+import { getAppContext } from '../util/context.ts';
 
 const joint = {
   duration: 3000,

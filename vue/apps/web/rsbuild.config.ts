@@ -7,6 +7,7 @@ import { pluginVueJsx } from '@rsbuild/plugin-vue-jsx';
 import { pluginSass } from '@rsbuild/plugin-sass';
 import ElementPlus from 'unplugin-element-plus';
 import { pluginCompression } from 'rsbuild-plugin-compression';
+import { pluginSourceBuild } from '@rsbuild/plugin-source-build';
 import * as zlib from 'node:zlib';
 
 const fixed_proxy: ProxyConfig = [];
@@ -88,6 +89,9 @@ export default defineConfig((_env) => ({
     // },
   },
   plugins: [
+    pluginSourceBuild({
+      sourceField: '@frontier/source',
+    }),
     pluginCompression({
       algorithms: [
         {

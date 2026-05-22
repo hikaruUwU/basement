@@ -1,5 +1,5 @@
 import type { AxiosRequestConfig } from 'axios';
-import type { UserLogin } from '@/src/type/User.ts';
+import type { UserLogin } from 'app/web/src/type/User.ts';
 
 export type API = Partial<AxiosRequestConfig<unknown>> &
   Required<Pick<AxiosRequestConfig<unknown>, 'url' | 'method'>>;

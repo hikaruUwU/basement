@@ -7,7 +7,7 @@ import {
 } from 'axios';
 import axios from 'axios';
 import axiosRetry from 'axios-retry';
-import { $message } from '@shared/message/messaging.ts';
+import { $message } from '../message/messaging.ts';
 
 export const instance: AxiosInstance = axios.create({
   baseURL: import.meta.env.PUBLIC_AXIOS_BASE_URL as string,

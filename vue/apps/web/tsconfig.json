@@ -1,0 +1,19 @@
+{
+  "extends": "../../tsconfig.base.json",
+
+  "references": [
+    {
+      "path": "../../packages/shared"
+    }
+  ],
+
+  "compilerOptions": {
+    "baseUrl": ".",
+
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  },
+
+  "include": ["src", "rsbuild.config.ts"]
+}

@@ -5,13 +5,51 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change afterPath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/cicd/.env" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/cicd/enviroment" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/apps/apps.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/apps/web/.env.production" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/packages/packages.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/packages/shared/package.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/packages/shared/src/env.d.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/packages/shared/tsconfig.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/scripts/collect-dist.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/tsconfig.base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/cicd@deprecated/go.mod" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cicd@deprecated/go.sum" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/cicd@deprecated/main.go" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/.env" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/web/.env" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/.env.development" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/.env.production" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/web/.env.development" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/vue/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/public/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/public/robots.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/public/seo.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/public/sitemap.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/rsbuild.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/api/api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/assets/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/module/login/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/module/login/router/router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/module/workbench/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/module/workbench/router/router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/router/router.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/axios/axiosInstance.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/axios/enhanced.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/loading/loading.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/message/messaging.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/notification/notify.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/pinia/pinia.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/shared/util/context.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/src/type/User.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/tsconfig.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/vue.iml" beforeDir="false" afterPath="$PROJECT_DIR$/vue/vue.iml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -64,6 +102,9 @@
         <option name="useMavenConfig" value="false" />
       </MavenGeneralSettings>
     </option>
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/vue/package.json" />
   </component>
   <component name="ProblemsViewState">
     <option name="selectedTabId" value="CurrentFile" />
@@ -121,20 +162,22 @@
     "nodejs_package_manager_path": "pnpm",
     "npm.build.executor": "Run",
     "npm.dev.executor": "Run",
+    "npm.prettier.executor": "Run",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
     "settings.editor.selected.configurable": "preferences.pluginManager",
-    "ts.external.directory.path": "C:\\Users\\UwU\\IdeaProjects\\basement\\vue\\node_modules\\typescript\\lib",
+    "ts.external.directory.path": "G:\\IntelliJ IDEA 2025.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\shared\src" />
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\shared" />
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\apps\web" />
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\app\web" />
       <recent name="C:\Users\UwU\IdeaProjects\basement\vue\public" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\src" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\java" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -147,7 +190,7 @@
       <command value="mvn clean package -DskipTests -T 1C" />
     </option>
   </component>
-  <component name="RunManager" selected="Docker.cicd.mysql-backup-tool: Compose Deployment">
+  <component name="RunManager" selected="npm.prettier">
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
@@ -267,6 +310,16 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="prettier" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/apps/web/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="prettier" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <list>
       <item itemvalue="Docker.cicd.mysql-backup-tool: Compose Deployment" />
       <item itemvalue="Docker.cicd: Compose Deployment" />
@@ -274,11 +327,13 @@
       <item itemvalue="Docker.docker-compose.yml: Compose Deployment" />
       <item itemvalue="npm.dev" />
       <item itemvalue="npm.build" />
+      <item itemvalue="npm.prettier" />
       <item itemvalue="Remote JVM Debug.remote" />
       <item itemvalue="Spring Boot.BaseApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.prettier" />
         <item itemvalue="Docker.cicd.mysql-backup-tool: Compose Deployment" />
         <item itemvalue="Docker.cicd: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.goaccess: Compose Deployment" />
@@ -359,15 +414,8 @@
       <workItem from="1779268278356" duration="2317000" />
       <workItem from="1779339736988" duration="5733000" />
       <workItem from="1779373618220" duration="3005000" />
-      <workItem from="1779422656562" duration="2854000" />
-    </task>
-    <task id="LOCAL-00031" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778548980009</created>
-      <option name="number" value="00031" />
-      <option name="presentableId" value="LOCAL-00031" />
-      <option name="project" value="LOCAL" />
-      <updated>1778548980009</updated>
+      <workItem from="1779422656562" duration="2902000" />
+      <workItem from="1779459826180" duration="7003000" />
     </task>
     <task id="LOCAL-00032" summary="latest">
       <option name="closed" value="true" />
@@ -753,7 +801,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779365434948</updated>
     </task>
-    <option name="localTasksCounter" value="80" />
+    <task id="LOCAL-00080" summary="latest">
+      <option name="closed" value="true" />
+      <created>1779425566632</created>
+      <option name="number" value="00080" />
+      <option name="presentableId" value="LOCAL-00080" />
+      <option name="project" value="LOCAL" />
+      <updated>1779425566632</updated>
+    </task>
+    <option name="localTasksCounter" value="81" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

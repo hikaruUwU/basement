@@ -1,0 +1,39 @@
+{
+  "name": "web",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "rsbuild dev --open --env-mode development",
+    "build": "rsbuild build --env-mode production",
+    "build:production": "rsbuild build --env-mode production",
+    "build:development": "rsbuild build --env-mode development",
+    "preview": "rsbuild preview",
+    "prettier": "prettier --write ."
+  },
+  "dependencies": {
+    "@frontier/shared": "workspace:*",
+    "@vueuse/core": "^14.3.0",
+    "axios": "^1.16.1",
+    "element-plus": "^2.8.0",
+    "nprogress": "^0.2.0",
+    "pinia": "^3.0.4",
+    "radash": "^12.0.0",
+    "vue": "^3.5.0",
+    "vue-router": "^5.0.7"
+  },
+  "devDependencies": {
+    "@rsbuild/core": "^2.0.7",
+    "@rsbuild/plugin-sass": "^1.5.2",
+    "@rsbuild/plugin-source-build": "^1.0.5",
+    "@rsbuild/plugin-vue": "^1.2.8",
+    "@rsbuild/plugin-vue-jsx": "^2.0.0",
+    "@types/node": "^25.8.0",
+    "@types/nprogress": "^0.2.3",
+    "prettier": "^3.8.3",
+    "rsbuild-plugin-compression": "^0.1.1",
+    "sass": "^1.99.0",
+    "unplugin-auto-import": "^21.0.0",
+    "unplugin-element-plus": "^0.11.2",
+    "unplugin-vue-components": "^32.1.0"
+  }
+}

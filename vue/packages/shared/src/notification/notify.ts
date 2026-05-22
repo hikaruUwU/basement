@@ -1,6 +1,6 @@
 import { ElNotification, type NotificationOptions } from 'element-plus';
 import type { NotificationProps } from 'element-plus/es/components/notification/src/notification';
-import { getAppContext } from '@shared/util/context.ts';
+import { getAppContext } from '../util/context.ts';
 
 const joint = {
   duration: 3000,

@@ -1,5 +1,5 @@
 import { ElLoading, type LoadingInstance, type LoadingOptions } from 'element-plus';
-import { getAppContext } from '@shared/util/context.ts';
+import { getAppContext } from '../util/context.ts';
 
 const getInstance = (options?: LoadingOptions) =>
   ElLoading.service(

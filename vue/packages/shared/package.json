@@ -1,0 +1,47 @@
+{
+  "name": "@frontier/shared",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./axios": {
+      "@frontier/source": "./src/axios/enhanced.ts",
+      "import": "./src/axios/enhanced.ts"
+    },
+    "./axios-instance": {
+      "@frontier/source": "./src/axios/axiosInstance.ts",
+      "import": "./src/axios/axiosInstance.ts"
+    },
+    "./loading": {
+      "@frontier/source": "./src/loading/loading.ts",
+      "import": "./src/loading/loading.ts"
+    },
+    "./message": {
+      "@frontier/source": "./src/message/messaging.ts",
+      "import": "./src/message/messaging.ts"
+    },
+    "./notification": {
+      "@frontier/source": "./src/notification/notify.ts",
+      "import": "./src/notification/notify.ts"
+    },
+    "./pinia": {
+      "@frontier/source": "./src/pinia/pinia.ts",
+      "import": "./src/pinia/pinia.ts"
+    },
+    "./context": {
+      "@frontier/source": "./src/util/context.ts",
+      "import": "./src/util/context.ts"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.16.1",
+    "axios-retry": "^4.5.0",
+    "radash": "^12.1.1"
+  },
+  "peerDependencies": {
+    "vue": "^3.5.34",
+    "pinia": "^3.0.4",
+    "element-plus": "^2.14.0"
+  }
+}

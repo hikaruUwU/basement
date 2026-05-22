@@ -1,34 +1,16 @@
 {
-  "compilerOptions": {
-    "lib": ["DOM", "DOM.Iterable", "ESNext"],
-    "target": "ESNext",
 
-    "jsx": "preserve",
-    "noEmit": true,
-    "skipLibCheck": true,
-    "jsxImportSource": "vue",
-    "useDefineForClassFields": true,
+  "extends": "./tsconfig.base.json",
 
-    /* modules */
-    "module": "ESNext",
-    "moduleDetection": "force",
-    "moduleResolution": "bundler",
-    "verbatimModuleSyntax": true,
-    "resolveJsonModule": true,
-    "allowImportingTsExtensions": true,
-    "noUncheckedSideEffectImports": true,
+  "include": [
+    "scripts/**/*",
+    "apps/**/*",
+    "packages/**/*"
+  ],
 
-    /* type checking */
-    "strict": true,
-    "noUnusedLocals": true,
-    "noUnusedParameters": true,
-    "baseUrl": ".",
-    "paths": {
-      "@shared/*": ["./src/shared/*"],
-      "@/*": ["./*"],
-      "@public/*": ["./public/*"]
-    }
-  },
-
-  "include": ["src/**/*", "rsbuild.config.ts", "env.d.ts"]
+  "exclude": [
+    "node_modules",
+    "**/dist",
+    "target"
+  ]
 }

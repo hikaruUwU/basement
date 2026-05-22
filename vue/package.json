@@ -1,41 +1,16 @@
 {
-  "name": "base",
-  "version": "1.0.0",
+  "name": "frontier-monorepo",
   "private": true,
   "type": "module",
   "scripts": {
-    "build": "rsbuild build --env-mode development",
-    "dev": "rsbuild dev --open --env-mode development",
-    "format": "prettier --write .",
-    "preview": "rsbuild preview",
-    "dev:production": "rsbuild dev --env-mode production",
-    "build:production": "rsbuild build --env-mode production"
-  },
-  "dependencies": {
-    "@vueuse/core": "^14.3.0",
-    "axios": "^1.16.1",
-    "axios-retry": "^4.5.0",
-    "element-plus": "^2.14.0",
-    "nprogress": "^0.2.0",
-    "pinia": "^3.0.4",
-    "radash": "^12.1.1",
-    "vue": "^3.5.34",
-    "vue-router": "^5.0.7"
+    "dev": "pnpm -r --parallel dev",
+    "build": "pnpm -r build",
+    "build:production": "pnpm -r build:production",
+    "build:development": "pnpm -r build:development",
+    "preview": "pnpm -r --parallel preview",
+    "postbuild": "node scripts/collect-dist.ts"
   },
   "devDependencies": {
-    "@rsbuild/core": "^2.0.6",
-    "@rsbuild/plugin-sass": "^1.5.2",
-    "@rsbuild/plugin-vue": "^1.2.8",
-    "@rsbuild/plugin-vue-jsx": "^2.0.0",
-    "@types/js-cookie": "^3.0.6",
-    "@types/node": "^25.8.0",
-    "@types/nprogress": "^0.2.3",
-    "prettier": "^3.8.3",
-    "rsbuild-plugin-compression": "^0.1.1",
-    "sass": "^1.99.0",
-    "typescript": "^6.0.3",
-    "unplugin-auto-import": "^21.0.0",
-    "unplugin-element-plus": "^0.11.2",
-    "unplugin-vue-components": "^32.0.0"
+    "@types/node": "^25.9.1"
   }
 }
