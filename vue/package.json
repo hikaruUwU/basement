@@ -5,8 +5,8 @@
   "scripts": {
     "dev": "pnpm -r --parallel dev",
     "build": "pnpm -r build",
-    "build:production": "pnpm -r build:production",
-    "build:development": "pnpm -r build:development",
+    "build:production": "pnpm -r build:production && node scripts/collect-dist.ts",
+    "build:development": "pnpm -r build:development && node scripts/collect-dist.ts",
     "preview": "pnpm -r --parallel preview",
     "postbuild": "node scripts/collect-dist.ts"
   },
