@@ -83,6 +83,7 @@ export default defineConfig((_env) => ({
           },
         }
       : {}),
+    assetPrefix: '/web/',
     // sourceMap: {
     //   js: 'source-map',
     //   css: true
