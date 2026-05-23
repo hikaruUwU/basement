@@ -4,6 +4,7 @@
     <modules>
       <module fileurl="file://$PROJECT_DIR$/vue/apps/apps.iml" filepath="$PROJECT_DIR$/vue/apps/apps.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue/packages/packages.iml" filepath="$PROJECT_DIR$/vue/packages/packages.iml" />
+      <module fileurl="file://$PROJECT_DIR$/vue/apps/seo/seo.iml" filepath="$PROJECT_DIR$/vue/apps/seo/seo.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue/vue.iml" filepath="$PROJECT_DIR$/vue/vue.iml" />
       <module fileurl="file://$PROJECT_DIR$/vue/apps/web/web.iml" filepath="$PROJECT_DIR$/vue/apps/web/web.iml" />
     </modules>
