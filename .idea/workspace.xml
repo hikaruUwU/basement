@@ -14,8 +14,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change afterPath="$PROJECT_DIR$/.idea/kotlinc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/vue/apps/seo/src/pages/international-freight-forwarding-services.astro" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -164,6 +164,11 @@
     </option>
   </component>
   <component name="RunManager" selected="npm.build (1)">
+    <configuration default="true" type="DAPConfiguration" factoryName="DAPConfiguration">
+      <option name="workingDirectory" value="$PROJECT_DIR$/vue" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
       <working_directory value="$PROJECT_DIR$" />
       <kind value="FILE" />
@@ -391,14 +396,6 @@
       <workItem from="1779516672380" duration="70000" />
       <workItem from="1779516753229" duration="95000" />
       <workItem from="1779516859796" duration="1054000" />
-    </task>
-    <task id="LOCAL-00037" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778567521890</created>
-      <option name="number" value="00037" />
-      <option name="presentableId" value="LOCAL-00037" />
-      <option name="project" value="LOCAL" />
-      <updated>1778567521890</updated>
     </task>
     <task id="LOCAL-00038" summary="latest">
       <option name="closed" value="true" />
@@ -784,7 +781,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779515382879</updated>
     </task>
-    <option name="localTasksCounter" value="86" />
+    <task id="LOCAL-00086" summary="latest">
+      <option name="closed" value="true" />
+      <created>1779540619038</created>
+      <option name="number" value="00086" />
+      <option name="presentableId" value="LOCAL-00086" />
+      <option name="project" value="LOCAL" />
+      <updated>1779540619038</updated>
+    </task>
+    <option name="localTasksCounter" value="87" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

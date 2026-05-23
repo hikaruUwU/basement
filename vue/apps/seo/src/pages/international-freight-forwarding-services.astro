@@ -1,0 +1,713 @@
+---
+// Layout or general configurations
+const pageTitle = "Reliable International Freight Forwarder | One-Stop Sea & Air Freight Solutions";
+const pageDescription = "Looking for a professional international freight forwarding company? We offer global sea, air, rail, and multimodal transport. Specializing in customs clearance and DDP/DDU door-to-door delivery with real-time tracking. Get your free quote today!";
+const pageKeywords = "International Freight Forwarder, Freight Forwarding Company, Sea Freight Forwarder, Air Freight Services, Cross-Border Logistics, DDP Door to Door";
+
+// Logistics Services Data
+const services = [
+    {
+        type: "Ocean Freight (FCL / LCL)",
+        time: "15-35 Days",
+        desc: "Full Container Load (FCL) and Less than Container Load (LCL) shipping globally. Directly contracted with top-tier carriers like Maersk, COSCO, and MSC to guarantee space and containers even during peak seasons."
+    },
+    {
+        type: "Air Freight Services",
+        time: "3-7 Days",
+        desc: "The premier choice for urgent, time-sensitive, and high-value cargo. Providing flexible airport-to-airport and airport-to-door solutions with stable flight schedules."
+    },
+    {
+        type: "Cross-Border E-Commerce Logistics (DDP)",
+        time: "Customized",
+        desc: "Tailored logistics for Amazon FBA, Shopify, and independent overseas warehouses. Seamless integration of sea-to-truck, sea-to-courier, and air-to-courier delivery with all duties paid."
+    },
+    {
+        type: "Multimodal Rail & Land Transport",
+        time: "12-20 Days",
+        desc: "Direct block trains connecting major industrial hubs across China, Europe, and Central Asia. A highly cost-effective and reliable alternative to traditional ocean freight."
+    }
+];
+
+// FAQ Data
+const faqs = [
+    {
+        q: "What is DDP (Delivered Duty Paid) shipping service?",
+        a: "DDP means the freight forwarder handles the entire export customs clearance, international transportation, destination import clearance, and pays all import duties/taxes. The cargo is delivered directly to your doorstep. You only need to provide the packing list and commercial invoice."
+    },
+    {
+        q: "How do you guarantee cargo space and prevent shipping delays during peak seasons?",
+        a: "As an elite member of global freight networks and a core tier-1 booking agent for major airlines and shipping lines, we enjoy priority allocation and blocked space agreements (BSA). This ensures your cargo moves even during Black Friday and Christmas rushes."
+    },
+    {
+        q: "What happens if my cargo is lost or damaged during transit?",
+        a: "We strictly adhere to international freight liability standards. Additionally, we strongly recommend securing comprehensive Cargo Insurance (which we can arrange at highly competitive premium rates). In the event of an incident, we will fully assist you in managing the insurance claim to minimize your loss."
+    }
+];
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription}/>
+    <meta name="keywords" content={pageKeywords}/>
+
+    <script type="application/ld+json" set:html={JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": faqs.map(faq => ({
+            "@type": "Question",
+            "name": faq.q,
+            "acceptedAnswer": {
+                "@type": "Answer",
+                "text": faq.a
+            }
+        }))
+    })}/>
+</head>
+<body>
+
+<!-- 1. Hero Section -->
+<section class="hero">
+    <div class="hero-bg"></div>
+    <div class="container hero-content">
+        <span class="badge">WCA Member / NVOCC Certified Freight Forwarder</span>
+        <h1>Efficient, Secure, On-Time<br/><span>|</span> Your Global One-Stop Logistics Partner</h1>
+        <p>Say goodbye to rolled cargo and hidden fees. Experience end-to-end global supply chain solutions designed for
+            modern businesses.</p>
+        <div class="hero-cta">
+            <a href="#quote-form" class="btn btn-primary">Get a Free Instant Quote</a>
+            <a href="javascript:void(0);" class="btn btn-secondary">Consult a Logistics Expert</a>
+        </div>
+    </div>
+</section>
+
+<!-- 2. Pain Points -->
+<section class="section container">
+    <div class="section-header">
+        <h2>Tired of Common Logistics Bottlenecks?</h2>
+        <div class="line line-red"></div>
+    </div>
+    <div class="grid grid-3">
+        <div class="card card-pain">
+            <div class="icon-cross">✕</div>
+            <h3>Severe Supply Chain Delays</h3>
+            <p>Struggling with space booking during peak seasons? Cargo stranded at ports for weeks means missing
+                critical market windows.</p>
+        </div>
+        <div class="card card-pain">
+            <div class="icon-cross">✕</div>
+            <h3>Customs Clearance Delays</h3>
+            <p>Complex international trade compliance and minor paperwork errors can lead to cargo seizures and
+                unexpected storage fines.</p>
+        </div>
+        <div class="card card-pain">
+            <div class="icon-cross">✕</div>
+            <h3>Unexpected Hidden Fees</h3>
+            <p>Frustrated by bait-and-switch low pricing? Many forwarders stack up arbitrary surcharges after your goods
+                arrive at the port.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 3. Core Services Section -->
+<section class="section bg-light">
+    <div class="container">
+        <div class="section-header">
+            <h2>Comprehensive Global Freight Solutions</h2>
+            <div class="line line-blue"></div>
+        </div>
+
+        <!-- Responsive Table Layout -->
+        <div class="table-wrapper">
+            <table class="services-table">
+                <thead>
+                <tr>
+                    <th>Service Type</th>
+                    <th>Estimated Transit Time (ETT)</th>
+                    <th>Best Suited For & Core Benefits</th>
+                </tr>
+                </thead>
+                <tbody>
+                {services.map((service) => (
+                        <tr>
+                            <td class="font-bold text-dark">{service.type}</td>
+                            <td><span class="time-tag">{service.time}</span></td>
+                            <td class="text-muted">{service.desc}</td>
+                        </tr>
+                ))}
+                </tbody>
+            </table>
+        </div>
+    </div>
+</section>
+
+<!-- 4. Value Propositions -->
+<section class="section container">
+    <div class="section-header">
+        <h2>Why Global Brands Trust Our Freight Forwarding Network</h2>
+        <div class="line line-blue"></div>
+    </div>
+    <div class="grid grid-4">
+        <div class="props-item">
+            <div class="props-num">01. End-to-End Visibility</div>
+            <p>Track and trace your shipments 24/7 with our proprietary tracking system from pickup to final mile
+                delivery.</p>
+        </div>
+        <div class="props-item">
+            <div class="props-num">02. Customs Clearance Experts</div>
+            <p>In-house customs brokers evaluate your commercial invoices and HS codes ahead of time to minimize
+                inspection risks.</p>
+        </div>
+        <div class="props-item">
+            <div class="props-num">03. All-Inclusive Pricing</div>
+            <p>Transparent itemized quotations with zero hidden surcharges. What we quote is exactly what you pay.</p>
+        </div>
+        <div class="props-item">
+            <div class="props-num">04. 24/7 Account Management</div>
+            <p>Dedicated 1-on-1 logistics specialists proactively monitor delays, blank sailings, and handle any transit
+                issues instantly.</p>
+        </div>
+    </div>
+</section>
+
+<!-- 5. FAQ Section -->
+<section class="section bg-light border-top">
+    <div class="container container-sm">
+        <div class="section-header">
+            <h2>Frequently Asked Questions (FAQ)</h2>
+            <div class="line line-blue"></div>
+        </div>
+        <div class="faq-list">
+            {faqs.map((faq) => (
+                    <div class="card faq-item">
+                        <h3><span>Q:</span> {faq.q}</h3>
+                        <p>{faq.a}</p>
+                    </div>
+            ))}
+        </div>
+    </div>
+</section>
+
+<!-- 6. Quote Generation Lead Form (CTA) -->
+<section id="quote-form" class="section cta-section">
+    <div class="container container-sm">
+        <div class="section-header text-white">
+            <h2>Request a Tailored Logistics Solution</h2>
+            <p class="subtitle">Take 30 seconds to fill out the form below, and our senior logistics consultants will
+                reply with an optimized quote within 15 minutes!</p>
+        </div>
+
+        <form class="quote-form">
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Your Name / Company *</label>
+                    <input type="text" required placeholder="e.g., John Doe / ABC Trading"/>
+                </div>
+                <div class="form-group">
+                    <label>Contact Email / Phone *</label>
+                    <input type="text" required placeholder="Where should we send the quote sheet?"/>
+                </div>
+            </div>
+
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Origin (City / Port) *</label>
+                    <input type="text" required placeholder="e.g., Shanghai Port / Shenzhen Warehouse"/>
+                </div>
+                <div class="form-group">
+                    <label>Destination (Country / ZIP Code) *</label>
+                    <input type="text" required placeholder="e.g., Los Angeles, CA 90001"/>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Preferred Shipping Mode</label>
+                <div class="radio-group">
+                    {["Ocean FCL", "Ocean LCL", "Air Freight", "DDP Express Line"].map((mode, index) => (
+                            <label class="radio-label">
+                                <input type="radio" name="shipping_mode" value={mode} checked={index === 0}/>
+                                <span>{mode}</span>
+                            </label>
+                    ))}
+                </div>
+            </div>
+
+            <div class="form-group">
+                <label>Cargo Details (Weight / Volume / Commodity)</label>
+                <textarea rows="3" placeholder="e.g., Apparel, 10 cartons, 200kg, 1.5 CBM total..."></textarea>
+            </div>
+
+            <button type="submit" class="btn-submit">Get My Customized Freight Quote</button>
+        </form>
+    </div>
+</section>
+
+<!-- 7. Footer Section -->
+<footer class="footer">
+    <div class="container">
+        <p>© 2026 Your Global Logistics Co., Ltd. All Rights Reserved.</p>
+        <p class="disclaimer">Disclaimer: We fully comply with international maritime regulations and do not accept
+            hazardous, flammable, explosive, or illicit contraband cargo.</p>
+    </div>
+</footer>
+
+</body>
+</html>
+
+<!-- Native Scoped CSS Stylesheet -->
+<style>
+    /* Base Reset & Variables */
+    :global(html) {
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+        background-color: #f9fafb;
+        color: #374151;
+        scroll-behavior: smooth;
+    }
+
+    :global(body) {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        -webkit-font-smoothing: antialiased;
+    }
+
+    :global(*), :global(*::before), :global(*::after) {
+        box-sizing: inherit;
+    }
+
+    /* Utility Layout Elements */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 0 1.5rem;
+    }
+
+    .container-sm {
+        max-width: 768px;
+    }
+
+    .section {
+        padding: 4rem 0;
+    }
+
+    .section-header {
+        text-align: center;
+        margin-bottom: 3rem;
+    }
+
+    .section-header h2 {
+        font-size: 1.875rem;
+        font-weight: 700;
+        color: #111827;
+        margin: 0;
+    }
+
+    .section-header.text-white h2 {
+        color: #ffffff;
+    }
+
+    .line {
+        height: 4px;
+        width: 80px;
+        margin: 1rem auto 0 auto;
+        border-radius: 2px;
+    }
+
+    .line-blue {
+        background-color: #2563eb;
+    }
+
+    .line-red {
+        background-color: #ef4444;
+    }
+
+    .bg-light {
+        background-color: #f3f4f6;
+    }
+
+    .border-top {
+        border-top: 1px solid #e5e7eb;
+    }
+
+    .grid {
+        display: grid;
+        gap: 2rem;
+    }
+
+    @media (min-width: 768px) {
+        .grid-3 {
+            grid-template-columns: repeat(3, 1fr);
+        }
+
+        .grid-4 {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    /* Shared Components */
+    .card {
+        background: #ffffff;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        border: 1px solid #f3f4f6;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+    }
+
+    .btn {
+        display: inline-block;
+        font-weight: 700;
+        padding: 1rem 2rem;
+        border-radius: 0.5rem;
+        text-decoration: none;
+        transition: all 0.2s ease;
+        text-align: center;
+    }
+
+    .btn-primary {
+        background-color: #3b82f6;
+        color: #ffffff;
+        box-shadow: 0 4px 6px -1px rgba(59, 130, 246, 0.3);
+    }
+
+    .btn-primary:hover {
+        background-color: #2563eb;
+    }
+
+    .btn-secondary {
+        background-color: transparent;
+        color: #ffffff;
+        border: 1px solid #ffffff;
+    }
+
+    .btn-secondary:hover {
+        background-color: #ffffff;
+        color: #111827;
+    }
+
+    /* Hero Section Styling */
+    .hero {
+        position: relative;
+        background: linear-gradient(to right, #1e3a8a, #312e81);
+        color: #ffffff;
+        padding: 6rem 0;
+        overflow: hidden;
+    }
+
+    .hero-bg {
+        position: absolute;
+        inset: 0;
+        opacity: 0.1;
+        background-image: url('https://images.unsplash.com/photo-1578575437130-527eed3abbec?auto=format&fit=crop&w=1200&q=80');
+        background-cover: cover;
+        background-position: center;
+    }
+
+    .hero-content {
+        position: relative;
+        text-align: center;
+        max-width: 960px;
+    }
+
+    .badge {
+        display: inline-block;
+        background-color: #2563eb;
+        font-size: 0.75rem;
+        font-weight: 600;
+        text-transform: uppercase;
+        letter-spacing: 0.05em;
+        padding: 0.25rem 0.75rem;
+        border-radius: 9999px;
+        margin-bottom: 1rem;
+    }
+
+    .hero h1 {
+        font-size: 2.5rem;
+        font-weight: 800;
+        letter-spacing: -0.025em;
+        line-height: 1.2;
+        margin-bottom: 1.5rem;
+    }
+
+    @media (min-width: 640px) {
+        .hero h1 {
+            font-size: 3.5rem;
+        }
+    }
+
+    .hero h1 span {
+        color: #60a5fa;
+    }
+
+    .hero p {
+        font-size: 1.125rem;
+        color: #d1d5db;
+        max-width: 42rem;
+        margin: 0 auto 2.5rem auto;
+        line-height: 1.6;
+    }
+
+    .hero-cta {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        gap: 1rem;
+    }
+
+    @media (min-width: 640px) {
+        .hero-cta {
+            flex-direction: row;
+        }
+    }
+
+    /* Pain Points Styles */
+    .card-pain {
+        border-color: #f3f4f6;
+    }
+
+    .icon-cross {
+        color: #ef4444;
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+    }
+
+    .card-pain h3 {
+        margin: 0 0 0.75rem 0;
+        font-size: 1.25rem;
+        color: #111827;
+    }
+
+    .card-pain p {
+        margin: 0;
+        color: #4b5563;
+        line-height: 1.6;
+    }
+
+    /* Services Table Styling */
+    .table-wrapper {
+        background: #ffffff;
+        border-radius: 0.75rem;
+        box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
+        overflow-x: auto;
+    }
+
+    .services-table {
+        width: 100%;
+        border-collapse: collapse;
+        text-align: left;
+    }
+
+    .services-table th {
+        background-color: #1e3a8a;
+        color: #ffffff;
+        padding: 1rem;
+        font-weight: 600;
+    }
+
+    .services-table td {
+        padding: 1.25rem 1rem;
+        border-bottom: 1px solid #e5e7eb;
+    }
+
+    .services-table tr:hover {
+        background-color: #f8fafc;
+    }
+
+    .font-bold {
+        font-weight: 700;
+    }
+
+    .text-dark {
+        color: #111827;
+    }
+
+    .text-muted {
+        color: #4b5563;
+        line-height: 1.5;
+    }
+
+    .time-tag {
+        background-color: #dbeafe;
+        color: #1e40af;
+        font-size: 0.875rem;
+        font-weight: 500;
+        padding: 0.25rem 0.625rem;
+        border-radius: 0.25rem;
+        white-space: nowrap;
+    }
+
+    /* Value Propositions Styles */
+    .props-item .props-num {
+        font-weight: 700;
+        color: #2563eb;
+        font-size: 1.25rem;
+        margin-bottom: 0.5rem;
+    }
+
+    .props-item p {
+        margin: 0;
+        font-size: 0.875rem;
+        color: #4b5563;
+        line-height: 1.6;
+    }
+
+    /* FAQ Styles */
+    .faq-list {
+        display: flex;
+        flex-direction: column;
+        gap: 1.5rem;
+    }
+
+    .faq-item h3 {
+        margin: 0;
+        font-size: 1rem;
+        color: #030712;
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .faq-item h3 span {
+        color: #3b82f6;
+        font-weight: 800;
+    }
+
+    .faq-item p {
+        margin: 0.5rem 0 0 0;
+        font-size: 0.875rem;
+        color: #4b5563;
+        padding-left: 1.25rem;
+        line-height: 1.6;
+    }
+
+    /* Form & CTA Section Styles */
+    .cta-section {
+        background: linear-gradient(to bottom right, #111827, #172554);
+        color: #ffffff;
+    }
+
+    .subtitle {
+        color: #9ca3af;
+        font-size: 0.875rem;
+        margin-top: 0.5rem;
+    }
+
+    .quote-form {
+        background: #ffffff;
+        color: #111827;
+        padding: 2rem;
+        border-radius: 0.75rem;
+        box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    .form-row {
+        display: flex;
+        flex-direction: column;
+        gap: 1.25rem;
+    }
+
+    @media (min-width: 640px) {
+        .form-row {
+            flex-direction: row;
+        }
+
+        .form-row .form-group {
+            flex: 1;
+        }
+    }
+
+    .form-group {
+        display: flex;
+        flex-direction: column;
+        gap: 0.25rem;
+    }
+
+    .form-group label {
+        font-size: 0.75rem;
+        font-weight: 700;
+        color: #374151;
+        text-transform: uppercase;
+    }
+
+    .form-group input, .form-group textarea {
+        width: 100%;
+        border: 1px solid #d1d5db;
+        border-radius: 0.25rem;
+        padding: 0.5rem 0.75rem;
+        font-size: 0.875rem;
+        font-family: inherit;
+    }
+
+    .form-group input:focus, .form-group textarea:focus {
+        outline: none;
+        border-color: #3b82f6;
+    }
+
+    .radio-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 0.5rem;
+        margin-top: 0.25rem;
+    }
+
+    @media (min-width: 640px) {
+        .radio-group {
+            grid-template-columns: repeat(4, 1fr);
+        }
+    }
+
+    .radio-label {
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+        border: 1px solid #e5e7eb;
+        border-radius: 0.25rem;
+        padding: 0.5rem;
+        font-size: 0.75rem;
+        cursor: pointer;
+    }
+
+    .radio-label:hover {
+        background-color: #f9fafb;
+    }
+
+    .btn-submit {
+        width: 100%;
+        background-color: #2563eb;
+        color: #ffffff;
+        font-weight: 700;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 0.25rem;
+        font-size: 1rem;
+        cursor: pointer;
+        transition: background 0.2s;
+    }
+
+    .btn-submit:hover {
+        background-color: #1d4ed8;
+    }
+
+    /* Footer Styles */
+    .footer {
+        background-color: #111827;
+        color: #6b7280;
+        font-size: 0.75rem;
+        padding: 2rem 0;
+        text-align: center;
+        border-top: 1px solid #1f2937;
+    }
+
+    .footer p {
+        margin: 0 0 0.5rem 0;
+    }
+
+    .footer .disclaimer {
+        color: #4b5563;
+        margin-bottom: 0;
+    }
+</style>
