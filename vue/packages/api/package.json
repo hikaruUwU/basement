@@ -1,0 +1,16 @@
+{
+  "name": "@frontier/api",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    "./api": {
+      "@frontier/source": "./src/api/api.ts",
+      "import": "./src/api/api.ts"
+    }
+  },
+  "dependencies": {
+    "axios": "^1.16.1"
+  }
+}
