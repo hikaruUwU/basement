@@ -7,12 +7,7 @@ const modules = [
         appsPath: 'apps/web',
         distDir: 'dist',
         targetName: 'web'
-    },
-    {
-        appsPath: 'apps/seo',
-        distDir: 'dist',
-        targetName: 'seo'
-    },
+    }
 ];
 
 //------------------------------------------------------------------

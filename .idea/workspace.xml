@@ -9,14 +9,33 @@
       <module name="web" />
       <module name="packages" />
       <module name="vue" />
-      <module name="seo" />
     </loaded-modules>
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change afterPath="$PROJECT_DIR$/vue/apps/seo/src/pages/international-freight-forwarding-services.astro" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoolRequestSetting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/json_assistant_history.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/.gitignore" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/.vscode/extensions.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/.vscode/launch.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/README.md" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/astro.config.mjs" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/public/favicon.ico" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/public/favicon.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/seo.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/src/assets/astro.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/src/assets/background.svg" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/src/components/Welcome.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/src/layouts/Layout.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/src/pages/index.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/src/pages/international-freight-forwarding-services.astro" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/seo/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/vue/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/scripts/collect-dist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/scripts/collect-dist.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -71,7 +90,6 @@
     </option>
   </component>
   <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/vue/apps/seo/package.json" />
     <dismissed value="$PROJECT_DIR$/vue/package.json" />
   </component>
   <component name="ProblemsViewState">
@@ -121,7 +139,7 @@
     &quot;RunOnceActivity.typescript.service.memoryLimit.init&quot;: &quot;true&quot;,
     &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
     &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\UwU\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.3\\plugins\\Shell Script\\shellcheck.exe&quot;,
-    &quot;Spring Boot.BaseApplication.executor&quot;: &quot;Run&quot;,
+    &quot;Spring Boot.BaseApplication.executor&quot;: &quot;Debug&quot;,
     &quot;git-widget-placeholder&quot;: &quot;main&quot;,
     &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
     &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
@@ -130,15 +148,18 @@
     &quot;nodejs_package_manager_path&quot;: &quot;pnpm&quot;,
     &quot;npm.astro.executor&quot;: &quot;Run&quot;,
     &quot;npm.build (1).executor&quot;: &quot;Run&quot;,
+    &quot;npm.build (2).executor&quot;: &quot;Run&quot;,
     &quot;npm.build.executor&quot;: &quot;Run&quot;,
     &quot;npm.build:development.executor&quot;: &quot;Run&quot;,
     &quot;npm.dev (1).executor&quot;: &quot;Run&quot;,
     &quot;npm.dev.executor&quot;: &quot;Run&quot;,
     &quot;npm.prettier.executor&quot;: &quot;Run&quot;,
+    &quot;npm.seo &gt; generate.executor&quot;: &quot;Run&quot;,
+    &quot;npm.seo &gt; preview.executor&quot;: &quot;Run&quot;,
     &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
     &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.pluginManager&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;cool.request.config.callthismethod&quot;,
     &quot;ts.external.directory.path&quot;: &quot;G:\\IntelliJ IDEA 2025.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external&quot;,
     &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/UwU/IdeaProjects/basement/vue/apps/web&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
@@ -146,11 +167,11 @@
 }</component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\apps\seo" />
       <recent name="C:\Users\UwU\IdeaProjects\basement\vue\public" />
       <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\shared\src" />
       <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\shared" />
       <recent name="C:\Users\UwU\IdeaProjects\basement\vue\apps\web" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\app\web" />
     </key>
   </component>
   <component name="RunAnythingCache">
@@ -163,7 +184,7 @@
       <command value="mvn clean package -DskipTests -T 1C" />
     </option>
   </component>
-  <component name="RunManager" selected="npm.build (1)">
+  <component name="RunManager" selected="npm.build (2)">
     <configuration default="true" type="DAPConfiguration" factoryName="DAPConfiguration">
       <option name="workingDirectory" value="$PROJECT_DIR$/vue" />
       <envs />
@@ -249,29 +270,19 @@
       <envs />
       <method v="2" />
     </configuration>
+    <configuration name="build (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="build" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
     <configuration name="build" type="js.build_tools.npm" nameIsGenerated="true">
       <package-json value="$PROJECT_DIR$/vue/package.json" />
       <command value="build" />
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="build:development" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build:development" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="dev (1)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/apps/seo/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="dev" />
-      </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
@@ -286,11 +297,21 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="prettier" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/apps/web/package.json" />
+    <configuration name="seo &gt; generate" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/apps/seo/package.json" />
       <command value="run" />
       <scripts>
-        <script value="prettier" />
+        <script value="generate" />
+      </scripts>
+      <node-interpreter value="project" />
+      <envs />
+      <method v="2" />
+    </configuration>
+    <configuration name="seo &gt; preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/apps/seo/package.json" />
+      <command value="run" />
+      <scripts>
+        <script value="preview" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
@@ -299,21 +320,21 @@
     <list>
       <item itemvalue="npm.dev" />
       <item itemvalue="npm.build" />
+      <item itemvalue="npm.build (2)" />
+      <item itemvalue="npm.seo &gt; generate" />
+      <item itemvalue="npm.seo &gt; preview" />
       <item itemvalue="npm.build (1)" />
       <item itemvalue="npm.astro" />
-      <item itemvalue="npm.dev (1)" />
-      <item itemvalue="npm.build:development" />
-      <item itemvalue="npm.prettier" />
       <item itemvalue="Remote JVM Debug.remote" />
       <item itemvalue="Spring Boot.BaseApplication" />
     </list>
     <recent_temporary>
       <list>
+        <item itemvalue="npm.build (2)" />
+        <item itemvalue="npm.seo &gt; preview" />
+        <item itemvalue="npm.seo &gt; generate" />
         <item itemvalue="npm.build (1)" />
         <item itemvalue="npm.astro" />
-        <item itemvalue="npm.dev (1)" />
-        <item itemvalue="npm.build:development" />
-        <item itemvalue="npm.prettier" />
       </list>
     </recent_temporary>
   </component>
@@ -396,6 +417,10 @@
       <workItem from="1779516672380" duration="70000" />
       <workItem from="1779516753229" duration="95000" />
       <workItem from="1779516859796" duration="1054000" />
+      <workItem from="1779686694813" duration="27000" />
+      <workItem from="1779768235022" duration="471000" />
+      <workItem from="1779769084475" duration="428000" />
+      <workItem from="1779785447850" duration="445000" />
     </task>
     <task id="LOCAL-00038" summary="latest">
       <option name="closed" value="true" />
@@ -827,6 +852,17 @@
   </component>
   <component name="VueSettings">
     <option name="tsPluginVersion" value="V3_1_8" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/java/target/generated-sources/annotations/com/demo/base/mapstruct/UserConverterImpl.java</url>
+          <line>16</line>
+          <option name="timeStamp" value="3" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
