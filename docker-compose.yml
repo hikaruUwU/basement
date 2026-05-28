@@ -15,11 +15,6 @@ services:
         limits:
           cpus: "2.0"
           memory: 2048M
-        reservations:
-          cpus: "0.5"
-          memory: 1792M
-    ports:
-      - "127.0.0.1:5005:5005"
     expose:
       - "8080"
     environment:
@@ -37,7 +32,6 @@ services:
     restart: always
     volumes:
       - ./logs/nginx:/var/log/nginx
-
     deploy:
       resources:
         limits:
@@ -46,9 +40,8 @@ services:
         reservations:
           cpus: '0.2'
           memory: 64M
-
     ports:
-      - "80:80"
+      - "0.0.0.0:80:80"
     depends_on:
       - backend
     networks:
@@ -57,8 +50,14 @@ services:
   goaccess:
     image: allinurl/goaccess:latest
     container_name: base-monitor
+    network_mode: none
     profiles:
       - tools
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 256M
     volumes:
       - ./logs/nginx:/srv/logs
     entrypoint: [ "goaccess", "/srv/logs/access.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]

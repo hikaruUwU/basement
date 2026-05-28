@@ -21,6 +21,10 @@ RUN --mount=type=cache,target=/root/.local/share/pnpm/store \
 
 FROM fholzer/nginx-brotli:v1.31
 
+RUN apk add --no-cache tzdata \
+    && cp /usr/share/zoneinfo/Asia/Shanghai /etc/localtime \
+    && echo "Asia/Shanghai" > /etc/timezone
+
 COPY nginx.conf /etc/nginx/nginx.conf
 
 RUN rm -f /etc/nginx/conf.d/default.conf
