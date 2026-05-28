@@ -76,7 +76,7 @@ services:
     expose:
       - 9090
     volumes:
-      - ./monitor/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./observer/config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - ./observer/data/prometheus:/prometheus
     command:
       - '--config.file=/etc/prometheus/prometheus.yml'
