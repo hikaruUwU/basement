@@ -34,7 +34,7 @@ RUN mkdir -p /app/logs
 
 COPY --from=builder /app/target/*.jar app.jar
 
-EXPOSE 8080
+COPY --from=builder /app/target/classes resources
 
 ENV JAVA_OPTS="-Xms1024m -Xmx1024m \
     -XX:+UseG1GC \

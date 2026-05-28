@@ -1,4 +1,6 @@
 services:
+
+#--------------------------------------------------------------------------
   backend:
     build:
       context: ./java
@@ -46,7 +48,7 @@ services:
       - backend
     networks:
       - app-tier
-
+#-------------------------------------------------------------------------
   goaccess:
     image: allinurl/goaccess:latest
     container_name: base-monitor
@@ -61,7 +63,54 @@ services:
     volumes:
       - ./logs/nginx:/srv/logs
     entrypoint: [ "goaccess", "/srv/logs/access.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
+#-------------------------------------------------------------------------
+  prometheus:
+    image: prom/prometheus:latest
+    container_name: base-prometheus
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 128M
+    expose:
+      - 9090
+    volumes:
+      - ./monitor/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - ./observer/data/prometheus:/prometheus
+    command:
+      - '--config.file=/etc/prometheus/prometheus.yml'
+      - '--storage.tsdb.path=/prometheus'
+      - '--storage.tsdb.retention.time=15d'
+      - '--web.enable-lifecycle'
+    depends_on:
+      - backend
+    networks:
+      - app-tier
 
+  grafana:
+    image: grafana/grafana:latest
+    container_name: base-grafana
+    restart: unless-stopped
+    deploy:
+      resources:
+        limits:
+          cpus: '1.0'
+          memory: 256M
+    ports:
+      - "127.0.0.1:3000:3000"
+    environment:
+      TZ: ${SYSTEM_TZ}
+      GF_SECURITY_ADMIN_USER: admin
+      GF_SECURITY_ADMIN_PASSWORD: admin
+      GF_USERS_ALLOW_SIGN_UP: "false"
+    volumes:
+      - ./observer/data/grafana:/var/lib/grafana
+    depends_on:
+      - prometheus
+    networks:
+      - app-tier
+#-------------------------------------------------------------------------
 networks:
   app-tier:
     driver: bridge

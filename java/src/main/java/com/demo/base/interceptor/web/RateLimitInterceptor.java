@@ -53,7 +53,7 @@ public class RateLimitInterceptor implements HandlerInterceptor, WebMvcConfigure
             long start = System.currentTimeMillis();
             AtomicInteger count = new AtomicInteger();
             try {
-                Map<RequestMappingInfo, HandlerMethod> handlerMethods = applicationContext.getBean(RequestMappingHandlerMapping.class).getHandlerMethods();
+                Map<RequestMappingInfo, HandlerMethod> handlerMethods = applicationContext.getBean("requestMappingHandlerMapping",RequestMappingHandlerMapping.class).getHandlerMethods();
 
                 for (HandlerMethod hm : handlerMethods.values()) {
                     Class<?> clazz = hm.getBeanType();
