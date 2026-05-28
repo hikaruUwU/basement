@@ -17,6 +17,7 @@ RUN mkdir -p ~/.m2 && \
     </settings>' > ~/.m2/settings.xml
 
 COPY pom.xml .
+COPY lombok.config .
 
 RUN --mount=type=cache,target=/root/.m2 \
     mvn dependency:resolve -T 1C

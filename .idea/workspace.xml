@@ -13,12 +13,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change afterPath="$PROJECT_DIR$/observer/config/prometheus/dashboard.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/resources/application-prod.properties" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/resources/application-prod.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/java/Dockerfile" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -123,7 +118,7 @@
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "SHELLCHECK.PATH": "C:\\Users\\UwU\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.3\\plugins\\Shell Script\\shellcheck.exe",
-    "Spring Boot.BaseApplication.executor": "Debug",
+    "Spring Boot.BaseApplication.executor": "Run",
     "git-widget-placeholder": "main",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
@@ -424,15 +419,7 @@
       <workItem from="1779854632491" duration="2755000" />
       <workItem from="1779887578160" duration="7531000" />
       <workItem from="1779953040774" duration="3223000" />
-      <workItem from="1779987023309" duration="5699000" />
-    </task>
-    <task id="LOCAL-00042" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778661881980</created>
-      <option name="number" value="00042" />
-      <option name="presentableId" value="LOCAL-00042" />
-      <option name="project" value="LOCAL" />
-      <updated>1778661881980</updated>
+      <workItem from="1779987023309" duration="6006000" />
     </task>
     <task id="LOCAL-00043" summary="latest">
       <option name="closed" value="true" />
@@ -818,7 +805,15 @@
       <option name="project" value="LOCAL" />
       <updated>1779992002474</updated>
     </task>
-    <option name="localTasksCounter" value="91" />
+    <task id="LOCAL-00091" summary="latest">
+      <option name="closed" value="true" />
+      <created>1779992867101</created>
+      <option name="number" value="00091" />
+      <option name="presentableId" value="LOCAL-00091" />
+      <option name="project" value="LOCAL" />
+      <updated>1779992867102</updated>
+    </task>
+    <option name="localTasksCounter" value="92" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
