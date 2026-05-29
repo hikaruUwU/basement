@@ -38,7 +38,7 @@ services:
       resources:
         limits:
           cpus: '2.0'
-          memory: 512M
+          memory: 256M
         reservations:
           cpus: '0.2'
           memory: 64M
@@ -83,7 +83,7 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 300M
+          memory: 128M
     expose:
       - "9999"
     networks:
