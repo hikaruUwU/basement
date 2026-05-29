@@ -64,6 +64,31 @@ services:
       - ./logs/nginx:/srv/logs
     entrypoint: [ "goaccess", "/srv/logs/access.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
 #-------------------------------------------------------------------------
+  cadvisor:
+    image: gcr.io/cadvisor/cadvisor:latest
+    container_name: base-cadvisor
+    restart: unless-stopped
+    privileged: true
+    devices:
+      - /dev/kmsg
+    volumes:
+      - /:/rootfs:ro
+      - /var/run:/var/run:ro
+      - /sys:/sys:ro
+      - /var/lib/docker/:/var/lib/docker:ro
+      - /dev/disk/:/dev/disk:ro
+    command:
+      - '--port=9999'
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 300M
+    expose:
+      - "9999"
+    networks:
+      - app-tier
+#-------------------------------------------------------------------------
   prometheus:
     image: prom/prometheus:latest
     container_name: base-prometheus
@@ -87,7 +112,7 @@ services:
       - backend
     networks:
       - app-tier
-
+#-------------------------------------------------------------------------
   grafana:
     image: grafana/grafana:latest
     container_name: base-grafana
@@ -96,7 +121,7 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 256M
+          memory: 512M
     ports:
       - "127.0.0.1:3000:3000"
     environment:
