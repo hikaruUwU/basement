@@ -13,7 +13,46 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/context/SessionContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoolRequestCommonStatePersistent.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/BaseApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/BaseApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/detective/EnableSqlLighthouse.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/logger/LogLevel.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/logger/LogRange.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/logger/Monitor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/prevalidate/PreValidate.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/annotation/prevalidate/PreValidate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/rateLimit/RateLimit.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/annotation/requireSession/RequiredSession.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/annotation/requireSession/RequiredSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/aspect/AspectOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/aspect/AspectOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/aspect/log/LogWrapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/aspect/preValidate/PreValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/aspect/preValidate/PreValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/GlobalWarmUpManager.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/SQLLog4j2Config.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/SQLLog4j2Config.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/controller/HomeController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/domain/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/domain/response/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/exception/LimitationOverLoadException.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/LimitationOverLoadException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/exception/PreConditionNotValidatedException.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/PreConditionNotValidatedException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/exception/RootException.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/RootException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/exception/UnauthenticatedAccessException.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/UnauthenticatedAccessException.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/interceptor/WebInterceptorOrder.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/interceptor/WebInterceptorOrder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/interceptor/web/PassInterceptor.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/interceptor/web/PassInterceptor.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/interceptor/web/RateLimitInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/interceptor/web/SessionManager.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/spi/session/LocalWebSession.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/mapstruct/UserConverter.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/repository/MybatisFlexUserRepository.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/service/AuthService.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/spi/encoder/PwdEncoder.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/spi/encoder/PwdEncoder.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/spi/rate/LocalRateStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/spi/rate/RateLimiterStrategy.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/util/ASMAnnotationScanner.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/util/ASMAnnotationScanner.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/util/FastAccess.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/util/ParameterValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/util/RequestChain.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/context/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/util/SpelEvaluator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/util/SpelEvaluator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -29,8 +68,9 @@
         <option value="AnnotationType" />
         <option value="Exception" />
         <option value="Enum" />
-        <option value="Class" />
         <option value="Dockerfile" />
+        <option value="Interface" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -421,6 +461,7 @@
       <workItem from="1779953040774" duration="3223000" />
       <workItem from="1779987023309" duration="6026000" />
       <workItem from="1780041369248" duration="4524000" />
+      <workItem from="1780210939730" duration="8463000" />
     </task>
     <task id="LOCAL-00045" summary="latest">
       <option name="closed" value="true" />
@@ -846,7 +887,7 @@
       <breakpoints>
         <line-breakpoint enabled="true" type="java-line">
           <url>file://$PROJECT_DIR$/java/target/generated-sources/annotations/com/demo/base/mapstruct/UserConverterImpl.java</url>
-          <line>16</line>
+          <line>18</line>
           <option name="timeStamp" value="3" />
         </line-breakpoint>
       </breakpoints>

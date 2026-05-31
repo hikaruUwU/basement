@@ -1,8 +1,8 @@
 package com.demo.base.config;
 
-import com.demo.base.domain.response.Result;
-import com.demo.base.exception.RootException;
-import com.demo.base.exception.UnauthenticatedAccessException;
+import com.demo.base.core.exception.RootException;
+import com.demo.base.core.exception.UnauthenticatedAccessException;
+import com.demo.base.shared.Result;
 import jakarta.validation.ConstraintViolationException;
 import lombok.extern.log4j.Log4j2;
 import org.springframework.core.Ordered;
