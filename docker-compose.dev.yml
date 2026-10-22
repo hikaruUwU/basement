@@ -1,5 +1,4 @@
 services:
-
 #--------------------------------------------------------------------------
   backend:
     image: backend:v0.0.1
@@ -22,17 +21,14 @@ services:
           memory: 1024M
     expose:
       - "8080"
+    ports:
+      - "127.0.0.1:8080:8080"
     environment:
-      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-dev}
       TZ: ${SYSTEM_TZ:-Asia/Shanghai}
-      MYBATIS_FLEX_DATASOURCE_MASTER_URL: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?${DB_PARAMS}
-      MYBATIS_FLEX_DATASOURCE_MASTER_USERNAME: ${DB_USERNAME}
-      MYBATIS_FLEX_DATASOURCE_MASTER_PASSWORD: ${DB_PASSWORD}
-      AWS_S3_ENDPOINT_INTERNAL: ${AWS_S3_ENDPOINT_INTERNAL}
-      AWS_S3_ENDPOINT_EXTERNAL: ${AWS_S3_ENDPOINT_EXTERNAL}
-      AWS_S3_ACCESS_KEY: ${AWS_S3_ACCESS_KEY}
-      AWS_S3_SECRET_KEY: ${AWS_S3_SECRET_KEY}
-      AWS_S3_REGION: ${AWS_S3_REGION}
+      MYBATIS_FLEX_DATASOURCE_MASTER_URL: jdbc:mysql://${DB_HOST-127.0.0.1}:${DB_PORT-3306}/${DB_NAME-database}?${DB_PARAMS-useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
+      MYBATIS_FLEX_DATASOURCE_MASTER_USERNAME: ${DB_USERNAME-root}
+      MYBATIS_FLEX_DATASOURCE_MASTER_PASSWORD: ${DB_PASSWORD-root}
     networks:
       - app-tier
   frontend:
@@ -42,7 +38,7 @@ services:
     container_name: base-frontend
     restart: always
     volumes:
-      - /ssl:/etc/nginx/ssl:ro
+      - ./dev-ssl:/etc/nginx/ssl:ro
       - nginx_logs:/var/log/nginx
     sysctls:
       - net.core.somaxconn=65535
@@ -69,48 +65,8 @@ services:
     networks:
       - app-tier
 #-------------------------------------------------------------------------
-  goaccess:
-    image: allinurl/goaccess:1.11
-    container_name: base-monitor
-    network_mode: none
-    profiles:
-      - tools
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 256M
-    volumes:
-      - nginx_logs:/srv/logs
-    entrypoint: [ "goaccess", "/srv/logs/accessx.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
-#-------------------------------------------------------------------------
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
-    container_name: base-cadvisor
-    restart: unless-stopped
-    privileged: true
-    devices:
-      - /dev/kmsg
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /dev/disk/:/dev/disk:ro
-    command:
-      - '--port=9999'
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 150M
-    expose:
-      - "9999"
-    networks:
-      - app-tier
-#-------------------------------------------------------------------------
   victoria-metrics:
-    image: victoriametrics/victoria-metrics:latest
+    image: victoriametrics/victoria-metrics:v1.154.1
     container_name: base-victoria-metrics
     user: "0:0"
     restart: unless-stopped
@@ -122,41 +78,16 @@ services:
     expose:
       - 8428
     ports:
-      - "8428:8428"
+      - "127.0.0.1:8428:8428"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - vm_data:/victoria-metrics-data
     command:
       - '-promscrape.config=/etc/prometheus/prometheus.yml'
       - '-storageDataPath=/victoria-metrics-data'
-      - '-retentionPeriod=15d'
+      - '-retentionPeriod=24d'
     depends_on:
       - backend
-    networks:
-      - app-tier
-#-------------------------------------------------------------------------
-  grafana:
-    image: grafana/grafana:13.1.1-distroless-slim
-    container_name: base-grafana
-    restart: unless-stopped
-    profiles:
-      - tools
-    deploy:
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 512M
-    ports:
-      - "127.0.0.1:3000:3000"
-    environment:
-      TZ: ${SYSTEM_TZ:-Asia/Shanghai}
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin
-      GF_USERS_ALLOW_SIGN_UP: "false"
-    volumes:
-      - grafana_data:/var/lib/grafana
-    depends_on:
-      - prometheus
     networks:
       - app-tier
 #-------------------------------------------------------------------------
@@ -164,7 +95,6 @@ volumes:
   backend_logs:
   nginx_logs:
   vm_data:
-  grafana_data:
 
 networks:
   app-tier:

@@ -1,12 +1,10 @@
 packages:
   - apps/*
-  - packages/*
+  - infra/*
 
-ignoredBuiltDependencies:
-  - core-js
-
-onlyBuiltDependencies:
-  - '@parcel/watcher'
-  - esbuild
-  - sharp
-  - vue-demi
+allowBuilds:
+  '@parcel/watcher': true
+  esbuild: true
+  sharp: true
+  vue-demi: true
+  core-js: false

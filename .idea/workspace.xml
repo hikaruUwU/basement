@@ -3,45 +3,159 @@
   <component name="AutoImportSettings">
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
-  <component name="AutomaticModuleUnloader">
-    <loaded-modules>
-      <module name="base" />
-      <module name="web" />
-      <module name="packages" />
-      <module name="vue" />
-    </loaded-modules>
-  </component>
   <component name="ChangeListManager">
-    <list default="true" id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="latest">
-      <change afterPath="$PROJECT_DIR$/.idea/json_assistant_history.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/module/business/controller/DemoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/module/user/data2object/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/java/src/main/java/com/demo/base/module/user/mapper/UserMapper.java" afterDir="false" />
+    <list default="true" id="1600ca5b-ed22-4d28-9479-a7bb0ec00658" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gitmodules" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/CoolRequestSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/CoolRequestSetting.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/go.imports.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/go.imports.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/jarRepositories.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jarRepositories.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/kotlinc.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/java/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/java/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/deploy" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.dev.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.dev.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/environment" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/init.sh" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/.dockerignore" beforeDir="false" afterPath="$PROJECT_DIR$/java/.dockerignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/java/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/app/src/main/java/com/demo/base/module/user/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/app/src/main/java/com/demo/base/module/user/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/app/src/main/java/com/demo/infra/core/context/RequestContext.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/app/src/main/java/com/demo/infra/core/context/RequestContext.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/app/src/main/java/com/demo/infra/core/util/DataValidator.java" beforeDir="false" afterPath="$PROJECT_DIR$/java/app/src/main/java/com/demo/infra/core/util/DataValidator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/java/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/AMVCGenerator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/BaseApplication.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/GlobalErrorWebExceptionHandler.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/InternationalizationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/MapstructConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/SQLLog4j2Config.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/SerializationConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/ValidatorConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/config/WebConfig.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/annotation/prevalidate/PreValidate.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/annotation/requireSession/RequiredSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/aspect/AspectOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/aspect/preValidate/PreValidator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/context/RequestContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/context/SessionContext.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/LimitationOverLoadException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/PreConditionNotValidatedException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/RootException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/exception/UnauthenticatedAccessException.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/interceptor/WebInterceptorOrder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/interceptor/web/PassInterceptor.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/spi/encoder/PwdEncoder.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/spi/session/LocalWebSession.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/util/ASMAnnotationScanner.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/core/util/SpelEvaluator.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/module/business/controller/DemoController.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/module/user/data2object/User.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/module/user/mapper/UserMapper.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/java/com/demo/base/shared/Result.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/Internationalization/messages.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/Internationalization/messages_ja_JP.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/Internationalization/messages_zh_CN.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/META-INF/agent/spring-instrument-6.2.12.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/META-INF/native-image/reflect-config.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/META-INF/warming/warmup.sql" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/application-dev.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/application-prod.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/application.properties" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/banner.txt" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/keystore.p12" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/log4j2-spring.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/main/resources/springboot.cer" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/java/src/test/java/com/demo/base/BaseApplicationTests.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/config/prometheus/cadvisor-dashboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/config/prometheus/prometheus.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/observer/config/prometheus/spring-dashboard.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/vue/.gitignore" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/.prettierrc" beforeDir="false" afterPath="$PROJECT_DIR$/vue/.prettierrc" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/vue/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/core/axios/acceptLanguage.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/core/axios/acceptLanguage.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/core/internationalization/core.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/core/internationalization/core.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/core/internationalization/loader.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/core/internationalization/loader.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/module/auth/locale.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/module/auth/locale.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/module/auth/router.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/module/auth/router.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/static/auto-complete/fruit/fruit.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/static/auto-complete/fruit/fruit.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/static/auto-complete/type.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/static/auto-complete/type.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/extl/src/static/type/result.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/apps/extl/src/static/type/result.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/.env" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/.env.development" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/.env.production" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/auto-imports.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/public/favicon.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/rsbuild.config.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/App.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/assets/background.png" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/index.css" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/index.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/module/welcome/index.vue" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/module/welcome/router.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/router/router.tsx" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/src/template.html" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/apps/web/web.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/auto-imports.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/auto-imports.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/components.d.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/components.d.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/infra/nginx-module-vts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/infra/ngx_brotli" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/nginx.conf" beforeDir="false" afterPath="$PROJECT_DIR$/vue/nginx.conf" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/api/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/api/src/api/api.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/api/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/packages.iml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/package.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/axios/axiosInstance.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/axios/enhanced.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/env.d.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/loading/loading.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/message/messaging.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/notification/notify.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/pinia/pinia.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/src/util/context.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/packages/shared/tsconfig.json" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/pnpm-lock.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue/pnpm-lock.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/pnpm-workspace.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/vue/pnpm-workspace.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/scripts/collect-dist.ts" beforeDir="false" afterPath="$PROJECT_DIR$/vue/scripts/collect-dist.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/tsconfig.base.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/tsconfig.base.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/vue/tsconfig.json" beforeDir="false" afterPath="$PROJECT_DIR$/vue/tsconfig.json" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
-  <component name="CodeInsightWorkspaceSettings">
-    <option name="optimizeImportsOnTheFly" value="true" />
+  <component name="DatabaseLocalColorSettings">
+    <colors>
+      <entry key="668b8f43-501d-46d8-943a-082f5f32b649" value="" />
+    </colors>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="AnnotationType" />
-        <option value="Exception" />
         <option value="Enum" />
-        <option value="Dockerfile" />
-        <option value="Class" />
         <option value="Interface" />
+        <option value="Class" />
+        <option value="module-info" />
+        <option value="package-info" />
       </list>
     </option>
   </component>
-  <component name="GOROOT" url="file://G:/Go" />
   <component name="Git.Settings">
+    <option name="INCOMING_COMMITS_CHECK_STRATEGY" value="FETCH" />
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="production" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="GitHubPullRequestSearchHistory">{
@@ -52,199 +166,102 @@
 }</component>
   <component name="GithubPullRequestsUISettings">{
   &quot;selectedUrlAndAccountId&quot;: {
-    &quot;url&quot;: &quot;git@github.com:hikaruUwU/basement.git&quot;,
+    &quot;url&quot;: &quot;https://github.com/hikaruUwU/basement.git&quot;,
     &quot;accountId&quot;: &quot;1a25bfea-cf2e-4e1b-bde0-2f45d6aaa804&quot;
   }
 }</component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/vue/src/module/login/index.vue" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/vue/apps/client/astro.config.mjs" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/vue/apps/intl/src/module/admin/index.vue" root0="SKIP_INSPECTION" />
   </component>
-  <component name="HttpClientOnboardingState">{
-  &quot;isOnboardingCommentShown&quot;: true
-}</component>
-  <component name="KubernetesApiPersistence">{}</component>
-  <component name="KubernetesApiProvider">{
-  &quot;isMigrated&quot;: true
-}</component>
   <component name="MavenImportPreferences">
     <option name="generalSettings">
       <MavenGeneralSettings>
+        <option name="localRepository" value="G:\apache-maven-3.9.12-bin\apache-maven-3.9.12\repository" />
+        <option name="mavenHomeTypeForPersistence" value="WRAPPER" />
         <option name="useMavenConfig" value="false" />
+        <option name="userSettingsFile" value="G:\apache-maven-3.9.12-bin\apache-maven-3.9.12\conf\settings.xml" />
       </MavenGeneralSettings>
     </option>
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/vue/package.json" />
-  </component>
-  <component name="ProblemsViewState">
-    <option name="selectedTabId" value="CurrentFile" />
-  </component>
   <component name="ProjectColorInfo">{
+  &quot;customColor&quot;: &quot;&quot;,
   &quot;associatedIndex&quot;: 7
 }</component>
-  <component name="ProjectId" id="3CvRzCCP4ggGijH2VhRvIiShgDl" />
+  <component name="ProjectId" id="3IlD9WIq97AAjCXl8mbM6KTiAbS" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
-    "ASKED_MARK_IGNORED_FILES_AS_EXCLUDED": "true",
-    "Application.AxiosGenerator.executor": "Run",
-    "Docker.cicd.mysql-backup-tool: Compose Deployment.executor": "Run",
-    "Docker.cicd: Compose Deployment.executor": "Run",
+    "Application.BaseApplication.executor": "Run",
+    "Docker.docker-compose.dev.yml.goaccess: Compose Deployment.executor": "Run",
     "Docker.docker-compose.yml.goaccess: Compose Deployment.executor": "Run",
-    "Docker.docker-compose.yml: Compose Deployment.executor": "Run",
-    "HTTP Request.generated-requests | #1.executor": "Run",
-    "HTTP Request.generated-requests | #2.executor": "Run",
-    "HTTP Request.generated-requests | #3.executor": "Run",
-    "HTTP Request.generated-requests | #4.executor": "Run",
-    "HTTP Request.generated-requests | #5.executor": "Run",
-    "HTTP Request.generated-requests | #6.executor": "Run",
-    "HTTP Request.generated-requests | #7.executor": "Run",
-    "Maven.base [clean,package,-DskipTests,-T,1C].executor": "Run",
-    "Maven.base [clean,package].executor": "Run",
-    "Maven.base [compile,jib:dockerBuild].executor": "Run",
-    "Maven.base [compile,jib:jib:build].executor": "Run",
-    "Maven.base [dependency:tree].executor": "Run",
-    "Maven.base [jib:build].executor": "Run",
+    "Git.Working.Tree.Tab.closed.by.user": "opened",
+    "Maven.base [clean,compile].executor": "Run",
+    "Maven.base [dependency:tree,-Dverbose,|,grep...].executor": "Run",
+    "Maven.base [dependency:tree,|,findstr...].executor": "Run",
     "ModuleVcsDetector.initialDetectionPerformed": "true",
-    "Notification.DisplayName-DoNotAsk-DatabaseConfigFileWatcher.found": "New/updated database configurations found",
-    "Notification.DoNotAsk-DatabaseConfigFileWatcher.found": "true",
-    "Remote JVM Debug.Unnamed.executor": "Debug",
-    "Remote JVM Debug.remote.executor": "Debug",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
     "RequestMappingsPanelWidth1": "75",
     "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
     "RunOnceActivity.git.unshallow": "true",
     "RunOnceActivity.go.formatter.settings.were.checked": "true",
     "RunOnceActivity.typescript.service.memoryLimit.init": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "SHELLCHECK.PATH": "C:\\Users\\UwU\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.3\\plugins\\Shell Script\\shellcheck.exe",
     "Spring Boot.BaseApplication.executor": "Debug",
+    "codeWithMe.voiceChat.enabledByDefault": "false",
+    "database.data.extractors.current.export.id": "HTML-JavaScript.html.js",
     "git-widget-placeholder": "main",
+    "git.auto.fetch.suggestion.counter": "2",
     "ignore.virus.scanning.warn.message": "true",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/UwU/IdeaProjects/basement/vue/packages/api",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.tslint": "(autodetect)",
+    "last_opened_file_path": "H:/basement",
+    "node.js.detected.package.jshint": "true",
+    "node.js.selected.package.jshint": "",
     "nodejs_package_manager_path": "pnpm",
-    "npm.astro.executor": "Run",
-    "npm.build (1).executor": "Run",
-    "npm.build (2).executor": "Run",
-    "npm.build.executor": "Run",
-    "npm.build:development.executor": "Run",
-    "npm.dev (1).executor": "Run",
     "npm.dev.executor": "Run",
-    "npm.prettier.executor": "Run",
-    "npm.seo > generate.executor": "Run",
-    "npm.seo > preview.executor": "Run",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
+    "npm.dev:debug.executor": "Run",
+    "npm.test.executor": "Run",
+    "prettierjs.PrettierConfiguration.Package": "H:\\basement\\vue\\node_modules\\prettier",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "cool.request.config.callthismethod",
-    "ts.external.directory.path": "G:\\IntelliJ IDEA 2025.3.3\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external",
-    "two.files.diff.last.used.folder": "C:/Users/UwU/IdeaProjects/basement/vue/apps/web",
-    "vue.rearranger.settings.migration": "true"
+    "settings.editor.selected.configurable": "preferences.pluginManager",
+    "ts.external.directory.path": "C:\\Users\\UwU\\AppData\\Roaming\\JetBrains\\IntelliJIdea2026.2\\plugins\\javascript-plugin\\jsLanguageServicesImpl\\external"
+  },
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "mysql"
+    ]
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\api" />
+      <recent name="H:\basement" />
+      <recent name="G:\basement\vue\apps\extl\src\core\router" />
+      <recent name="G:\basement\vue\apps\extl\src" />
+      <recent name="G:\basement\vue\apps\extl\src\core" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\UwU\IdeaProjects\basement\observer\config" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\apps\seo" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\public" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\shared\src" />
-      <recent name="C:\Users\UwU\IdeaProjects\basement\vue\packages\shared" />
+      <recent name="H:\basement\vue\apps\extl\src\static\auto-complete\fruit" />
+      <recent name="G:\basement\dev-ssl" />
+      <recent name="G:\basement\ssl" />
     </key>
   </component>
   <component name="RunAnythingCache">
     <option name="myCommands">
-      <command value="mvn compile jib:dockerBuild" />
-      <command value="mvn compile jib:jib:build" />
-      <command value="mvn jib:build" />
-      <command value="mvn clean package" />
-      <command value="mvn clean package -DskipTests -T 1C" />
-      <command value="mvn dependency:tree" />
-    </option>
-  </component>
-  <component name="RunDashboard">
-    <option name="configurationStatuses">
-      <map>
-        <entry key="HttpClient.HttpRequestRunConfigurationType">
-          <value>
-            <map>
-              <entry key="generated-requests | #1" value="STOPPED" />
-            </map>
-          </value>
-        </entry>
-      </map>
+      <command value="mvn dependency:tree | findstr commons-logging" />
+      <command value="mvn dependency:tree -Dverbose | grep -E &quot;spring-boot-starter-mail|logback|log4j|slf4j&quot;" />
+      <command value="mvn clean compile" />
     </option>
   </component>
   <component name="RunManager" selected="Spring Boot.BaseApplication">
-    <configuration default="true" type="DAPConfiguration" factoryName="DAPConfiguration">
-      <option name="workingDirectory" value="$PROJECT_DIR$/vue" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoApplicationRunConfiguration" factoryName="Go Application">
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="FILE" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="GoTestRunConfiguration" factoryName="Go Test">
-      <working_directory value="$PROJECT_DIR$" />
-      <kind value="DIRECTORY" />
-      <directory value="$PROJECT_DIR$" />
-      <filePath value="$PROJECT_DIR$" />
-      <framework value="gotest" />
-      <method v="2" />
-    </configuration>
-    <configuration name="generated-requests | #1" type="HttpClient.HttpRequestRunConfigurationType" factoryName="HTTP Request" temporary="true" nameIsGenerated="true" path="$APPLICATION_CONFIG_DIR$/scratches/generated-requests.http" executionIdentifier="#1" runType="Run single request">
-      <method v="2" />
-    </configuration>
-    <configuration default="true" type="JetRunConfigurationType">
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration default="true" type="KotlinStandaloneScriptRunConfigurationType">
-      <option name="filePath" />
-      <method v="2" />
-    </configuration>
-    <configuration name="remote" type="Remote">
-      <option name="USE_SOCKET_TRANSPORT" value="true" />
-      <option name="SERVER_MODE" value="false" />
-      <option name="SHMEM_ADDRESS" />
-      <option name="HOST" value="localhost" />
-      <option name="PORT" value="5005" />
-      <option name="AUTO_RESTART" value="false" />
-      <RunnerSettings RunnerId="Debug">
-        <option name="DEBUG_PORT" value="5005" />
-        <option name="LOCAL" value="false" />
-      </RunnerSettings>
-      <method v="2" />
-    </configuration>
     <configuration name="BaseApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
-      <module name="base" />
+      <module name="app" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.demo.base.BaseApplication" />
-      <extension name="net.ashald.envfile">
-        <option name="IS_ENABLED" value="false" />
-        <option name="IS_SUBST" value="false" />
-        <option name="IS_PATH_MACRO_SUPPORTED" value="false" />
-        <option name="IS_IGNORE_MISSING_FILES" value="false" />
-        <option name="IS_ENABLE_EXPERIMENTAL_INTEGRATIONS" value="false" />
-        <ENTRIES>
-          <ENTRY IS_ENABLED="true" PARSER="runconfig" IS_EXECUTABLE="false" />
-        </ENTRIES>
-      </extension>
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -255,7 +272,20 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="docker-compose.yml.goaccess: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+    <configuration name="docker-compose.dev.yml.goaccess: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="services">
+            <list>
+              <option value="goaccess" />
+            </list>
+          </option>
+          <option name="sourceFilePath" value="docker-compose.dev.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
+    <configuration name="docker-compose.yml.goaccess: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="server">
       <deployment type="docker-compose.yml">
         <settings>
           <option name="services">
@@ -268,25 +298,8 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="build (2)" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/package.json" />
-      <command value="run" />
-      <scripts>
-        <script value="build" />
-      </scripts>
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="build" type="js.build_tools.npm" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/package.json" />
-      <command value="build" />
-      <node-interpreter value="project" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="dev" type="js.build_tools.npm" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/package.json" />
+    <configuration name="dev" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/apps/client/former-force/package.json" />
       <command value="run" />
       <scripts>
         <script value="dev" />
@@ -295,560 +308,104 @@
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="seo &gt; generate" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/apps/seo/package.json" />
+    <configuration name="dev:debug" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/apps/web/package.json" />
       <command value="run" />
       <scripts>
-        <script value="generate" />
+        <script value="dev:debug" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <configuration name="seo &gt; preview" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
-      <package-json value="$PROJECT_DIR$/vue/apps/seo/package.json" />
+    <configuration name="test" type="js.build_tools.npm" temporary="true" nameIsGenerated="true">
+      <package-json value="$PROJECT_DIR$/vue/infra/pow/package.json" />
       <command value="run" />
       <scripts>
-        <script value="preview" />
+        <script value="test" />
       </scripts>
       <node-interpreter value="project" />
       <envs />
       <method v="2" />
     </configuration>
-    <list>
-      <item itemvalue="Docker.docker-compose.yml.goaccess: Compose Deployment" />
-      <item itemvalue="HTTP Request.generated-requests | #1" />
-      <item itemvalue="npm.dev" />
-      <item itemvalue="npm.build" />
-      <item itemvalue="npm.build (2)" />
-      <item itemvalue="npm.seo &gt; generate" />
-      <item itemvalue="npm.seo &gt; preview" />
-      <item itemvalue="Remote JVM Debug.remote" />
-      <item itemvalue="Spring Boot.BaseApplication" />
-    </list>
     <recent_temporary>
       <list>
-        <item itemvalue="HTTP Request.generated-requests | #1" />
+        <item itemvalue="Docker.docker-compose.dev.yml.goaccess: Compose Deployment" />
         <item itemvalue="Docker.docker-compose.yml.goaccess: Compose Deployment" />
-        <item itemvalue="npm.build (2)" />
-        <item itemvalue="npm.seo &gt; preview" />
-        <item itemvalue="npm.seo &gt; generate" />
+        <item itemvalue="Docker.docker-compose.yml.goaccess: Compose Deployment" />
+        <item itemvalue="npm.test" />
+        <item itemvalue="npm.dev" />
       </list>
     </recent_temporary>
   </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-30f59d01ecdd-2fc7cc6b9a17-intellij.indexing.shared.core-IU-253.31033.145" />
-        <option value="bundled-js-predefined-d6986cc7102b-9b0f141eb926-JavaScript-IU-253.31033.145" />
+        <option value="bundled-jdk-30f59d01ecdd-63390994e64e-intellij.indexing.shared.core-IU-262.8665.258" />
       </set>
     </attachedChunks>
   </component>
+  <component name="StructureViewState">
+    <option name="selectedTab" value="Physical" />
+  </component>
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
-      <changelist id="1c765995-4ae4-4aa2-a649-70c1e0c7136e" name="Changes" comment="" />
-      <created>1777264317241</created>
+      <changelist id="1600ca5b-ed22-4d28-9479-a7bb0ec00658" name="Changes" comment="" />
+      <created>1788330111954</created>
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
-      <updated>1777264317241</updated>
-      <workItem from="1777264318359" duration="535000" />
-      <workItem from="1777268882031" duration="3614000" />
-      <workItem from="1777277793242" duration="3274000" />
-      <workItem from="1777338479875" duration="3177000" />
-      <workItem from="1777370106730" duration="1676000" />
-      <workItem from="1777424782082" duration="12153000" />
-      <workItem from="1777511135938" duration="1450000" />
-      <workItem from="1777514173178" duration="2801000" />
-      <workItem from="1777520603160" duration="300000" />
-      <workItem from="1777529477028" duration="11084000" />
-      <workItem from="1777607864927" duration="41000" />
-      <workItem from="1777629009414" duration="190000" />
-      <workItem from="1777870360644" duration="4216000" />
-      <workItem from="1777958250749" duration="4345000" />
-      <workItem from="1777977106130" duration="4772000" />
-      <workItem from="1777985052500" duration="39000" />
-      <workItem from="1778029626973" duration="13787000" />
-      <workItem from="1778050958389" duration="621000" />
-      <workItem from="1778052871567" duration="4942000" />
-      <workItem from="1778077947092" duration="2094000" />
-      <workItem from="1778122607487" duration="4676000" />
-      <workItem from="1778128063506" duration="3292000" />
-      <workItem from="1778166197897" duration="2837000" />
-      <workItem from="1778313962204" duration="3750000" />
-      <workItem from="1778461593960" duration="716000" />
-      <workItem from="1778473400355" duration="10456000" />
-      <workItem from="1778548732724" duration="4590000" />
-      <workItem from="1778559466615" duration="1286000" />
-      <workItem from="1778565030495" duration="2516000" />
-      <workItem from="1778567855517" duration="523000" />
-      <workItem from="1778576115827" duration="1985000" />
-      <workItem from="1778659893838" duration="6281000" />
-      <workItem from="1778681469258" duration="802000" />
-      <workItem from="1778682286197" duration="83000" />
-      <workItem from="1778682381667" duration="1373000" />
-      <workItem from="1778753622744" duration="496000" />
-      <workItem from="1778754132268" duration="1072000" />
-      <workItem from="1778814087607" duration="86000" />
-      <workItem from="1778814187628" duration="258000" />
-      <workItem from="1778821248883" duration="2306000" />
-      <workItem from="1778832278738" duration="3336000" />
-      <workItem from="1778856366305" duration="1681000" />
-      <workItem from="1778900428214" duration="2192000" />
-      <workItem from="1778903907362" duration="1364000" />
-      <workItem from="1778907671188" duration="1417000" />
-      <workItem from="1778918577393" duration="5797000" />
-      <workItem from="1778929770394" duration="1357000" />
-      <workItem from="1779009340271" duration="1295000" />
-      <workItem from="1779024545147" duration="456000" />
-      <workItem from="1779025015450" duration="22000" />
-      <workItem from="1779025377136" duration="3274000" />
-      <workItem from="1779103780313" duration="2417000" />
-      <workItem from="1779162319103" duration="4422000" />
-      <workItem from="1779170629418" duration="740000" />
-      <workItem from="1779174482119" duration="1056000" />
-      <workItem from="1779268278356" duration="2317000" />
-      <workItem from="1779339736988" duration="5733000" />
-      <workItem from="1779373618220" duration="3005000" />
-      <workItem from="1779422656562" duration="2902000" />
-      <workItem from="1779459826180" duration="8612000" />
-      <workItem from="1779511788660" duration="4795000" />
-      <workItem from="1779516672380" duration="70000" />
-      <workItem from="1779516753229" duration="95000" />
-      <workItem from="1779516859796" duration="1054000" />
-      <workItem from="1779686694813" duration="27000" />
-      <workItem from="1779768235022" duration="471000" />
-      <workItem from="1779769084475" duration="428000" />
-      <workItem from="1779785447850" duration="5402000" />
-      <workItem from="1779797829175" duration="23000" />
-      <workItem from="1779798136223" duration="238000" />
-      <workItem from="1779853684616" duration="540000" />
-      <workItem from="1779854632491" duration="2755000" />
-      <workItem from="1779887578160" duration="7531000" />
-      <workItem from="1779953040774" duration="3223000" />
-      <workItem from="1779987023309" duration="6026000" />
-      <workItem from="1780041369248" duration="4524000" />
-      <workItem from="1780210939730" duration="8463000" />
-      <workItem from="1780219965444" duration="173000" />
-      <workItem from="1780220178066" duration="722000" />
+      <updated>1788330111954</updated>
     </task>
-    <task id="LOCAL-00047" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778662883599</created>
-      <option name="number" value="00047" />
-      <option name="presentableId" value="LOCAL-00047" />
-      <option name="project" value="LOCAL" />
-      <updated>1778662883599</updated>
-    </task>
-    <task id="LOCAL-00048" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778663109016</created>
-      <option name="number" value="00048" />
-      <option name="presentableId" value="LOCAL-00048" />
-      <option name="project" value="LOCAL" />
-      <updated>1778663109016</updated>
-    </task>
-    <task id="LOCAL-00049" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778664094301</created>
-      <option name="number" value="00049" />
-      <option name="presentableId" value="LOCAL-00049" />
-      <option name="project" value="LOCAL" />
-      <updated>1778664094301</updated>
-    </task>
-    <task id="LOCAL-00050" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778684697116</created>
-      <option name="number" value="00050" />
-      <option name="presentableId" value="LOCAL-00050" />
-      <option name="project" value="LOCAL" />
-      <updated>1778684697117</updated>
-    </task>
-    <task id="LOCAL-00051" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778823541358</created>
-      <option name="number" value="00051" />
-      <option name="presentableId" value="LOCAL-00051" />
-      <option name="project" value="LOCAL" />
-      <updated>1778823541358</updated>
-    </task>
-    <task id="LOCAL-00052" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778835370842</created>
-      <option name="number" value="00052" />
-      <option name="presentableId" value="LOCAL-00052" />
-      <option name="project" value="LOCAL" />
-      <updated>1778835370842</updated>
-    </task>
-    <task id="LOCAL-00053" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778857053458</created>
-      <option name="number" value="00053" />
-      <option name="presentableId" value="LOCAL-00053" />
-      <option name="project" value="LOCAL" />
-      <updated>1778857053458</updated>
-    </task>
-    <task id="LOCAL-00054" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778857917080</created>
-      <option name="number" value="00054" />
-      <option name="presentableId" value="LOCAL-00054" />
-      <option name="project" value="LOCAL" />
-      <updated>1778857917080</updated>
-    </task>
-    <task id="LOCAL-00055" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778902181848</created>
-      <option name="number" value="00055" />
-      <option name="presentableId" value="LOCAL-00055" />
-      <option name="project" value="LOCAL" />
-      <updated>1778902181848</updated>
-    </task>
-    <task id="LOCAL-00056" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778902359784</created>
-      <option name="number" value="00056" />
-      <option name="presentableId" value="LOCAL-00056" />
-      <option name="project" value="LOCAL" />
-      <updated>1778902359784</updated>
-    </task>
-    <task id="LOCAL-00057" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778907567025</created>
-      <option name="number" value="00057" />
-      <option name="presentableId" value="LOCAL-00057" />
-      <option name="project" value="LOCAL" />
-      <updated>1778907567025</updated>
-    </task>
-    <task id="LOCAL-00058" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778908525907</created>
-      <option name="number" value="00058" />
-      <option name="presentableId" value="LOCAL-00058" />
-      <option name="project" value="LOCAL" />
-      <updated>1778908525907</updated>
-    </task>
-    <task id="LOCAL-00059" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778909076629</created>
-      <option name="number" value="00059" />
-      <option name="presentableId" value="LOCAL-00059" />
-      <option name="project" value="LOCAL" />
-      <updated>1778909076629</updated>
-    </task>
-    <task id="LOCAL-00060" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778919331238</created>
-      <option name="number" value="00060" />
-      <option name="presentableId" value="LOCAL-00060" />
-      <option name="project" value="LOCAL" />
-      <updated>1778919331238</updated>
-    </task>
-    <task id="LOCAL-00061" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778919440391</created>
-      <option name="number" value="00061" />
-      <option name="presentableId" value="LOCAL-00061" />
-      <option name="project" value="LOCAL" />
-      <updated>1778919440391</updated>
-    </task>
-    <task id="LOCAL-00062" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778919756924</created>
-      <option name="number" value="00062" />
-      <option name="presentableId" value="LOCAL-00062" />
-      <option name="project" value="LOCAL" />
-      <updated>1778919756924</updated>
-    </task>
-    <task id="LOCAL-00063" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778919775124</created>
-      <option name="number" value="00063" />
-      <option name="presentableId" value="LOCAL-00063" />
-      <option name="project" value="LOCAL" />
-      <updated>1778919775124</updated>
-    </task>
-    <task id="LOCAL-00064" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778919944467</created>
-      <option name="number" value="00064" />
-      <option name="presentableId" value="LOCAL-00064" />
-      <option name="project" value="LOCAL" />
-      <updated>1778919944467</updated>
-    </task>
-    <task id="LOCAL-00065" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778920736912</created>
-      <option name="number" value="00065" />
-      <option name="presentableId" value="LOCAL-00065" />
-      <option name="project" value="LOCAL" />
-      <updated>1778920736912</updated>
-    </task>
-    <task id="LOCAL-00066" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778921779435</created>
-      <option name="number" value="00066" />
-      <option name="presentableId" value="LOCAL-00066" />
-      <option name="project" value="LOCAL" />
-      <updated>1778921779435</updated>
-    </task>
-    <task id="LOCAL-00067" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778922760022</created>
-      <option name="number" value="00067" />
-      <option name="presentableId" value="LOCAL-00067" />
-      <option name="project" value="LOCAL" />
-      <updated>1778922760022</updated>
-    </task>
-    <task id="LOCAL-00068" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778924928577</created>
-      <option name="number" value="00068" />
-      <option name="presentableId" value="LOCAL-00068" />
-      <option name="project" value="LOCAL" />
-      <updated>1778924928577</updated>
-    </task>
-    <task id="LOCAL-00069" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778925218831</created>
-      <option name="number" value="00069" />
-      <option name="presentableId" value="LOCAL-00069" />
-      <option name="project" value="LOCAL" />
-      <updated>1778925218831</updated>
-    </task>
-    <task id="LOCAL-00070" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778925351922</created>
-      <option name="number" value="00070" />
-      <option name="presentableId" value="LOCAL-00070" />
-      <option name="project" value="LOCAL" />
-      <updated>1778925351922</updated>
-    </task>
-    <task id="LOCAL-00071" summary="latest">
-      <option name="closed" value="true" />
-      <created>1778930003057</created>
-      <option name="number" value="00071" />
-      <option name="presentableId" value="LOCAL-00071" />
-      <option name="project" value="LOCAL" />
-      <updated>1778930003058</updated>
-    </task>
-    <task id="LOCAL-00072" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779010425402</created>
-      <option name="number" value="00072" />
-      <option name="presentableId" value="LOCAL-00072" />
-      <option name="project" value="LOCAL" />
-      <updated>1779010425402</updated>
-    </task>
-    <task id="LOCAL-00073" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779024705903</created>
-      <option name="number" value="00073" />
-      <option name="presentableId" value="LOCAL-00073" />
-      <option name="project" value="LOCAL" />
-      <updated>1779024705904</updated>
-    </task>
-    <task id="LOCAL-00074" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779025705009</created>
-      <option name="number" value="00074" />
-      <option name="presentableId" value="LOCAL-00074" />
-      <option name="project" value="LOCAL" />
-      <updated>1779025705009</updated>
-    </task>
-    <task id="LOCAL-00075" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779027469266</created>
-      <option name="number" value="00075" />
-      <option name="presentableId" value="LOCAL-00075" />
-      <option name="project" value="LOCAL" />
-      <updated>1779027469266</updated>
-    </task>
-    <task id="LOCAL-00076" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779028653268</created>
-      <option name="number" value="00076" />
-      <option name="presentableId" value="LOCAL-00076" />
-      <option name="project" value="LOCAL" />
-      <updated>1779028653268</updated>
-    </task>
-    <task id="LOCAL-00077" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779174696377</created>
-      <option name="number" value="00077" />
-      <option name="presentableId" value="LOCAL-00077" />
-      <option name="project" value="LOCAL" />
-      <updated>1779174696377</updated>
-    </task>
-    <task id="LOCAL-00078" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779342606281</created>
-      <option name="number" value="00078" />
-      <option name="presentableId" value="LOCAL-00078" />
-      <option name="project" value="LOCAL" />
-      <updated>1779342606281</updated>
-    </task>
-    <task id="LOCAL-00079" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779365434948</created>
-      <option name="number" value="00079" />
-      <option name="presentableId" value="LOCAL-00079" />
-      <option name="project" value="LOCAL" />
-      <updated>1779365434948</updated>
-    </task>
-    <task id="LOCAL-00080" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779425566632</created>
-      <option name="number" value="00080" />
-      <option name="presentableId" value="LOCAL-00080" />
-      <option name="project" value="LOCAL" />
-      <updated>1779425566632</updated>
-    </task>
-    <task id="LOCAL-00081" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779468019239</created>
-      <option name="number" value="00081" />
-      <option name="presentableId" value="LOCAL-00081" />
-      <option name="project" value="LOCAL" />
-      <updated>1779468019240</updated>
-    </task>
-    <task id="LOCAL-00082" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779468184790</created>
-      <option name="number" value="00082" />
-      <option name="presentableId" value="LOCAL-00082" />
-      <option name="project" value="LOCAL" />
-      <updated>1779468184790</updated>
-    </task>
-    <task id="LOCAL-00083" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779468476948</created>
-      <option name="number" value="00083" />
-      <option name="presentableId" value="LOCAL-00083" />
-      <option name="project" value="LOCAL" />
-      <updated>1779468476948</updated>
-    </task>
-    <task id="LOCAL-00084" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779469375541</created>
-      <option name="number" value="00084" />
-      <option name="presentableId" value="LOCAL-00084" />
-      <option name="project" value="LOCAL" />
-      <updated>1779469375541</updated>
-    </task>
-    <task id="LOCAL-00085" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779515382878</created>
-      <option name="number" value="00085" />
-      <option name="presentableId" value="LOCAL-00085" />
-      <option name="project" value="LOCAL" />
-      <updated>1779515382879</updated>
-    </task>
-    <task id="LOCAL-00086" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779540619038</created>
-      <option name="number" value="00086" />
-      <option name="presentableId" value="LOCAL-00086" />
-      <option name="project" value="LOCAL" />
-      <updated>1779540619038</updated>
-    </task>
-    <task id="LOCAL-00087" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779786020450</created>
-      <option name="number" value="00087" />
-      <option name="presentableId" value="LOCAL-00087" />
-      <option name="project" value="LOCAL" />
-      <updated>1779786020450</updated>
-    </task>
-    <task id="LOCAL-00088" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779789046562</created>
-      <option name="number" value="00088" />
-      <option name="presentableId" value="LOCAL-00088" />
-      <option name="project" value="LOCAL" />
-      <updated>1779789046562</updated>
-    </task>
-    <task id="LOCAL-00089" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779991788970</created>
-      <option name="number" value="00089" />
-      <option name="presentableId" value="LOCAL-00089" />
-      <option name="project" value="LOCAL" />
-      <updated>1779991788970</updated>
-    </task>
-    <task id="LOCAL-00090" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779992002474</created>
-      <option name="number" value="00090" />
-      <option name="presentableId" value="LOCAL-00090" />
-      <option name="project" value="LOCAL" />
-      <updated>1779992002474</updated>
-    </task>
-    <task id="LOCAL-00091" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779992867101</created>
-      <option name="number" value="00091" />
-      <option name="presentableId" value="LOCAL-00091" />
-      <option name="project" value="LOCAL" />
-      <updated>1779992867102</updated>
-    </task>
-    <task id="LOCAL-00092" summary="latest">
-      <option name="closed" value="true" />
-      <created>1779993060229</created>
-      <option name="number" value="00092" />
-      <option name="presentableId" value="LOCAL-00092" />
-      <option name="project" value="LOCAL" />
-      <updated>1779993060229</updated>
-    </task>
-    <task id="LOCAL-00093" summary="latest">
-      <option name="closed" value="true" />
-      <created>1780046761963</created>
-      <option name="number" value="00093" />
-      <option name="presentableId" value="LOCAL-00093" />
-      <option name="project" value="LOCAL" />
-      <updated>1780046761963</updated>
-    </task>
-    <task id="LOCAL-00094" summary="latest">
-      <option name="closed" value="true" />
-      <created>1780220066247</created>
-      <option name="number" value="00094" />
-      <option name="presentableId" value="LOCAL-00094" />
-      <option name="project" value="LOCAL" />
-      <updated>1780220066247</updated>
-    </task>
-    <task id="LOCAL-00095" summary="latest">
-      <option name="closed" value="true" />
-      <created>1780220072748</created>
-      <option name="number" value="00095" />
-      <option name="presentableId" value="LOCAL-00095" />
-      <option name="project" value="LOCAL" />
-      <updated>1780220072748</updated>
-    </task>
-    <option name="localTasksCounter" value="96" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
-  </component>
-  <component name="UnloadedModulesList">
-    <module name="apps" />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
     <option name="TAB_STATES">
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="CUSTOM_BOOLEAN_PROPERTIES">
+                <map>
+                  <entry key="Show.Git.Branches" value="true" />
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
     </option>
   </component>
   <component name="VcsManagerConfiguration">
-    <MESSAGE value="latest" />
-    <option name="LAST_COMMIT_MESSAGE" value="latest" />
-  </component>
-  <component name="VueSettings">
-    <option name="tsPluginVersion" value="V3_1_8" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="false" />
+    <MESSAGE value="refactor(role): replace Owner with Admin role&#10;&#10;- Remove Owner enum from Role.java, User.ts, and operatorGuard&#10;- Replace owner API endpoints with admin across ledger and supplier modules&#10;- Remove Owner workspace sections and update roleWorkspace router&#10;- Update @Access annotations to exclude Owner in all Java controllers&#10;- Add finance, supplierApproval, and serviceAssignment entries to admin panel&#10;- Remove roleOwner locale and update Role.java Javadoc&#10;- Initialize extl app with router-view and scanRouting&#10;- Clear deprecated DDL from warmup.sql" />
+    <MESSAGE value="feat(booking-detail): add textarea and tooltip enhancements to form&#10;&#10;- Set type=&quot;textarea&quot; with autosize on port, preCarriageBy and marksAndNO inputs&#10;- Added el-tooltip on table column headers to show full text on overflow&#10;- Replaced containerQuantity el-input with el-input-number for numeric validation&#10;- Added computed property for containerQuantity with string-to-number conversion&#10;- Added .table-header-text CSS class with single-line ellipsis overflow&#10;- Reformatted ReservationFlowReadController.java from compressed to standard style" />
+    <MESSAGE value="feat(supplier): add Jacksonized support and Serializable interface&#10;&#10;- Added @Jacksonized annotation for Jackson-compatible builder deserialization&#10;- Added @AllArgsConstructor to support Jacksonized with SuperBuilder&#10;- Explicitly implemented Serializable interface on SupplierProfile&#10;- Added java.io.Serializable import&#10;- Reformatted serialVersionUID declaration for readability" />
+    <MESSAGE value="refactor(booking): remove booking creation wizard from merchandiser modules&#10;&#10;- Deleted createWizard.vue and formStep.vue components in both merchandiser and merchandiserManager bookingManagement modules&#10;- Removed SlotPreset type and WizardControl composable from booking.ts&#10;- Cleaned up unused imports (reactive, Slot type) in booking.ts&#10;- Eliminated the step-based dialog flow for slot selection and booking form submission" />
+    <MESSAGE value="style(ledger): reformat controller and service for readability&#10;&#10;- Expanded single-line class and method declarations to multi-line&#10;- Added proper indentation with 4-space standard&#10;- Separated annotations onto individual lines&#10;- Added blank lines between methods for visual grouping&#10;- Formatted import statements with proper spacing" />
+    <MESSAGE value="fix(booking-management): fix card row compression&#10;&#10;- Added grid-auto-rows: max-content to prevent row height compression&#10;- Added align-content: start and overflow-y: auto for card grid scrolling&#10;- Wrapped status/carrier/danger tags in flex container with flex-wrap&#10;- Set min-width basis on route-info to allow tag wrapping on narrow cards&#10;- Made cargo grid columns responsive using auto-fit with minmax(150px, 1fr)&#10;- Reduced card grid gap to 12px in mobile media query&#10;- Reformatted ReservationFlowService method bodies for readability&#10;- Reformatted ReservationFlowStage enum value declarations" />
+    <MESSAGE value="style(ledger): reformat Bill class annotations and add serialVersionUID&#10;&#10;- Moved annotations to separate lines for improved readability&#10;- Added spaces around equals signs in annotation attributes&#10;- Added space after commas in generic type parameters&#10;- Added @Serial annotation with serialVersionUID field for Bill class" />
+    <MESSAGE value="fix(inquiry): handle BigDecimal scale differences in equality checks&#10;&#10;- Override equals and hashCode in InquiryOfferDetail to use compareTo&#10;  instead of equals for BigDecimal amount fields, treating values like&#10;  2000 and 2000.0 as equal&#10;- Apply the same scale-insensitive comparison to inner LocalFee class&#10;  for unitPrice, quantity, and amount fields&#10;- Add unit tests verifying offer detail equality ignores amount scale&#10;- Reformat financeLedgerWorkspace.vue and ReservationFlowDialog.vue&#10;  for improved readability without functional changes" />
+    <MESSAGE value="style(code): apply consistent formatting across source files&#10;&#10;- Broke long single-line statements into multiple lines in adminAPI.ts&#10;- Reformatted setEnabled function in accountList.vue for readability&#10;- Split chained FormData operations into separate statements in attachmentAPI.ts&#10;- Added semicolons to auto-imports.d.ts declarations in intl and extl apps&#10;- Removed unnecessary empty lines in extl App.vue&#10;- Applied multi-line formatting to type re-export blocks in auto-imports.d.ts" />
+    <MESSAGE value="feat(attachment): return uploaded document ID from upload endpoints&#10;&#10;- Changed upload method return type from void to BigInteger in&#10;  AttachmentMerchandiserApplication and&#10;  AttachmentMerchandiserManagerApplication&#10;- Updated controller response type from Result&lt;Void&gt; to Result&lt;String&gt;&#10;  to expose the created document ID to clients&#10;- Both Merchandiser and MerchandiserManager upload endpoints now&#10;  return the uploaded document identifier as a string" />
+    <MESSAGE value="feat(ledger): add aging and profit analytics&#10;&#10;- Add AgingRules service with bucket-based overdue calculation&#10;- Add enriched page endpoint with query and status filters&#10;- Add overview, statement, and profit report API endpoints&#10;- Extend CurrencySummary with invoicedAmount and settlementRate&#10;- Add paidTotal helper to LedgerRules excluding revoked payments&#10;- Add accountPrice and costCurrency to InquiryConversionSnapshot&#10;- Add Element Plus locale binding in App.vue for zh/en switch&#10;- Remove legacy financeLedgerWorkspace and Treasurer route&#10;- Update workspace module to reference new finance component path" />
+    <MESSAGE value="feat(reservation): add operator override for bill reconciliation&#10;&#10;- Added reconciliation stage UI with bill status table in ReservationFlowDialog&#10;- Implemented overrideClientBillReconciliation in LedgerService for operator action&#10;- Added forceBillingReconciliation flag handling in ReservationFlowService advance logic&#10;- Integrated reconciliation override into MerchandiserManager and Merchandiser controllers&#10;- Added ElRadioButton and ElRadioGroup type declarations for Vue components" />
+    <MESSAGE value="chore(sql): remove mainline migration script&#10;&#10;- Deleted document/sql/MAINLINE_MIGRATION.sql&#10;- Removed ALTER TABLE statements for inquiry, reservation, client_profile, user&#10;- Removed CREATE TABLE definitions for currency, fee_item, port, supplier, reservation_flow, bills, payments, invoices, invoice_request&#10;- Removed role migration UPDATE and currency seed INSERT statements" />
+    <MESSAGE value="chore(deps): update dependencies across vue packages&#10;&#10;- Updated astro from ^7.3.5 to ^7.3.8 in client app&#10;- Updated element-plus from ^2.14.6 to ^2.14.7 in extl and intl&#10;- Updated vue-i18n from ^11.4.12 to ^11.4.14 in extl and intl&#10;- Updated @rsbuild/core from ^2.2.9 to ^2.2.12 in extl and intl&#10;- Updated @rsbuild/plugin-type-check from ^1.6.0 to ^1.6.1&#10;- Updated @rsdoctor/rspack-plugin from ^1.6.4 to ^1.6.5&#10;- Updated @types/node from ^26.6.3 to ^26.6.5&#10;- Updated @vue/language-server from ^3.3.11 to ^3.3.13&#10;- Updated @vue/typescript-plugin from ^3.3.11 to ^3.3.13&#10;- Updated prettier from ^3.9.9 to ^3.9.10&#10;- Updated pnpm lock file accordingly" />
+    <MESSAGE value="chore(auto-imports): update generated type declaration formatting&#10;&#10;- Added semicolons to all const declarations in extl and intl apps&#10;- Reformatted export type statements into multi-line format with trailing commas&#10;- Changes reflect updated auto-imports.d.ts generation output format" />
+    <MESSAGE value="refactor(build): use postbuild hook to run collect-dist script&#10;&#10;- Moved collect-dist.ts execution from build commands to postbuild lifecycle hook&#10;- Removed inline &amp;&amp; chaining from build, build:production, and build:development scripts&#10;- Added extl app configuration to dist collection targets in collect-dist.ts" />
+    <MESSAGE value="perf(client): self-host Google Fonts removing external CDN&#10;&#10;- Replaced Google Fonts CDN links with local stylesheet in Layout.astro&#10;- Added download-google-fonts.mjs script for self-hosting font assets&#10;- Added nginx caching rules for woff2 font files (365d, immutable)&#10;- Added nginx-extl.conf with location blocks for /extl/ routing&#10;- Included nginx-extl.conf in main nginx.conf&#10;- Renamed package from &quot;former-force&quot; to &quot;client&quot;&#10;- Integrated collect-dist.ts into build and build:production scripts" />
+    <MESSAGE value="style(intl): remove trailing semicolons from auto-imports.d.ts&#10;&#10;- Removed semicolons at the end of each type declaration statement&#10;- Applied consistent formatting to the auto-generated imports file&#10;- Updated auto-imports configuration to exclude semicolons in output" />
+    <MESSAGE value="chore(database): add hozai schema dump with seed data&#10;&#10;- Added full MySQL database dump for hozai freight forwarding system&#10;- Includes table definitions: attachment, audit, bills, client_profile, currency, document&#10;- Contains seed/test data for audit logs, bills, and client profiles&#10;- Covers the complete booking lifecycle workflow states&#10;- Dated 2026-10-14 sourced from dev environment (MySQL 8.4.11)" />
+    <MESSAGE value="feat(mysql): expose MySQL port to host in dev compose&#10;&#10;- Replaced expose directive with ports mapping for MySQL service&#10;- Bound port 3306 to 0.0.0.0 to allow host machine access" />
+    <MESSAGE value="feat(reservation): show settled status in flow timeline&#10;&#10;- Add settled derived field to ReservationFlow entity and API type&#10;- Compute settled status from reservation COMPLETED state in service&#10;- Refactor get method into private overload that also sets settled flag&#10;- Update timeline UI to display settled state on final stage&#10;- Add unit tests for settled status derivation logic&#10;- Regenerate auto-imports and components type files (formatting)" />
+    <MESSAGE value="refactor(reservation-flow): replace hardcoded strings with i18n enums&#10;&#10;- Added ReservationFlowOption enum class with stable codes and message keys&#10;- Created frontend flowOptions module mapping codes to i18n message keys&#10;- Replaced hardcoded Chinese option strings with enum-based validation in backend&#10;- Updated frontend selects to render localized labels via i18n translation&#10;- Added locale entries across client, merchandiser, and manager modules&#10;- Added backend i18n message properties for all flow option labels&#10;- Registered i18n module loader in client router beforeEnter guard" />
+    <MESSAGE value="feat(i18n): add i18n for finance bills and booking portal&#10;&#10;- Replace hardcoded Chinese strings with t() translation calls in bills.vue&#10;- Replace hardcoded Chinese strings with t() translation calls in bookingPortal.vue&#10;- Import $translate and I18NModuleLoader utilities&#10;- Add paymentMethodText and kindText helpers for dynamic label translation&#10;- Load finance locale module idempotently on component mount&#10;- Update CSV export headers and download filename to use translations&#10;- Translate all dialog titles, form labels, placeholders, and validation messages&#10;- Translate ElMessageBox prompts, alerts, and confirmation dialogs&#10;- Translate empty state descriptions and error/warning notifications" />
+    <MESSAGE value="style(auto-imports): add semicolons and reformat type exports in generated files&#10;&#10;- Added trailing semicolons to all const declarations in auto-imports.d.ts&#10;- Broke single-line type re-export statements into multi-line format with indentation&#10;- Applied consistent formatting to extl and intl app auto-imports declarations&#10;- No functional changes, only auto-generated file style updates" />
+    <MESSAGE value="build(vue): replace Alpine mirror with Tsinghua for faster builds&#10;&#10;- Switched dl-cdn.alpinelinux.org to mirrors.tuna.tsinghua.edu.cn in apk repositories" />
+    <option name="LAST_COMMIT_MESSAGE" value="build(vue): replace Alpine mirror with Tsinghua for faster builds&#10;&#10;- Switched dl-cdn.alpinelinux.org to mirrors.tuna.tsinghua.edu.cn in apk repositories" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>

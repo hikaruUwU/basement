@@ -1,5 +1,9 @@
-logs
+logs/
 
 .env
 
-./observer/data
+observer/data/
+
+.idea/
+
+!vue/apps/web/.env

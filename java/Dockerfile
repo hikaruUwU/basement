@@ -1,9 +1,8 @@
-FROM maven:3.9.11-eclipse-temurin-21 AS builder
+FROM maven:3.9.16-eclipse-temurin-25-noble AS builder
 
 WORKDIR /app
 
-RUN mkdir -p ~/.m2 && \
-    echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" \
+RUN echo '<settings xmlns="http://maven.apache.org/SETTINGS/1.0.0" \
     xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" \
     xsi:schemaLocation="http://maven.apache.org/SETTINGS/1.0.0 https://maven.apache.org/xsd/settings-1.0.0.xsd"> \
     <mirrors> \
@@ -14,48 +13,59 @@ RUN mkdir -p ~/.m2 && \
         <url>https://maven.aliyun.com/repository/public</url> \
       </mirror> \
     </mirrors> \
-    </settings>' > ~/.m2/settings.xml
+    </settings>' > /usr/share/maven/conf/settings.xml
 
-COPY pom.xml .
-COPY lombok.config .
+COPY pom.xml lombok.config ./
 
-RUN --mount=type=cache,target=/root/.m2 \
-    mvn dependency:resolve -T 1C
+COPY app/pom.xml app/
 
-COPY src ./src
+RUN --mount=type=cache,target=/app/.cache/mvn \
+    mvn dependency:go-offline -T 1C -Dmaven.repo.local=/app/.cache/mvn
 
-RUN --mount=type=cache,target=/root/.m2 \
-    mvn clean package -DskipTests -T 1C
 
-FROM eclipse-temurin:21-jre-alpine
+COPY app/src ./app/src
+
+RUN --mount=type=cache,target=/app/.cache/mvn \
+    mvn clean package -q -DskipTests -T 1C -Dmaven.repo.local=/app/.cache/mvn
+
+FROM eclipse-temurin:25-jdk-noble AS trainer
 
 WORKDIR /app
 
-RUN mkdir -p /app/logs
+COPY --from=builder /app/app/target/*.jar app.jar
 
-COPY --from=builder /app/target/*.jar app.jar
+RUN java -Djarmode=tools -jar app.jar extract --destination application && \
+    java -Xlog:cds=error \
+         -XX:ArchiveClassesAtExit=application/app-cds.jsa \
+         "-Dspring.context.exit=onRefresh" \
+         -jar application/*.jar || true
 
-COPY --from=builder /app/target/classes resources
+FROM eclipse-temurin:25-jdk-noble
 
-ENV JAVA_OPTS="-Xms1024m -Xmx1024m \
+WORKDIR /app
+
+RUN groupadd -r appgroup && useradd -r -g appgroup -m -d /app appuser \
+    && mkdir -p /app/logs \
+    && chown -R appuser:appgroup /app
+
+COPY --from=trainer --chown=appuser:appgroup /app/application ./application
+
+USER appuser
+
+ENV JAVA_OPTS="-XX:InitialRAMPercentage=25.0 \
+    -XX:MaxRAMPercentage=60.0 \
+    -XX:MetaspaceSize=128m \
+    -XX:MaxMetaspaceSize=384m \
+    -XX:ReservedCodeCacheSize=256m \
     -XX:+UseG1GC \
-    -XX:MaxGCPauseMillis=200 \
+    -Xlog:arguments=info \
     -XX:+ExitOnOutOfMemoryError \
     -XX:+HeapDumpOnOutOfMemoryError \
-    -XX:HeapDumpPath=/app/logs/heapdump.hprof \
+    -XX:HeapDumpPath=/app/logs/heapdump-%p.hprof \
+    -Xlog:gc*,gc+heap=debug,safepoint:file=/app/logs/gc.log:time,uptime,level,tags:filecount=10,filesize=50M \
     -Djava.security.egd=file:/dev/./urandom \
-    -Dfile.encoding=UTF-8 \
-    -XX:+PrintCommandLineFlags"
+    -Dfile.encoding=UTF-8"
 
-#ENV JAVA_OPTS="-Xms1024m -Xmx1024m \
-#    -agentlib:jdwp=transport=dt_socket,server=y,suspend=n,address=*:5005 \
-#    -XX:+UseG1GC \
-#    -XX:MaxGCPauseMillis=200 \
-#    -XX:+ExitOnOutOfMemoryError \
-#    -XX:+HeapDumpOnOutOfMemoryError \
-#    -XX:HeapDumpPath=/app/logs/heapdump.hprof \
-#    -Djava.security.egd=file:/dev/./urandom \
-#    -Dfile.encoding=UTF-8 \
-#    -XX:+PrintCommandLineFlags"
+EXPOSE 8080
 
-ENTRYPOINT ["sh", "-c", "java $JAVA_OPTS -jar app.jar"]
+ENTRYPOINT ["sh", "-c", "exec java $JAVA_OPTS -XX:SharedArchiveFile=application/app-cds.jsa -jar application/*.jar"]

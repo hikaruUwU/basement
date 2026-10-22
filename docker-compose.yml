@@ -2,11 +2,12 @@ services:
 
 #--------------------------------------------------------------------------
   backend:
+    image: backend:v0.0.1
     build:
       context: ./java
     container_name: base-backend
     volumes:
-      - ./logs/jvm:/app/logs
+      - backend_logs:/app/logs
     deploy:
       restart_policy:
         condition: on-failure
@@ -17,23 +18,38 @@ services:
         limits:
           cpus: "2.0"
           memory: 2048M
+        reservations:
+          memory: 1024M
     expose:
       - "8080"
+    ports:
+      - "127.0.0.1:8080:8080"
     environment:
-      SPRING_PROFILES_ACTIVE: prod
-      TZ: ${SYSTEM_TZ}
+      SPRING_PROFILES_ACTIVE: ${SPRING_PROFILES_ACTIVE:-prod}
+      TZ: ${SYSTEM_TZ:-Asia/Shanghai}
       MYBATIS_FLEX_DATASOURCE_MASTER_URL: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?${DB_PARAMS}
       MYBATIS_FLEX_DATASOURCE_MASTER_USERNAME: ${DB_USERNAME}
       MYBATIS_FLEX_DATASOURCE_MASTER_PASSWORD: ${DB_PASSWORD}
     networks:
       - app-tier
   frontend:
+    image: frontend:v0.0.1
     build:
       context: ./vue
     container_name: base-frontend
     restart: always
     volumes:
-      - ./logs/nginx:/var/log/nginx
+      - /ssl:/etc/nginx/ssl:ro
+      - nginx_logs:/var/log/nginx
+    sysctls:
+      - net.core.somaxconn=65535
+      - net.ipv4.tcp_max_syn_backlog=65535
+      - net.ipv4.tcp_tw_reuse=1
+      - net.ipv4.tcp_fin_timeout=15
+    ulimits:
+      nofile:
+        soft: 655350
+        hard: 655350
     deploy:
       resources:
         limits:
@@ -44,13 +60,14 @@ services:
           memory: 64M
     ports:
       - "0.0.0.0:80:80"
+      - "0.0.0.0:443:443"
     depends_on:
       - backend
     networks:
       - app-tier
 #-------------------------------------------------------------------------
   goaccess:
-    image: allinurl/goaccess:latest
+    image: allinurl/goaccess:1.11
     container_name: base-monitor
     network_mode: none
     profiles:
@@ -61,8 +78,8 @@ services:
           cpus: '0.5'
           memory: 256M
     volumes:
-      - ./logs/nginx:/srv/logs
-    entrypoint: [ "goaccess", "/srv/logs/access.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
+      - nginx_logs:/srv/logs
+    entrypoint: [ "goaccess", "/srv/logs/accessx.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
 #-------------------------------------------------------------------------
   cadvisor:
     image: gcr.io/cadvisor/cadvisor:latest
@@ -83,59 +100,46 @@ services:
       resources:
         limits:
           cpus: '0.5'
-          memory: 128M
+          memory: 150M
     expose:
       - "9999"
+    ports:
+      - "127.0.0.1:9999:9999"
     networks:
       - app-tier
 #-------------------------------------------------------------------------
-  prometheus:
-    image: prom/prometheus:latest
-    container_name: base-prometheus
+  victoria-metrics:
+    image: victoriametrics/victoria-metrics:latest
+    container_name: base-victoria-metrics
+    user: "0:0"
     restart: unless-stopped
     deploy:
       resources:
         limits:
           cpus: '1.0'
-          memory: 128M
+          memory: 150M
     expose:
-      - 9090
+      - 8428
+    ports:
+      - "127.0.0.1:8428:8428"
     volumes:
-      - ./observer/config/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml:ro
-      - ./observer/data/prometheus:/prometheus
+      - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - vm_data:/victoria-metrics-data
     command:
-      - '--config.file=/etc/prometheus/prometheus.yml'
-      - '--storage.tsdb.path=/prometheus'
-      - '--storage.tsdb.retention.time=15d'
-      - '--web.enable-lifecycle'
+      - '-promscrape.config=/etc/prometheus/prometheus.yml'
+      - '-storageDataPath=/victoria-metrics-data'
+      - '-retentionPeriod=15d'
     depends_on:
       - backend
     networks:
       - app-tier
 #-------------------------------------------------------------------------
-  grafana:
-    image: grafana/grafana:latest
-    container_name: base-grafana
-    restart: unless-stopped
-    deploy:
-      resources:
-        limits:
-          cpus: '1.0'
-          memory: 512M
-    ports:
-      - "127.0.0.1:3000:3000"
-    environment:
-      TZ: ${SYSTEM_TZ}
-      GF_SECURITY_ADMIN_USER: admin
-      GF_SECURITY_ADMIN_PASSWORD: admin
-      GF_USERS_ALLOW_SIGN_UP: "false"
-    volumes:
-      - ./observer/data/grafana:/var/lib/grafana
-    depends_on:
-      - prometheus
-    networks:
-      - app-tier
-#-------------------------------------------------------------------------
+volumes:
+  backend_logs:
+  nginx_logs:
+  vm_data:
+  grafana_data:
+
 networks:
   app-tier:
     driver: bridge

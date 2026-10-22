@@ -1,9 +1,0 @@
-[submodule "vue/infra/nginx_brotli"]
-	path = vue/infra/nginx_brotli
-	url = https://github.com/google/ngx_brotli.git
-[submodule "vue/infra/nginx-module-vts"]
-	path = vue/infra/nginx-module-vts
-	url = https://github.com/vozlt/nginx-module-vts.git
-[submodule "vue/infra/ngx_brotli"]
-	path = vue/infra/ngx_brotli
-	url = https://github.com/google/ngx_brotli.git

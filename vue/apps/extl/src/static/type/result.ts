@@ -1,4 +1,5 @@
-export type UserCredential = {
-  account: string;
-  password: string;
+export type Result<T> = {
+  data: T;
+  message: string;
+  code: number;
 };

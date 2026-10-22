@@ -1,0 +1,23 @@
+global:
+  scrape_interval: 15s
+
+scrape_configs:
+  - job_name: "victoria-metrics"
+    static_configs:
+      - targets: ["victoria-metrics:8428"]
+  - job_name: "spring"
+    metrics_path: /actuator/prometheus
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["backend:8080"]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance
+  - job_name: "nginx"
+    metrics_path: /metrics
+    scrape_interval: 5s
+    static_configs:
+      - targets: ["frontend:7070"]
+    relabel_configs:
+      - source_labels: [__address__]
+        target_label: instance

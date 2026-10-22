@@ -8,21 +8,25 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="false">
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
-          <entry name="$MAVEN_REPOSITORY$/com/mybatis-flex/mybatis-flex-processor/1.11.3/mybatis-flex-processor-1.11.3.jar" />
-          <entry name="$MAVEN_REPOSITORY$/com/mybatis-flex/mybatis-flex-annotation/1.11.3/mybatis-flex-annotation-1.11.3.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/mybatis/mybatis/3.5.19/mybatis-3.5.19.jar" />
-          <entry name="$MAVEN_REPOSITORY$/org/springframework/spring-context-indexer/6.2.18/spring-context-indexer-6.2.18.jar" />
+          <entry name="G:/apache-maven-3.9.12-bin/apache-maven-3.9.12/repository/org/projectlombok/lombok/1.18.46/lombok-1.18.46.jar" />
+          <entry name="G:/apache-maven-3.9.12-bin/apache-maven-3.9.12/repository/org/projectlombok/lombok-mapstruct-binding/0.2.0/lombok-mapstruct-binding-0.2.0.jar" />
+          <entry name="G:/apache-maven-3.9.12-bin/apache-maven-3.9.12/repository/org/mapstruct/mapstruct-processor/1.6.3/mapstruct-processor-1.6.3.jar" />
         </processorPath>
-        <module name="base" />
+        <module name="app" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="infra" target="25" />
+    </bytecodeTargetLevel>
   </component>
   <component name="JavacSettings">
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
-      <module name="base" options="-parameters -parameters" />
+      <module name="app" options="-parameters -parameters" />
+      <module name="base" options="" />
+      <module name="infra" options="-parameters" />
     </option>
+  </component>
+  <component name="TypeScriptCompiler">
+    <option name="versionType" value="EMBEDDED" />
   </component>
 </project>
