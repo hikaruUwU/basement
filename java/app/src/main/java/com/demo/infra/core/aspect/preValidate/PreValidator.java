@@ -39,7 +39,7 @@ public class PreValidator implements Ordered {
                     joinPoint.getTarget()
             );
 
-            if (Boolean.FALSE.equals(result)) {
+            if (!Boolean.TRUE.equals(result)) {
                 throw new PreConditionNotValidatedException(
                         StringUtils.hasText(ann.message()) ? messageSource.getMessage(ann.message(), null, LocaleContextHolder.getLocale()) : null
                 );
