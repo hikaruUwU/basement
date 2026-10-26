@@ -85,7 +85,7 @@ services:
     command:
       - '-promscrape.config=/etc/prometheus/prometheus.yml'
       - '-storageDataPath=/victoria-metrics-data'
-      - '-retentionPeriod=24d'
+      - '-retentionPeriod=14d'
     depends_on:
       - backend
     networks:

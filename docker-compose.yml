@@ -1,5 +1,4 @@
 services:
-
 #--------------------------------------------------------------------------
   backend:
     image: backend:v0.0.1
@@ -81,33 +80,6 @@ services:
       - nginx_logs:/srv/logs
     entrypoint: [ "goaccess", "/srv/logs/accessx.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
 #-------------------------------------------------------------------------
-  cadvisor:
-    image: gcr.io/cadvisor/cadvisor:latest
-    container_name: base-cadvisor
-    restart: unless-stopped
-    privileged: true
-    devices:
-      - /dev/kmsg
-    volumes:
-      - /:/rootfs:ro
-      - /var/run:/var/run:ro
-      - /sys:/sys:ro
-      - /var/lib/docker/:/var/lib/docker:ro
-      - /dev/disk/:/dev/disk:ro
-    command:
-      - '--port=9999'
-    deploy:
-      resources:
-        limits:
-          cpus: '0.5'
-          memory: 150M
-    expose:
-      - "9999"
-    ports:
-      - "127.0.0.1:9999:9999"
-    networks:
-      - app-tier
-#-------------------------------------------------------------------------
   victoria-metrics:
     image: victoriametrics/victoria-metrics:latest
     container_name: base-victoria-metrics
@@ -128,7 +100,7 @@ services:
     command:
       - '-promscrape.config=/etc/prometheus/prometheus.yml'
       - '-storageDataPath=/victoria-metrics-data'
-      - '-retentionPeriod=15d'
+      - '-retentionPeriod=28d'
     depends_on:
       - backend
     networks:
@@ -138,7 +110,6 @@ volumes:
   backend_logs:
   nginx_logs:
   vm_data:
-  grafana_data:
 
 networks:
   app-tier:
