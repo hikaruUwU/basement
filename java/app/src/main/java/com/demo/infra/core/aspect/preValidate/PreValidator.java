@@ -31,9 +31,11 @@ public class PreValidator implements Ordered {
     public Object validate(ProceedingJoinPoint joinPoint) throws Throwable {
         var method = ((MethodSignature) joinPoint.getSignature()).getMethod();
 
-        for (PreValidate ann : method.getAnnotationsByType(PreValidate.class)) {
+        PreValidate ann = method.getAnnotation(PreValidate.class);
+
+        for (int i = 0; i < ann.value().length; i++) {
             Object result = spelEvaluator.evaluate(
-                    ann.value(),
+                    ann.value()[i],
                     method,
                     joinPoint.getArgs(),
                     joinPoint.getTarget()

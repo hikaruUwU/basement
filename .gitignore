@@ -4,6 +4,6 @@ logs/
 
 observer/data/
 
-.idea/
+.idea/**
 
 !vue/apps/web/.env
