@@ -9,7 +9,7 @@ import java.lang.annotation.*;
 @Documented
 public @interface PreValidate {
     @Language("SpEL")
-    String value();
+    String[] value();
 
     String message() default "";
 }

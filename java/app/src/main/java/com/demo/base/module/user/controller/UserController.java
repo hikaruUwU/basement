@@ -15,13 +15,15 @@ import java.util.concurrent.ThreadLocalRandom;
 public class UserController {
 
     @GetMapping("/")
-    @PreValidate(value = "@userController.random()", message = InternationalizationConfig.FAILED)
+    @PreValidate(value = """
+            @userService.isAuthed('user') ||
+            @userService.isAuthed('user') &&
+            @userService.isAuthed('user')
+            """
+            , message = InternationalizationConfig.FAILED)
     public Object hello() {
         return this.getClass();
     }
 
-    public boolean random(){
-        return ThreadLocalRandom.current().nextBoolean();
-    }
 
 }

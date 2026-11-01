@@ -1,6 +1,6 @@
 package com.demo.infra.core.util;
 
-import org.jspecify.annotations.NonNull;
+import org.jetbrains.annotations.NotNull;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.expression.BeanFactoryResolver;
@@ -19,16 +19,7 @@ import java.lang.reflect.Method;
 import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 
-/**
- * 在方法调用上下文中求值 SpEL:参数按名寻址(依赖 {@code -parameters} 编译),
- * bean 以 {@code @name} 寻址,目标对象为 root。字符串重载内置按目标类分域的
- * AST 缓存(MIXED 编译模式),调用方无需自缓存;亦接受预解析的 {@link Expression}。
- * <p>
- * Evaluates SpEL in the context of a method invocation: parameters addressable by name
- * (compiled with {@code -parameters}), beans by {@code @name}, the target object as root.
- * The String overload carries a built-in AST cache scoped per target class (MIXED compiler
- * mode) — callers need not cache themselves; a pre-parsed {@link Expression} is also accepted.
- */
+
 @Component
 public class SpelEvaluator {
     private final ExpressionParser parser;
@@ -37,7 +28,7 @@ public class SpelEvaluator {
 
     private final ClassValue<Map<String, Expression>> expressionCache = new ClassValue<>() {
         @Override
-        protected Map<String, Expression> computeValue(@NonNull Class<?> type) {
+        protected Map<String, Expression> computeValue(@NotNull Class<?> type) {
             return new ConcurrentHashMap<>();
         }
     };
