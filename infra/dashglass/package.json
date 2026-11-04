@@ -1,0 +1,13 @@
+{
+  "name": "dashglass",
+  "version": "0.0.1",
+  "license": "Apache-2.0",
+  "private": true,
+  "description": "Dashglass - lightweight, Prometheus-native, GitOps-friendly dashboards",
+  "packageManager": "pnpm@11.9.0",
+  "scripts": {
+    "test": "pnpm --recursive test",
+    "typecheck": "pnpm --recursive typecheck",
+    "build-binary": "pnpm --filter dashglass build && rm -rf backend/internal/ui/dist && cp -R apps/dashglass/dist backend/internal/ui/dist && cd backend && go build -o ../dashglass ."
+  }
+}

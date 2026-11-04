@@ -3,16 +3,13 @@ services:
   backend:
     image: backend:v0.0.1
     build:
-      context: ./java
+      context: .
+      dockerfile: backend/Dockerfile
     container_name: base-backend
     volumes:
       - backend_logs:/app/logs
+    restart: unless-stopped
     deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
       resources:
         limits:
           cpus: "2.0"
@@ -29,12 +26,23 @@ services:
       MYBATIS_FLEX_DATASOURCE_MASTER_URL: jdbc:mysql://${DB_HOST-127.0.0.1}:${DB_PORT-3306}/${DB_NAME-database}?${DB_PARAMS-useUnicode=true&characterEncoding=utf8&serverTimezone=Asia/Shanghai}
       MYBATIS_FLEX_DATASOURCE_MASTER_USERNAME: ${DB_USERNAME-root}
       MYBATIS_FLEX_DATASOURCE_MASTER_PASSWORD: ${DB_PASSWORD-root}
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -fsS
+        - http://127.0.0.1:8080/actuator/health
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
     networks:
       - app-tier
   frontend:
     image: frontend:v0.0.1
     build:
-      context: ./vue
+      context: .
+      dockerfile: frontend/Dockerfile
     container_name: base-frontend
     restart: always
     volumes:
@@ -61,7 +69,8 @@ services:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     networks:
       - app-tier
 #-------------------------------------------------------------------------
@@ -78,7 +87,7 @@ services:
     expose:
       - 8428
     ports:
-      - "127.0.0.1:8428:8428"
+      - "0.0.0.0:8428:8428"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - vm_data:/victoria-metrics-data
@@ -90,6 +99,21 @@ services:
       - backend
     networks:
       - app-tier
+  dashglass:
+    image: dashglass:v0.0.1
+    container_name: base-dashglass
+    build:
+      context: ./infra/dashglass
+    ports:
+      - "127.0.0.1:9090:8080"
+    networks:
+      - app-tier
+    volumes:
+      - vm_data:/dashboards
+    command:
+      - "-prometheus-url"
+      - "http://victoria-metrics:8428"
+
 #-------------------------------------------------------------------------
 volumes:
   backend_logs:

@@ -1,0 +1,23 @@
+{
+  "name": "@dashglass/datasource-prometheus",
+  "version": "0.1.0",
+  "license": "Apache-2.0",
+  "private": true,
+  "description": "PrometheusDataSource implementation targeting the native Prometheus HTTP API",
+  "type": "module",
+  "sideEffects": false,
+  "exports": {
+    ".": "./src/index.ts"
+  },
+  "scripts": {
+    "test": "vitest --run",
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@dashglass/runtime": "workspace:*"
+  },
+  "devDependencies": {
+    "typescript": "^7.0.2",
+    "vitest": "^5.0.1"
+  }
+}

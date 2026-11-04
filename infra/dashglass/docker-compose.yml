@@ -1,0 +1,37 @@
+services:
+  dashglass:
+    image: ghcr.io/bleemeo/dashglass
+    # `docker compose up` pulls the published image. To run from this
+    # checkout instead, `docker compose up --build`.
+    build: .
+    pull_policy: missing
+    command:
+      - -prometheus-url=http://prometheus:9090
+      - -dashboards-dir=/dashboards
+    ports:
+      - "8080:8080"
+    volumes:
+      - ./dashboards:/dashboards
+      - dashglass-data:/data
+    depends_on:
+      - prometheus
+    healthcheck:
+      test: ["CMD", "wget", "-q", "-O", "/dev/null", "http://localhost:8080/api/capabilities"]
+      interval: 10s
+      timeout: 3s
+      retries: 3
+
+  # Demo Prometheus scraping itself, so dashboards have data out of the box.
+  prometheus:
+    image: prom/prometheus:v3.4.1
+    command:
+      - --config.file=/etc/prometheus/prometheus.yml
+    ports:
+      - "9090:9090"
+    volumes:
+      - ./docker/prometheus.yml:/etc/prometheus/prometheus.yml:ro
+      - prometheus-data:/prometheus
+
+volumes:
+  prometheus-data:
+  dashglass-data:

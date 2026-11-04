@@ -7,12 +7,8 @@ services:
     container_name: base-backend
     volumes:
       - backend_logs:/app/logs
+    restart: unless-stopped
     deploy:
-      restart_policy:
-        condition: on-failure
-        delay: 5s
-        max_attempts: 3
-        window: 120s
       resources:
         limits:
           cpus: "2.0"
@@ -29,6 +25,16 @@ services:
       MYBATIS_FLEX_DATASOURCE_MASTER_URL: jdbc:mysql://${DB_HOST}:${DB_PORT}/${DB_NAME}?${DB_PARAMS}
       MYBATIS_FLEX_DATASOURCE_MASTER_USERNAME: ${DB_USERNAME}
       MYBATIS_FLEX_DATASOURCE_MASTER_PASSWORD: ${DB_PASSWORD}
+    healthcheck:
+      test:
+        - CMD
+        - curl
+        - -fsS
+        - http://127.0.0.1:8080/actuator/health
+      interval: 30s
+      timeout: 5s
+      retries: 3
+      start_period: 90s
     networks:
       - app-tier
   frontend:
@@ -61,7 +67,8 @@ services:
       - "0.0.0.0:80:80"
       - "0.0.0.0:443:443"
     depends_on:
-      - backend
+      backend:
+        condition: service_healthy
     networks:
       - app-tier
 #-------------------------------------------------------------------------
@@ -81,7 +88,7 @@ services:
     entrypoint: [ "goaccess", "/srv/logs/accessx.log", "--log-format=COMBINED", "--no-global-config", "--output=/srv/logs/report.html" ]
 #-------------------------------------------------------------------------
   victoria-metrics:
-    image: victoriametrics/victoria-metrics:latest
+    image: victoriametrics/victoria-metrics:v1.154.1
     container_name: base-victoria-metrics
     user: "0:0"
     restart: unless-stopped
