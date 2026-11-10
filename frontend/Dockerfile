@@ -184,7 +184,7 @@ COPY --from=nginx-builder \
 # 9. Nginx Configuration
 # ============================================================
 
-COPY infra/nginx/conf/ /etc/nginx/
+COPY frontend/nginx*.conf /etc/nginx/
 
 # Remove default configuration and default web files
 RUN rm -f /etc/nginx/conf.d/default.conf \
