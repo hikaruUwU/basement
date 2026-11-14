@@ -128,6 +128,9 @@ services:
       - -fileCollector.glob=/var/log/backend/app-error.log
       - -fileCollector.glob=/var/log/backend/gc.log*
 
+      - -fileCollector.glob=/var/log/frontend/accessx.log
+      - -fileCollector.glob=/var/log/frontend/errorx.log
+
       - -fileCollector.msgField=message
       - -fileCollector.timeField=time
 
@@ -137,6 +140,7 @@ services:
       - -remoteWrite.url=http://victoria-logs:9428/insert/native
     volumes:
       - backend_logs:/var/log/backend:ro
+      - nginx_logs:/var/log/frontend:ro
       - vlagent_data:/var/lib/vlagent
     depends_on:
       - victoria-logs
