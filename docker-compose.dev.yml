@@ -83,11 +83,11 @@ services:
       resources:
         limits:
           cpus: '1.0'
-          memory: 150M
+          memory: 256M
     expose:
       - 8428
     ports:
-      - "0.0.0.0:8428:8428"
+      - "127.0.0.1:8428:8428"
     volumes:
       - ./prometheus.yml:/etc/prometheus/prometheus.yml:ro
       - vm_data:/victoria-metrics-data
@@ -99,6 +99,56 @@ services:
       - backend
     networks:
       - app-tier
+  victoria-logs:
+    image: victoriametrics/victoria-logs:v1.54.0
+    container_name: base-victoria-logs
+    command:
+      - -storageDataPath=/victoria-logs-data
+      - -retentionPeriod=14d
+    volumes:
+      - vlog_data:/victoria-logs-data
+    expose:
+      - 9428
+    ports:
+      - "127.0.0.1:9428:9428"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 64M
+    networks:
+      - app-tier
+    restart: unless-stopped
+  vlagent:
+    image: victoriametrics/vlagent:v1.54.0
+    container_name: base-vlagent
+    restart: unless-stopped
+    command:
+      - -fileCollector.glob=/var/log/backend/app.log
+      - -fileCollector.glob=/var/log/backend/app-error.log
+      - -fileCollector.glob=/var/log/backend/gc.log*
+
+      - -fileCollector.msgField=message
+      - -fileCollector.timeField=time
+
+      - -tmpDataPath=/var/lib/vlagent
+      - -remoteWrite.maxDiskUsagePerURL=1GB
+
+      - -remoteWrite.url=http://victoria-logs:9428/insert/native
+    volumes:
+      - backend_logs:/var/log/backend:ro
+      - vlagent_data:/var/lib/vlagent
+    depends_on:
+      - victoria-logs
+    ports:
+      - "127.0.0.1:9429:9429"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 64M
+    networks:
+      - app-tier
   dashglass:
     image: dashglass:v0.0.1
     container_name: base-dashglass
@@ -106,6 +156,11 @@ services:
       context: ./infra/dashglass
     ports:
       - "127.0.0.1:9090:8080"
+    deploy:
+      resources:
+        limits:
+          cpus: '0.5'
+          memory: 128M
     networks:
       - app-tier
     volumes:
@@ -113,12 +168,13 @@ services:
     command:
       - "-prometheus-url"
       - "http://victoria-metrics:8428"
-
 #-------------------------------------------------------------------------
 volumes:
   backend_logs:
   nginx_logs:
   vm_data:
+  vlog_data:
+  vlagent_data:
 
 networks:
   app-tier:

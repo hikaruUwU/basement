@@ -1,88 +1,279 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Configuration status="WARN">
+
     <Properties>
         <Property name="LOG_PATH">/app/logs</Property>
         <Property name="FILE_NAME">app</Property>
-
-        <Property name="DEV_PATTERN">
-            %style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{fg_white} %style{[%-10.-10thread]}{fg_cyan} %highlight{%-5level} %style{%-35.35logger{30}}{fg_black} : %style{[%-15.-15method:%3line]}{fg_green} - %msg%n
-        </Property>
-
-        <Property name="PROD_PATTERN">
-            %style{%d{yyyy-MM-dd HH:mm:ss.SSS}}{fg_white} %style{[%-10.-10thread]}{fg_cyan} %highlight{%-5level} %style{%-35.35logger{30}}{fg_black} : - %msg%n
-        </Property>
-
-        <Property name="FILE_PATTERN">
-            %d{yyyy-MM-dd HH:mm:ss.SSS} [%thread] %-5level %logger{30} - %msg%n
-        </Property>
     </Properties>
 
     <Appenders>
+
+        <!-- ========================= -->
+        <!-- Development Console       -->
+        <!-- ========================= -->
         <Console name="CONSOLE_DEV" target="SYSTEM_OUT">
-            <PatternLayout pattern="${DEV_PATTERN}" disableAnsi="false" charset="UTF-8"/>
+            <JsonTemplateLayout eventTemplateUri="classpath:LogEvent.json">
+                <EventTemplateAdditionalField
+                        key="service"
+                        value="backend"/>
+                <EventTemplateAdditionalField
+                        key="environment"
+                        value="dev"/>
+            </JsonTemplateLayout>
         </Console>
 
+        <!-- ========================= -->
+        <!-- Production Console        -->
+        <!-- ========================= -->
         <Console name="CONSOLE_PROD" target="SYSTEM_OUT">
-            <PatternLayout pattern="${PROD_PATTERN}" disableAnsi="false" charset="UTF-8"/>
+            <JsonTemplateLayout eventTemplateUri="classpath:LogEvent.json">
+                <EventTemplateAdditionalField
+                        key="service"
+                        value="backend"/>
+                <EventTemplateAdditionalField
+                        key="environment"
+                        value="prod"/>
+            </JsonTemplateLayout>
         </Console>
 
-        <RollingFile name="ROLLING_FILE_INFO"
-                     fileName="${LOG_PATH}/${FILE_NAME}.log"
-                     filePattern="${LOG_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log.gz"
-                     immediateFlush="false">
-            <PatternLayout pattern="${FILE_PATTERN}" charset="UTF-8"/>
+        <!-- ========================= -->
+        <!-- Development INFO File     -->
+        <!-- ========================= -->
+        <RollingFile
+                name="ROLLING_FILE_INFO_DEV"
+                fileName="${LOG_PATH}/${FILE_NAME}.log"
+                filePattern="${LOG_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log"
+                immediateFlush="true">
+
+            <JsonTemplateLayout eventTemplateUri="classpath:LogEvent.json">
+                <EventTemplateAdditionalField
+                        key="service"
+                        value="backend"/>
+                <EventTemplateAdditionalField
+                        key="environment"
+                        value="dev"/>
+            </JsonTemplateLayout>
+
             <Filters>
-                <ThresholdFilter level="WARN" onMatch="DENY" onMismatch="NEUTRAL"/>
-                <ThresholdFilter level="INFO" onMatch="ACCEPT" onMismatch="DENY"/>
+                <!-- Exclude WARN and above -->
+                <ThresholdFilter
+                        level="WARN"
+                        onMatch="DENY"
+                        onMismatch="NEUTRAL"/>
+
+                <!-- Accept INFO and above -->
+                <ThresholdFilter
+                        level="INFO"
+                        onMatch="ACCEPT"
+                        onMismatch="DENY"/>
             </Filters>
+
             <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="100MB"/>
+                <TimeBasedTriggeringPolicy
+                        interval="1"
+                        modulate="true"/>
+                <SizeBasedTriggeringPolicy
+                        size="100MB"/>
             </Policies>
-            <DefaultRolloverStrategy max="10">
-                <Delete basePath="${LOG_PATH}" maxDepth="1">
-                    <IfFileName glob="${FILE_NAME}-*.log.gz" />
-                    <IfLastModified age="7d" />
+
+            <DefaultRolloverStrategy>
+                <Delete
+                        basePath="${LOG_PATH}"
+                        maxDepth="1">
+                    <IfFileName
+                            glob="app-????-??-??-*.log"/>
+                    <IfLastModified
+                            age="7d"/>
                 </Delete>
             </DefaultRolloverStrategy>
+
         </RollingFile>
-        <RollingFile name="ROLLING_FILE_ERROR"
-                     fileName="${LOG_PATH}/${FILE_NAME}-error.log"
-                     filePattern="${LOG_PATH}/${FILE_NAME}-error-%d{yyyy-MM-dd}-%i.log.gz"
-                     immediateFlush="false">
-            <PatternLayout pattern="${FILE_PATTERN}" charset="UTF-8"/>
+
+        <!-- ========================= -->
+        <!-- Development WARN / ERROR -->
+        <!-- ========================= -->
+        <RollingFile
+                name="ROLLING_FILE_ERROR_DEV"
+                fileName="${LOG_PATH}/${FILE_NAME}-error.log"
+                filePattern="${LOG_PATH}/${FILE_NAME}-error-%d{yyyy-MM-dd}-%i.log"
+                immediateFlush="true">
+
+            <JsonTemplateLayout eventTemplateUri="classpath:LogEvent.json">
+                <EventTemplateAdditionalField
+                        key="service"
+                        value="backend"/>
+                <EventTemplateAdditionalField
+                        key="environment"
+                        value="dev"/>
+            </JsonTemplateLayout>
+
             <Filters>
-                <ThresholdFilter level="WARN" onMatch="ACCEPT" onMismatch="DENY"/>
+                <!-- Accept WARN and above -->
+                <ThresholdFilter
+                        level="WARN"
+                        onMatch="ACCEPT"
+                        onMismatch="DENY"/>
             </Filters>
+
             <Policies>
-                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
-                <SizeBasedTriggeringPolicy size="100MB"/>
+                <TimeBasedTriggeringPolicy
+                        interval="1"
+                        modulate="true"/>
+                <SizeBasedTriggeringPolicy
+                        size="100MB"/>
             </Policies>
-            <DefaultRolloverStrategy max="10">
-                <Delete basePath="${LOG_PATH}" maxDepth="1">
-                    <IfFileName glob="${FILE_NAME}-error-*.log.gz" />
-                    <IfLastModified age="30d" />
+
+            <DefaultRolloverStrategy>
+                <Delete
+                        basePath="${LOG_PATH}"
+                        maxDepth="1">
+                    <IfFileName
+                            glob="app-error-????-??-??-*.log"/>
+                    <IfLastModified
+                            age="30d"/>
                 </Delete>
             </DefaultRolloverStrategy>
+
         </RollingFile>
+
+        <!-- ========================= -->
+        <!-- Production INFO File      -->
+        <!-- ========================= -->
+        <RollingFile
+                name="ROLLING_FILE_INFO_PROD"
+                fileName="${LOG_PATH}/${FILE_NAME}.log"
+                filePattern="${LOG_PATH}/${FILE_NAME}-%d{yyyy-MM-dd}-%i.log"
+                immediateFlush="true">
+
+            <JsonTemplateLayout eventTemplateUri="classpath:LogEvent.json">
+                <EventTemplateAdditionalField
+                        key="service"
+                        value="backend"/>
+                <EventTemplateAdditionalField
+                        key="environment"
+                        value="prod"/>
+            </JsonTemplateLayout>
+
+            <Filters>
+                <!-- Exclude WARN and above -->
+                <ThresholdFilter
+                        level="WARN"
+                        onMatch="DENY"
+                        onMismatch="NEUTRAL"/>
+
+                <!-- Accept INFO and above -->
+                <ThresholdFilter
+                        level="INFO"
+                        onMatch="ACCEPT"
+                        onMismatch="DENY"/>
+            </Filters>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy
+                        interval="1"
+                        modulate="true"/>
+                <SizeBasedTriggeringPolicy
+                        size="100MB"/>
+            </Policies>
+
+            <DefaultRolloverStrategy>
+                <Delete
+                        basePath="${LOG_PATH}"
+                        maxDepth="1">
+                    <IfFileName
+                            glob="app-????-??-??-*.log"/>
+                    <IfLastModified
+                            age="7d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+
+        </RollingFile>
+
+        <!-- ========================= -->
+        <!-- Production WARN / ERROR  -->
+        <!-- ========================= -->
+        <RollingFile
+                name="ROLLING_FILE_ERROR_PROD"
+                fileName="${LOG_PATH}/${FILE_NAME}-error.log"
+                filePattern="${LOG_PATH}/${FILE_NAME}-error-%d{yyyy-MM-dd}-%i.log"
+                immediateFlush="true">
+
+            <JsonTemplateLayout eventTemplateUri="classpath:LogEvent.json">
+                <EventTemplateAdditionalField
+                        key="service"
+                        value="backend"/>
+                <EventTemplateAdditionalField
+                        key="environment"
+                        value="prod"/>
+            </JsonTemplateLayout>
+
+            <Filters>
+                <!-- Accept WARN and above -->
+                <ThresholdFilter
+                        level="WARN"
+                        onMatch="ACCEPT"
+                        onMismatch="DENY"/>
+            </Filters>
+
+            <Policies>
+                <TimeBasedTriggeringPolicy
+                        interval="1"
+                        modulate="true"/>
+                <SizeBasedTriggeringPolicy
+                        size="100MB"/>
+            </Policies>
+
+            <DefaultRolloverStrategy>
+                <Delete
+                        basePath="${LOG_PATH}"
+                        maxDepth="1">
+                    <IfFileName
+                            glob="app-error-????-??-??-*.log"/>
+                    <IfLastModified
+                            age="30d"/>
+                </Delete>
+            </DefaultRolloverStrategy>
+
+        </RollingFile>
+
     </Appenders>
 
     <Loggers>
+
+        <!-- ========================= -->
+        <!-- Development               -->
+        <!-- ========================= -->
         <SpringProfile name="dev">
-            <Logger name="com.demo.base" level="INFO" additivity="false" includeLocation="true">
+
+            <Root
+                    level="INFO"
+                    includeLocation="false">
+
                 <AppenderRef ref="CONSOLE_DEV"/>
-            </Logger>
-            <Root level="INFO" includeLocation="true">
-                <AppenderRef ref="CONSOLE_DEV"/>
+                <AppenderRef ref="ROLLING_FILE_INFO_DEV"/>
+                <AppenderRef ref="ROLLING_FILE_ERROR_DEV"/>
+
             </Root>
+
         </SpringProfile>
 
+        <!-- ========================= -->
+        <!-- Production                -->
+        <!-- ========================= -->
         <SpringProfile name="prod">
-            <Root level="INFO" includeLocation="false">
+
+            <Root
+                    level="INFO"
+                    includeLocation="false">
+
                 <AppenderRef ref="CONSOLE_PROD"/>
-                <AppenderRef ref="ROLLING_FILE_INFO"/>
-                <AppenderRef ref="ROLLING_FILE_ERROR"/>
+                <AppenderRef ref="ROLLING_FILE_INFO_PROD"/>
+                <AppenderRef ref="ROLLING_FILE_ERROR_PROD"/>
+
             </Root>
+
         </SpringProfile>
+
     </Loggers>
+
 </Configuration>

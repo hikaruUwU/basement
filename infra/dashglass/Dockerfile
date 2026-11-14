@@ -1,24 +1,31 @@
 # Stage 1: build the SPA (workspace packages are consumed as TS source,
 # so the whole monorepo is needed for the app build).
-FROM node:24-alpine AS web-builder
+ARG NODE_VERSION=26
+ARG PNPM_VERSION=12.3.4
+FROM node:${NODE_VERSION}-bookworm-slim AS web-builder
+ARG PNPM_VERSION
+ENV CI=true
 WORKDIR /src
-# Install the exact pnpm version pinned in package.json (packageManager):
-# any other version tries to self-download the pinned one, which fails in
-# the --offline install below.
+# Install pnpm
+RUN npm config set registry https://registry.npmmirror.com
+RUN --mount=type=cache,target=/root/.npm \
+    npm install -g --allow-scripts=pnpm pnpm@${PNPM_VERSION}
+# Copy dependency manifests
 COPY package.json pnpm-lock.yaml pnpm-workspace.yaml ./
-RUN npm install -g "pnpm@$(node -p "require('./package.json').packageManager.split('@')[1].split('+')[0]")"
-# Fetch dependencies from the lockfile alone so this layer is cached
-# across source-only changes.
-RUN pnpm fetch
+# Fetch dependencies from the lockfile alone
+RUN pnpm config set registry https://registry.npmmirror.com
+# Copy source code
 COPY . .
-RUN pnpm install --frozen-lockfile --offline
+# Install dependencies
+RUN pnpm install
+# Build application
 RUN pnpm --filter dashglass build
-
 # Stage 2: build the Go binary with the SPA embedded.
 FROM golang:1.26-alpine AS go-builder
 ARG VERSION=dev
 WORKDIR /src/backend
 COPY backend/go.mod backend/go.sum ./
+ENV GOPROXY=https://goproxy.cn,https://proxy.golang.org,direct
 RUN go mod download
 COPY backend/ ./
 # Replace the tracked placeholder with the real build output.
